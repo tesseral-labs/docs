@@ -1,22 +1,17 @@
 # yaml-language-server: $schema=https://schema.buildwithfern.dev/generators-yml.json
-default-group: local
 api:
-  path: openapi.yaml
-  overrides: openapi-overrides.yaml
+  specs:
+    - openapi: openapi.yaml
 groups:
-  local:
+  python:
     generators:
-      - name: fernapi/fern-typescript-node-sdk
-        version: 0.39.3
-        output:
-          location: local-file-system
-          path: ../../../.preview-sdks/typescript-backend
-        config:
-          namespaceExport: tesseral
       - name: fernapi/fern-python-sdk
         version: 4.3.14
         output:
-          location: local-file-system
-          path: ../../../.preview-sdks/python
+          location: pypi
+          package-name: tesseral
+          token: ${PYPI_TOKEN}
+        github:
+          repository: tesseral-labs/tesseral-python
         config:
           client_class_name: tesseral
