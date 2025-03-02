@@ -1,0 +1,1355 @@
+# Generated with protoc-gen-openapi
+# https://github.com/google/gnostic/tree/master/cmd/protoc-gen-openapi
+
+openapi: 3.0.3
+info:
+    title: BackendService API
+    version: 0.0.1
+paths:
+    /backend/v1/organizations:
+        get:
+            tags:
+                - BackendService
+            operationId: BackendService_ListOrganizations
+            parameters:
+                - name: pageToken
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ListOrganizationsResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+        post:
+            tags:
+                - BackendService
+            operationId: BackendService_CreateOrganization
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/Organization'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/CreateOrganizationResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /backend/v1/organizations/{id}:
+        get:
+            tags:
+                - BackendService
+            operationId: BackendService_GetOrganization
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetOrganizationResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+        delete:
+            tags:
+                - BackendService
+            operationId: BackendService_DeleteOrganization
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/DeleteOrganizationResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+        patch:
+            tags:
+                - BackendService
+            operationId: BackendService_UpdateOrganization
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/Organization'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UpdateOrganizationResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /backend/v1/organizations/{organizationId}/google-hosted-domains:
+        get:
+            tags:
+                - BackendService
+            operationId: BackendService_GetOrganizationGoogleHostedDomains
+            parameters:
+                - name: organizationId
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetOrganizationGoogleHostedDomainsResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+        patch:
+            tags:
+                - BackendService
+            operationId: BackendService_UpdateOrganizationGoogleHostedDomains
+            parameters:
+                - name: organizationId
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/OrganizationGoogleHostedDomains'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UpdateOrganizationGoogleHostedDomainsResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /backend/v1/organizations/{organizationId}/microsoft-tenant-ids:
+        get:
+            tags:
+                - BackendService
+            operationId: BackendService_GetOrganizationMicrosoftTenantIDs
+            parameters:
+                - name: organizationId
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetOrganizationMicrosoftTenantIDsResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+        patch:
+            tags:
+                - BackendService
+            operationId: BackendService_UpdateOrganizationMicrosoftTenantIDs
+            parameters:
+                - name: organizationId
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/OrganizationMicrosoftTenantIDs'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UpdateOrganizationMicrosoftTenantIDsResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /backend/v1/passkeys:
+        get:
+            tags:
+                - BackendService
+            operationId: BackendService_ListPasskeys
+            parameters:
+                - name: userId
+                  in: query
+                  schema:
+                    type: string
+                - name: pageToken
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ListPasskeysResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /backend/v1/passkeys/{id}:
+        get:
+            tags:
+                - BackendService
+            operationId: BackendService_GetPasskey
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetPasskeyResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+        delete:
+            tags:
+                - BackendService
+            operationId: BackendService_DeletePasskey
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/DeletePasskeyResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+        patch:
+            tags:
+                - BackendService
+            operationId: BackendService_UpdatePasskey
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/Passkey'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UpdatePasskeyResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /backend/v1/project:
+        get:
+            tags:
+                - BackendService
+            operationId: BackendService_GetProject
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetProjectResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /backend/v1/saml-connections:
+        get:
+            tags:
+                - BackendService
+            operationId: BackendService_ListSAMLConnections
+            parameters:
+                - name: organizationId
+                  in: query
+                  schema:
+                    type: string
+                - name: pageToken
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ListSAMLConnectionsResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+        post:
+            tags:
+                - BackendService
+            operationId: BackendService_CreateSAMLConnection
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/SAMLConnection'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/CreateSAMLConnectionResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /backend/v1/saml-connections/{id}:
+        get:
+            tags:
+                - BackendService
+            operationId: BackendService_GetSAMLConnection
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetSAMLConnectionResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+        delete:
+            tags:
+                - BackendService
+            operationId: BackendService_DeleteSAMLConnection
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/DeleteSAMLConnectionResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+        patch:
+            tags:
+                - BackendService
+            operationId: BackendService_UpdateSAMLConnection
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/SAMLConnection'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UpdateSAMLConnectionResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /backend/v1/scim-api-keys:
+        get:
+            tags:
+                - BackendService
+            operationId: BackendService_ListSCIMAPIKeys
+            parameters:
+                - name: organizationId
+                  in: query
+                  schema:
+                    type: string
+                - name: pageToken
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ListSCIMAPIKeysResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+        post:
+            tags:
+                - BackendService
+            operationId: BackendService_CreateSCIMAPIKey
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/SCIMAPIKey'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/CreateSCIMAPIKeyResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /backend/v1/scim-api-keys/{id}:
+        get:
+            tags:
+                - BackendService
+            operationId: BackendService_GetSCIMAPIKey
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetSCIMAPIKeyResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+        delete:
+            tags:
+                - BackendService
+            operationId: BackendService_DeleteSCIMAPIKey
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/DeleteSCIMAPIKeyResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+        patch:
+            tags:
+                - BackendService
+            operationId: BackendService_UpdateSCIMAPIKey
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/SCIMAPIKey'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UpdateSCIMAPIKeyResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /backend/v1/scim-api-keys/{id}/revoke:
+        post:
+            tags:
+                - BackendService
+            operationId: BackendService_RevokeSCIMAPIKey
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/RevokeSCIMAPIKeyResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /backend/v1/sessions:
+        get:
+            tags:
+                - BackendService
+            operationId: BackendService_ListSessions
+            parameters:
+                - name: userId
+                  in: query
+                  schema:
+                    type: string
+                - name: pageToken
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ListSessionsResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /backend/v1/sessions/{id}:
+        get:
+            tags:
+                - BackendService
+            operationId: BackendService_GetSession
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetSessionResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /backend/v1/user-invites:
+        get:
+            tags:
+                - BackendService
+            operationId: BackendService_ListUserInvites
+            parameters:
+                - name: organizationId
+                  in: query
+                  schema:
+                    type: string
+                - name: pageToken
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ListUserInvitesResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+        post:
+            tags:
+                - BackendService
+            operationId: BackendService_CreateUserInvite
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UserInvite'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/CreateUserInviteResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /backend/v1/user-invites/{id}:
+        get:
+            tags:
+                - BackendService
+            operationId: BackendService_GetUserInvite
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetUserInviteResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+        delete:
+            tags:
+                - BackendService
+            operationId: BackendService_DeleteUserInvite
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/DeleteUserInviteResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /backend/v1/users:
+        get:
+            tags:
+                - BackendService
+            operationId: BackendService_ListUsers
+            parameters:
+                - name: organizationId
+                  in: query
+                  schema:
+                    type: string
+                - name: pageToken
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ListUsersResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+        post:
+            tags:
+                - BackendService
+            operationId: BackendService_CreateUser
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/User'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/CreateUserResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /backend/v1/users/{id}:
+        get:
+            tags:
+                - BackendService
+            operationId: BackendService_GetUser
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetUserResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+        delete:
+            tags:
+                - BackendService
+            operationId: BackendService_DeleteUser
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/DeleteUserResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+        patch:
+            tags:
+                - BackendService
+            operationId: BackendService_UpdateUser
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/User'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UpdateUserResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+components:
+    schemas:
+        CreateOrganizationResponse:
+            type: object
+            properties:
+                organization:
+                    $ref: '#/components/schemas/Organization'
+        CreateSAMLConnectionResponse:
+            type: object
+            properties:
+                samlConnection:
+                    $ref: '#/components/schemas/SAMLConnection'
+        CreateSCIMAPIKeyResponse:
+            type: object
+            properties:
+                scimApiKey:
+                    $ref: '#/components/schemas/SCIMAPIKey'
+        CreateUserInviteResponse:
+            type: object
+            properties:
+                userInvite:
+                    $ref: '#/components/schemas/UserInvite'
+        CreateUserResponse:
+            type: object
+            properties:
+                user:
+                    $ref: '#/components/schemas/User'
+        DeleteOrganizationResponse:
+            type: object
+            properties: {}
+        DeletePasskeyResponse:
+            type: object
+            properties: {}
+        DeleteSAMLConnectionResponse:
+            type: object
+            properties: {}
+        DeleteSCIMAPIKeyResponse:
+            type: object
+            properties: {}
+        DeleteUserInviteResponse:
+            type: object
+            properties: {}
+        DeleteUserResponse:
+            type: object
+            properties: {}
+        GetOrganizationGoogleHostedDomainsResponse:
+            type: object
+            properties:
+                organizationGoogleHostedDomains:
+                    $ref: '#/components/schemas/OrganizationGoogleHostedDomains'
+        GetOrganizationMicrosoftTenantIDsResponse:
+            type: object
+            properties:
+                organizationMicrosoftTenantIds:
+                    $ref: '#/components/schemas/OrganizationMicrosoftTenantIDs'
+        GetOrganizationResponse:
+            type: object
+            properties:
+                organization:
+                    $ref: '#/components/schemas/Organization'
+        GetPasskeyResponse:
+            type: object
+            properties:
+                passkey:
+                    $ref: '#/components/schemas/Passkey'
+        GetProjectResponse:
+            type: object
+            properties:
+                project:
+                    $ref: '#/components/schemas/Project'
+        GetSAMLConnectionResponse:
+            type: object
+            properties:
+                samlConnection:
+                    $ref: '#/components/schemas/SAMLConnection'
+        GetSCIMAPIKeyResponse:
+            type: object
+            properties:
+                scimApiKey:
+                    $ref: '#/components/schemas/SCIMAPIKey'
+        GetSessionResponse:
+            type: object
+            properties:
+                session:
+                    $ref: '#/components/schemas/Session'
+        GetUserInviteResponse:
+            type: object
+            properties:
+                userInvite:
+                    $ref: '#/components/schemas/UserInvite'
+        GetUserResponse:
+            type: object
+            properties:
+                user:
+                    $ref: '#/components/schemas/User'
+        GoogleProtobufAny:
+            type: object
+            properties:
+                '@type':
+                    type: string
+                    description: The type of the serialized message.
+            additionalProperties: true
+            description: Contains an arbitrary serialized message along with a @type that describes the type of the serialized message.
+        ListOrganizationsResponse:
+            type: object
+            properties:
+                organizations:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Organization'
+                nextPageToken:
+                    type: string
+        ListPasskeysResponse:
+            type: object
+            properties:
+                passkeys:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Passkey'
+                nextPageToken:
+                    type: string
+        ListSAMLConnectionsResponse:
+            type: object
+            properties:
+                samlConnections:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/SAMLConnection'
+                nextPageToken:
+                    type: string
+        ListSCIMAPIKeysResponse:
+            type: object
+            properties:
+                scimApiKeys:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/SCIMAPIKey'
+                nextPageToken:
+                    type: string
+        ListSessionsResponse:
+            type: object
+            properties:
+                sessions:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Session'
+                nextPageToken:
+                    type: string
+        ListUserInvitesResponse:
+            type: object
+            properties:
+                userInvites:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/UserInvite'
+                nextPageToken:
+                    type: string
+        ListUsersResponse:
+            type: object
+            properties:
+                users:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/User'
+                nextPageToken:
+                    type: string
+        Organization:
+            type: object
+            properties:
+                id:
+                    type: string
+                displayName:
+                    type: string
+                createTime:
+                    type: string
+                    format: date-time
+                updateTime:
+                    type: string
+                    format: date-time
+                logInWithGoogle:
+                    type: boolean
+                logInWithMicrosoft:
+                    type: boolean
+                logInWithEmail:
+                    type: boolean
+                logInWithPassword:
+                    type: boolean
+                logInWithSaml:
+                    type: boolean
+                logInWithAuthenticatorApp:
+                    type: boolean
+                logInWithPasskey:
+                    type: boolean
+                requireMfa:
+                    type: boolean
+                scimEnabled:
+                    type: boolean
+        OrganizationGoogleHostedDomains:
+            type: object
+            properties:
+                organizationId:
+                    type: string
+                googleHostedDomains:
+                    type: array
+                    items:
+                        type: string
+        OrganizationMicrosoftTenantIDs:
+            type: object
+            properties:
+                organizationId:
+                    type: string
+                microsoftTenantIds:
+                    type: array
+                    items:
+                        type: string
+        Passkey:
+            type: object
+            properties:
+                id:
+                    type: string
+                userId:
+                    type: string
+                createTime:
+                    type: string
+                    format: date-time
+                updateTime:
+                    type: string
+                    format: date-time
+                disabled:
+                    type: boolean
+                credentialId:
+                    type: string
+                    format: bytes
+                publicKeyPkix:
+                    type: string
+                aaguid:
+                    type: string
+                rpId:
+                    type: string
+        Project:
+            type: object
+            properties:
+                id:
+                    type: string
+                displayName:
+                    type: string
+                createTime:
+                    type: string
+                    format: date-time
+                updateTime:
+                    type: string
+                    format: date-time
+                logInWithGoogle:
+                    type: boolean
+                logInWithMicrosoft:
+                    type: boolean
+                logInWithEmail:
+                    type: boolean
+                logInWithPassword:
+                    type: boolean
+                logInWithSaml:
+                    type: boolean
+                logInWithAuthenticatorApp:
+                    type: boolean
+                logInWithPasskey:
+                    type: boolean
+                googleOauthClientId:
+                    type: string
+                googleOauthClientSecret:
+                    type: string
+                microsoftOauthClientId:
+                    type: string
+                microsoftOauthClientSecret:
+                    type: string
+                vaultDomain:
+                    type: string
+                trustedDomains:
+                    type: array
+                    items:
+                        type: string
+                redirectUri:
+                    type: string
+                afterLoginRedirectUri:
+                    type: string
+                afterSignupRedirectUri:
+                    type: string
+                emailSendFromDomain:
+                    type: string
+        RevokeSCIMAPIKeyResponse:
+            type: object
+            properties:
+                scimApiKey:
+                    $ref: '#/components/schemas/SCIMAPIKey'
+        SAMLConnection:
+            type: object
+            properties:
+                id:
+                    type: string
+                organizationId:
+                    type: string
+                createTime:
+                    type: string
+                    format: date-time
+                updateTime:
+                    type: string
+                    format: date-time
+                primary:
+                    type: boolean
+                spAcsUrl:
+                    type: string
+                spEntityId:
+                    type: string
+                idpRedirectUrl:
+                    type: string
+                idpX509Certificate:
+                    type: string
+                idpEntityId:
+                    type: string
+        SCIMAPIKey:
+            type: object
+            properties:
+                id:
+                    type: string
+                organizationId:
+                    type: string
+                createTime:
+                    type: string
+                    format: date-time
+                updateTime:
+                    type: string
+                    format: date-time
+                displayName:
+                    type: string
+                secretToken:
+                    type: string
+                revoked:
+                    type: boolean
+        Session:
+            type: object
+            properties:
+                id:
+                    type: string
+                userId:
+                    type: string
+                revoked:
+                    type: boolean
+                createTime:
+                    type: string
+                    format: date-time
+                lastActiveTime:
+                    type: string
+                    format: date-time
+                expireTime:
+                    type: string
+                    format: date-time
+        Status:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    description: The status code, which should be an enum value of [google.rpc.Code][google.rpc.Code].
+                    format: int32
+                message:
+                    type: string
+                    description: A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the [google.rpc.Status.details][google.rpc.Status.details] field, or localized by the client.
+                details:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/GoogleProtobufAny'
+                    description: A list of messages that carry the error details.  There is a common set of message types for APIs to use.
+            description: 'The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors).'
+        UpdateOrganizationGoogleHostedDomainsResponse:
+            type: object
+            properties:
+                organizationGoogleHostedDomains:
+                    $ref: '#/components/schemas/OrganizationGoogleHostedDomains'
+        UpdateOrganizationMicrosoftTenantIDsResponse:
+            type: object
+            properties:
+                organizationMicrosoftTenantIds:
+                    $ref: '#/components/schemas/OrganizationMicrosoftTenantIDs'
+        UpdateOrganizationResponse:
+            type: object
+            properties:
+                organization:
+                    $ref: '#/components/schemas/Organization'
+        UpdatePasskeyResponse:
+            type: object
+            properties:
+                passkey:
+                    $ref: '#/components/schemas/Passkey'
+        UpdateSAMLConnectionResponse:
+            type: object
+            properties:
+                samlConnection:
+                    $ref: '#/components/schemas/SAMLConnection'
+        UpdateSCIMAPIKeyResponse:
+            type: object
+            properties:
+                scimApiKey:
+                    $ref: '#/components/schemas/SCIMAPIKey'
+        UpdateUserResponse:
+            type: object
+            properties:
+                user:
+                    $ref: '#/components/schemas/User'
+        User:
+            type: object
+            properties:
+                id:
+                    type: string
+                organizationId:
+                    type: string
+                email:
+                    type: string
+                createTime:
+                    type: string
+                    format: date-time
+                updateTime:
+                    type: string
+                    format: date-time
+                owner:
+                    type: boolean
+                googleUserId:
+                    type: string
+                microsoftUserId:
+                    type: string
+                hasAuthenticatorApp:
+                    type: boolean
+        UserInvite:
+            type: object
+            properties:
+                id:
+                    type: string
+                organizationId:
+                    type: string
+                createTime:
+                    type: string
+                    format: date-time
+                updateTime:
+                    type: string
+                    format: date-time
+                email:
+                    type: string
+                owner:
+                    type: boolean
+tags:
+    - name: BackendService

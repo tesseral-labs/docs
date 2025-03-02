@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "preview-backend-sdks": "fern generate --api backend --group local --force",
+    "preview-frontend-sdks": "fern generate --api frontend --group local --force"
+  },
+  "dependencies": {
+    "fern-api": "^0.55.1"
+  }
+}
