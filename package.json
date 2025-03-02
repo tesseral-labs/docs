@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "docs:preview": "fern docs dev",
     "sdk:preview:backend:python": "fern generate --preview --api backend --group python"
   },
   "dependencies": {

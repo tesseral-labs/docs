@@ -1,0 +1,9 @@
+# yaml-language-server: $schema=https://schema.buildwithfern.dev/docs-yml.json
+instances:
+  - url: tesseral.docs.buildwithfern.com/docs
+    custom-domain: tesseral.com/docs
+
+navigation:
+  - api: "API Reference"
+    api-name: backend
+    paginated: true
