@@ -9,7 +9,7 @@ groups:
         version: 4.3.14
         output:
           location: pypi
-          package-name: tesseral
+          package-name: tesseral-sdk
           token: ${PYPI_TOKEN}
         github:
           repository: tesseral-labs/tesseral-python
