@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: "tesseral-sdk-python package version"
+        description: "tesseral-sdk-node package version"
         required: true
         type: string
 
@@ -18,9 +18,9 @@ jobs:
       - name: Install Fern CLI
         run: npm install -g fern-api
 
-      - name: Release Python SDK
+      - name: Release Node SDK
         env:
           FERN_TOKEN: ${{ secrets.FERN_TOKEN }}
-          PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          fern generate --api backend --group python --version ${{ inputs.version }} --log-level debug
+          fern generate --api backend --group node --version ${{ inputs.version }} --log-level debug
