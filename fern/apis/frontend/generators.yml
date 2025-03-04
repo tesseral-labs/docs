@@ -4,31 +4,18 @@ api:
     - openapi: openapi.json
       overrides: openapi-overrides.json
 groups:
-  node:
+  vanilla-clientside-javascript:
     generators:
       - name: fernapi/fern-typescript-node-sdk
         version: 0.39.3
         output:
           location: npm
-          package-name: '@tesseral/tesseral-node'
+          package-name: '@tesseral/tesseral-vanilla-clientside'
           token: ${NPM_TOKEN}
         github:
-          repository: tesseral-labs/tesseral-sdk-node
+          repository: tesseral-labs/tesseral-sdk-vanilla-clientside-js
         config:
           namespaceExport: Tesseral
           allowCustomFetcher: true
           skipResponseValidation: true
           includeApiReference: false
-  python:
-    generators:
-      - name: fernapi/fern-python-sdk
-        version: 4.3.14
-        output:
-          location: pypi
-          package-name: tesseral-sdk
-          token: ${PYPI_TOKEN}
-        github:
-          repository: tesseral-labs/tesseral-sdk-python
-        config:
-          client_class_name: Tesseral
-          package_name: tesseral

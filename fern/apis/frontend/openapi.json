@@ -1,0 +1,2264 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "FrontendService API",
+    "version": "0.0.1"
+  },
+  "paths": {
+    "/frontend/v1/google-hosted-domains": {
+      "get": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_GetOrganizationGoogleHostedDomains",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetOrganizationGoogleHostedDomainsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "Organizations",
+        "x-fern-sdk-method-name": "GetOrganizationGoogleHostedDomains",
+        "summary": "Get Organization Google Hosted Domains"
+      },
+      "patch": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_UpdateOrganizationGoogleHostedDomains",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrganizationGoogleHostedDomains"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateOrganizationGoogleHostedDomainsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "Organizations",
+        "x-fern-sdk-method-name": "UpdateOrganizationGoogleHostedDomains",
+        "summary": "Update Organization Google Hosted Domains"
+      }
+    },
+    "/frontend/v1/logout": {
+      "post": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_Logout",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LogoutRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LogoutResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-method-name": "Logout",
+        "summary": "Logout"
+      }
+    },
+    "/frontend/v1/me": {
+      "get": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_Whoami",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WhoamiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "Me",
+        "x-fern-sdk-method-name": "Whoami",
+        "summary": "Whoami"
+      }
+    },
+    "/frontend/v1/me/authenticator-app/options": {
+      "post": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_GetAuthenticatorAppOptions",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetAuthenticatorAppOptionsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "Me",
+        "x-fern-sdk-method-name": "GetAuthenticatorAppOptions",
+        "summary": "Get Authenticator App Options"
+      }
+    },
+    "/frontend/v1/me/authenticator-app/register": {
+      "post": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_RegisterAuthenticatorApp",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterAuthenticatorAppRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegisterAuthenticatorAppResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "Me",
+        "x-fern-sdk-method-name": "RegisterAuthenticatorApp",
+        "summary": "Register Authenticator App"
+      }
+    },
+    "/frontend/v1/me/passkeys": {
+      "get": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_ListMyPasskeys",
+        "parameters": [
+          {
+            "name": "pageToken",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListMyPasskeysResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "Me",
+        "x-fern-sdk-method-name": "ListMyPasskeys",
+        "summary": "List My Passkeys"
+      }
+    },
+    "/frontend/v1/me/passkeys/options": {
+      "post": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_GetPasskeyOptions",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetPasskeyOptionsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "Me",
+        "x-fern-sdk-method-name": "GetPasskeyOptions",
+        "summary": "Get Passkey Options"
+      }
+    },
+    "/frontend/v1/me/passkeys/register": {
+      "post": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_RegisterPasskey",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterPasskeyRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegisterPasskeyResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "Me",
+        "x-fern-sdk-method-name": "RegisterPasskey",
+        "summary": "Register Passkey"
+      }
+    },
+    "/frontend/v1/me/passkeys/{id}": {
+      "delete": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_DeleteMyPasskey",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteMyPasskeyResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "Me",
+        "x-fern-sdk-method-name": "DeleteMyPasskey",
+        "summary": "Delete My Passkey"
+      }
+    },
+    "/frontend/v1/me/set-password": {
+      "post": {
+        "tags": [
+          "FrontendService"
+        ],
+        "description": "Sets a user's password.",
+        "operationId": "FrontendService_SetPassword",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SetPasswordRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SetPasswordResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "Me",
+        "x-fern-sdk-method-name": "SetPassword",
+        "summary": "Set Password"
+      }
+    },
+    "/frontend/v1/microsoft-tenant-ids": {
+      "get": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_GetOrganizationMicrosoftTenantIDs",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetOrganizationMicrosoftTenantIDsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "Organizations",
+        "x-fern-sdk-method-name": "GetOrganizationMicrosoftTenantIDs",
+        "summary": "Get Organization Microsoft Tenant IDs"
+      },
+      "patch": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_UpdateOrganizationMicrosoftTenantIDs",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrganizationMicrosoftTenantIDs"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateOrganizationMicrosoftTenantIDsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "Organizations",
+        "x-fern-sdk-method-name": "UpdateOrganizationMicrosoftTenantIDs",
+        "summary": "Update Organization Microsoft Tenant IDs"
+      }
+    },
+    "/frontend/v1/organization": {
+      "get": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_GetOrganization",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetOrganizationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "Organizations",
+        "x-fern-sdk-method-name": "GetOrganization",
+        "summary": "Get Organization"
+      },
+      "patch": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_UpdateOrganization",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Organization"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateOrganizationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "Organizations",
+        "x-fern-sdk-method-name": "UpdateOrganization",
+        "summary": "Update Organization"
+      }
+    },
+    "/frontend/v1/project": {
+      "get": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_GetProject",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetProjectResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "Projects",
+        "x-fern-sdk-method-name": "GetProject",
+        "summary": "Get Project"
+      }
+    },
+    "/frontend/v1/refresh": {
+      "post": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_Refresh",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RefreshResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-method-name": "Refresh",
+        "summary": "Refresh"
+      }
+    },
+    "/frontend/v1/saml-connections": {
+      "get": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_ListSAMLConnections",
+        "parameters": [
+          {
+            "name": "pageToken",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListSAMLConnectionsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "SAML Connections",
+        "x-fern-sdk-method-name": "ListSAMLConnections",
+        "summary": "List SAML Connections"
+      },
+      "post": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_CreateSAMLConnection",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SAMLConnection"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateSAMLConnectionResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "SAML Connections",
+        "x-fern-sdk-method-name": "CreateSAMLConnection",
+        "summary": "Create SAML Connection"
+      }
+    },
+    "/frontend/v1/saml-connections/{id}": {
+      "get": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_GetSAMLConnection",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSAMLConnectionResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "SAML Connections",
+        "x-fern-sdk-method-name": "GetSAMLConnection",
+        "summary": "Get SAML Connection"
+      },
+      "delete": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_DeleteSAMLConnection",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteSAMLConnectionResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "SAML Connections",
+        "x-fern-sdk-method-name": "DeleteSAMLConnection",
+        "summary": "Delete SAML Connection"
+      },
+      "patch": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_UpdateSAMLConnection",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SAMLConnection"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateSAMLConnectionResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "SAML Connections",
+        "x-fern-sdk-method-name": "UpdateSAMLConnection",
+        "summary": "Update SAML Connection"
+      }
+    },
+    "/frontend/v1/scim-api-keys": {
+      "get": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_ListSCIMAPIKeys",
+        "parameters": [
+          {
+            "name": "pageToken",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListSCIMAPIKeysResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "SCIM API Keys",
+        "x-fern-sdk-method-name": "ListSCIMAPIKeys",
+        "summary": "List SCIM API Keys"
+      },
+      "post": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_CreateSCIMAPIKey",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SCIMAPIKey"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateSCIMAPIKeyResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "SCIM API Keys",
+        "x-fern-sdk-method-name": "CreateSCIMAPIKey",
+        "summary": "Create SCIM API Key"
+      }
+    },
+    "/frontend/v1/scim-api-keys/{id}": {
+      "get": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_GetSCIMAPIKey",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSCIMAPIKeyResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "SCIM API Keys",
+        "x-fern-sdk-method-name": "GetSCIMAPIKey",
+        "summary": "Get SCIM API Key"
+      },
+      "delete": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_DeleteSCIMAPIKey",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteSCIMAPIKeyResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "SCIM API Keys",
+        "x-fern-sdk-method-name": "DeleteSCIMAPIKey",
+        "summary": "Delete SCIM API Key"
+      },
+      "patch": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_UpdateSCIMAPIKey",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SCIMAPIKey"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateSCIMAPIKeyResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "SCIM API Keys",
+        "x-fern-sdk-method-name": "UpdateSCIMAPIKey",
+        "summary": "Update SCIM API Key"
+      }
+    },
+    "/frontend/v1/scim-api-keys/{id}/revoke": {
+      "post": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_RevokeSCIMAPIKey",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RevokeSCIMAPIKeyResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "SCIM API Keys",
+        "x-fern-sdk-method-name": "RevokeSCIMAPIKey",
+        "summary": "Revoke SCIM API Key"
+      }
+    },
+    "/frontend/v1/user-invites": {
+      "get": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_ListUserInvites",
+        "parameters": [
+          {
+            "name": "pageToken",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListUserInvitesResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "User Invites",
+        "x-fern-sdk-method-name": "ListUserInvites",
+        "summary": "List User Invites"
+      },
+      "post": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_CreateUserInvite",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserInvite"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateUserInviteResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "User Invites",
+        "x-fern-sdk-method-name": "CreateUserInvite",
+        "summary": "Create User Invite"
+      }
+    },
+    "/frontend/v1/user-invites/{id}": {
+      "get": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_GetUserInvite",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetUserInviteResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "User Invites",
+        "x-fern-sdk-method-name": "GetUserInvite",
+        "summary": "Get User Invite"
+      },
+      "delete": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_DeleteUserInvite",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteUserInviteResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "User Invites",
+        "x-fern-sdk-method-name": "DeleteUserInvite",
+        "summary": "Delete User Invite"
+      }
+    },
+    "/frontend/v1/users": {
+      "get": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_ListUsers",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageToken",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListUsersResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "Users",
+        "x-fern-sdk-method-name": "ListUsers",
+        "summary": "List Users"
+      }
+    },
+    "/frontend/v1/users/{id}": {
+      "get": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_GetUser",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetUserResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "Users",
+        "x-fern-sdk-method-name": "GetUser",
+        "summary": "Get User"
+      },
+      "delete": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_DeleteUser",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteUserResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "Users",
+        "x-fern-sdk-method-name": "DeleteUser",
+        "summary": "Delete User"
+      },
+      "patch": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_UpdateUser",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateUserResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "Users",
+        "x-fern-sdk-method-name": "UpdateUser",
+        "summary": "Update User"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CreateSAMLConnectionResponse": {
+        "type": "object",
+        "properties": {
+          "samlConnection": {
+            "$ref": "#/components/schemas/SAMLConnection"
+          }
+        }
+      },
+      "CreateSCIMAPIKeyResponse": {
+        "type": "object",
+        "properties": {
+          "scimApiKey": {
+            "$ref": "#/components/schemas/SCIMAPIKey"
+          }
+        }
+      },
+      "CreateUserInviteResponse": {
+        "type": "object",
+        "properties": {
+          "userInvite": {
+            "$ref": "#/components/schemas/UserInvite"
+          }
+        }
+      },
+      "DeleteMyPasskeyResponse": {
+        "type": "object",
+        "properties": {}
+      },
+      "DeleteSAMLConnectionResponse": {
+        "type": "object",
+        "properties": {}
+      },
+      "DeleteSCIMAPIKeyResponse": {
+        "type": "object",
+        "properties": {}
+      },
+      "DeleteUserInviteResponse": {
+        "type": "object",
+        "properties": {}
+      },
+      "DeleteUserResponse": {
+        "type": "object",
+        "properties": {}
+      },
+      "GetAuthenticatorAppOptionsResponse": {
+        "type": "object",
+        "properties": {
+          "otpauthUri": {
+            "type": "string"
+          }
+        }
+      },
+      "GetOrganizationGoogleHostedDomainsResponse": {
+        "type": "object",
+        "properties": {
+          "organizationGoogleHostedDomains": {
+            "$ref": "#/components/schemas/OrganizationGoogleHostedDomains"
+          }
+        }
+      },
+      "GetOrganizationMicrosoftTenantIDsResponse": {
+        "type": "object",
+        "properties": {
+          "organizationMicrosoftTenantIds": {
+            "$ref": "#/components/schemas/OrganizationMicrosoftTenantIDs"
+          }
+        }
+      },
+      "GetOrganizationResponse": {
+        "type": "object",
+        "properties": {
+          "organization": {
+            "$ref": "#/components/schemas/Organization"
+          }
+        }
+      },
+      "GetPasskeyOptionsResponse": {
+        "type": "object",
+        "properties": {
+          "rpId": {
+            "type": "string"
+          },
+          "rpName": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "userDisplayName": {
+            "type": "string"
+          }
+        }
+      },
+      "GetProjectResponse": {
+        "type": "object",
+        "properties": {
+          "project": {
+            "$ref": "#/components/schemas/Project"
+          }
+        }
+      },
+      "GetSAMLConnectionResponse": {
+        "type": "object",
+        "properties": {
+          "samlConnection": {
+            "$ref": "#/components/schemas/SAMLConnection"
+          }
+        }
+      },
+      "GetSCIMAPIKeyResponse": {
+        "type": "object",
+        "properties": {
+          "scimApiKey": {
+            "$ref": "#/components/schemas/SCIMAPIKey"
+          }
+        }
+      },
+      "GetUserInviteResponse": {
+        "type": "object",
+        "properties": {
+          "userInvite": {
+            "$ref": "#/components/schemas/UserInvite"
+          }
+        }
+      },
+      "GetUserResponse": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "$ref": "#/components/schemas/User"
+          }
+        }
+      },
+      "ListMyPasskeysResponse": {
+        "type": "object",
+        "properties": {
+          "passkeys": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Passkey"
+            }
+          },
+          "nextPageToken": {
+            "type": "string"
+          }
+        }
+      },
+      "ListSAMLConnectionsResponse": {
+        "type": "object",
+        "properties": {
+          "samlConnections": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SAMLConnection"
+            }
+          },
+          "nextPageToken": {
+            "type": "string"
+          }
+        }
+      },
+      "ListSCIMAPIKeysResponse": {
+        "type": "object",
+        "properties": {
+          "scimApiKeys": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SCIMAPIKey"
+            }
+          },
+          "nextPageToken": {
+            "type": "string"
+          }
+        }
+      },
+      "ListUserInvitesResponse": {
+        "type": "object",
+        "properties": {
+          "userInvites": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserInvite"
+            }
+          },
+          "nextPageToken": {
+            "type": "string"
+          }
+        }
+      },
+      "ListUsersResponse": {
+        "type": "object",
+        "properties": {
+          "users": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/User"
+            }
+          },
+          "nextPageToken": {
+            "type": "string"
+          }
+        }
+      },
+      "LogoutRequest": {
+        "type": "object",
+        "properties": {}
+      },
+      "LogoutResponse": {
+        "type": "object",
+        "properties": {}
+      },
+      "Organization": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "createTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "logInWithGoogle": {
+            "type": "boolean"
+          },
+          "logInWithMicrosoft": {
+            "type": "boolean"
+          },
+          "logInWithEmail": {
+            "type": "boolean"
+          },
+          "logInWithPassword": {
+            "type": "boolean"
+          },
+          "logInWithSaml": {
+            "type": "boolean"
+          },
+          "logInWithAuthenticatorApp": {
+            "type": "boolean"
+          },
+          "logInWithPasskey": {
+            "type": "boolean"
+          },
+          "requireMfa": {
+            "type": "boolean"
+          },
+          "googleHostedDomains": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "microsoftTenantIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "samlEnabled": {
+            "type": "boolean"
+          }
+        }
+      },
+      "OrganizationGoogleHostedDomains": {
+        "type": "object",
+        "properties": {
+          "googleHostedDomains": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "OrganizationMicrosoftTenantIDs": {
+        "type": "object",
+        "properties": {
+          "microsoftTenantIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "Passkey": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "createTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "credentialId": {
+            "type": "string",
+            "format": "bytes"
+          },
+          "publicKeyPkix": {
+            "type": "string"
+          },
+          "aaguid": {
+            "type": "string"
+          },
+          "rpId": {
+            "type": "string"
+          }
+        }
+      },
+      "Project": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "createTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "logInWithGoogle": {
+            "type": "boolean"
+          },
+          "logInWithMicrosoft": {
+            "type": "boolean"
+          },
+          "logInWithEmail": {
+            "type": "boolean"
+          },
+          "logInWithPassword": {
+            "type": "boolean"
+          },
+          "logInWithSaml": {
+            "type": "boolean"
+          },
+          "logInWithAuthenticatorApp": {
+            "type": "boolean"
+          },
+          "logInWithPasskey": {
+            "type": "boolean"
+          },
+          "vaultDomain": {
+            "type": "string"
+          }
+        }
+      },
+      "RefreshRequest": {
+        "type": "object",
+        "properties": {
+          "refreshToken": {
+            "type": "string"
+          }
+        }
+      },
+      "RefreshResponse": {
+        "type": "object",
+        "properties": {
+          "accessToken": {
+            "type": "string"
+          }
+        }
+      },
+      "RegisterAuthenticatorAppRequest": {
+        "type": "object",
+        "properties": {
+          "totpCode": {
+            "type": "string"
+          }
+        }
+      },
+      "RegisterAuthenticatorAppResponse": {
+        "type": "object",
+        "properties": {
+          "recoveryCodes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "RegisterPasskeyRequest": {
+        "type": "object",
+        "properties": {
+          "attestationObject": {
+            "type": "string"
+          },
+          "rpId": {
+            "type": "string"
+          }
+        }
+      },
+      "RegisterPasskeyResponse": {
+        "type": "object",
+        "properties": {
+          "passkey": {
+            "$ref": "#/components/schemas/Passkey"
+          }
+        }
+      },
+      "RevokeSCIMAPIKeyResponse": {
+        "type": "object",
+        "properties": {
+          "scimApiKey": {
+            "$ref": "#/components/schemas/SCIMAPIKey"
+          }
+        }
+      },
+      "SAMLConnection": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "createTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "primary": {
+            "type": "boolean"
+          },
+          "spAcsUrl": {
+            "type": "string"
+          },
+          "spEntityId": {
+            "type": "string"
+          },
+          "idpRedirectUrl": {
+            "type": "string"
+          },
+          "idpX509Certificate": {
+            "type": "string"
+          },
+          "idpEntityId": {
+            "type": "string"
+          }
+        }
+      },
+      "SCIMAPIKey": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "createTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "secretToken": {
+            "type": "string"
+          },
+          "revoked": {
+            "type": "boolean"
+          }
+        }
+      },
+      "SetPasswordRequest": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string",
+            "description": "The the user's new password."
+          }
+        }
+      },
+      "SetPasswordResponse": {
+        "type": "object",
+        "properties": {}
+      },
+      "UpdateOrganizationGoogleHostedDomainsResponse": {
+        "type": "object",
+        "properties": {
+          "organizationGoogleHostedDomains": {
+            "$ref": "#/components/schemas/OrganizationGoogleHostedDomains"
+          }
+        }
+      },
+      "UpdateOrganizationMicrosoftTenantIDsResponse": {
+        "type": "object",
+        "properties": {
+          "organizationMicrosoftTenantIds": {
+            "$ref": "#/components/schemas/OrganizationMicrosoftTenantIDs"
+          }
+        }
+      },
+      "UpdateOrganizationResponse": {
+        "type": "object",
+        "properties": {
+          "organization": {
+            "$ref": "#/components/schemas/Organization"
+          }
+        }
+      },
+      "UpdateSAMLConnectionResponse": {
+        "type": "object",
+        "properties": {
+          "samlConnection": {
+            "$ref": "#/components/schemas/SAMLConnection"
+          }
+        }
+      },
+      "UpdateSCIMAPIKeyResponse": {
+        "type": "object",
+        "properties": {
+          "scimApiKey": {
+            "$ref": "#/components/schemas/SCIMAPIKey"
+          }
+        }
+      },
+      "UpdateUserResponse": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "$ref": "#/components/schemas/User"
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "createTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "owner": {
+            "type": "boolean"
+          },
+          "googleUserId": {
+            "type": "string"
+          },
+          "microsoftUserId": {
+            "type": "string"
+          },
+          "hasAuthenticatorApp": {
+            "type": "boolean"
+          }
+        }
+      },
+      "UserInvite": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "createTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "email": {
+            "type": "string"
+          },
+          "owner": {
+            "type": "boolean"
+          }
+        }
+      },
+      "WhoamiResponse": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "$ref": "#/components/schemas/User"
+          }
+        }
+      },
+      "APIError": {
+        "type": "object",
+        "description": "An error returned from Tesseral.",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "A developer-facing error message, such as \"not_found\". These are stable, and you can develop code that matches against them."
+          },
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/APIErrorDetail"
+            },
+            "description": "Additional details about this error."
+          }
+        }
+      },
+      "APIErrorDetail": {
+        "type": "object",
+        "description": "Additional details about an API error.",
+        "properties": {
+          "description": {
+            "type": "string",
+            "description": "A more human-friendly error message. Exists to help make an error easier to understand. This value may change at any time."
+          },
+          "docsLink": {
+            "type": "string",
+            "description": "A link to documentation about this error."
+          }
+        }
+      }
+    },
+    "responses": {
+      "APIError": {
+        "description": "API Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/APIError"
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "FrontendService"
+    }
+  ]
+}

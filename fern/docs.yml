@@ -9,6 +9,8 @@ layout:
 tabs:
   backend-api:
     display-name: Backend API Reference
+  frontend-api:
+    display-name: Frontend API Reference
 
 navigation:
   - tab: backend-api
@@ -23,6 +25,23 @@ navigation:
           - users
           - sessions
           - passkeys
+          - userInvites
+          - samlConnections
+          - scimApiKeys:
+              title: SCIM API Keys
+  - tab: frontend-api
+    layout:
+      - api: "API Reference"
+        api-name: frontend
+        paginated: true
+        display-errors: false
+        layout:
+          - Refresh
+          - Logout
+          - me
+          - projects
+          - organizations
+          - users
           - userInvites
           - samlConnections
           - scimApiKeys:

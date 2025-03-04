@@ -1,0 +1,109 @@
+#!/usr/bin/env node
+
+import * as fs from 'fs';
+import * as yaml from 'js-yaml';
+
+const PATH_PREFIXES_TO_SDK_GROUP_NAMES = [
+    ['/v1/project', 'Projects'],
+    ['/v1/organizations', 'Organizations'],
+    ['/v1/users', 'Users'],
+    ['/v1/sessions', 'Sessions'],
+    ['/v1/passkeys', 'Passkeys'],
+    ['/v1/user-invites', 'User Invites'],
+    ['/v1/saml-connections', 'SAML Connections'],
+    ['/v1/scim-api-keys', 'SCIM API Keys'],
+]
+
+const INITIALISMS = ['SAML', 'SCIM', 'API']
+
+function rpcIDToSummary(rpcId) {
+  for (const initialism of INITIALISMS) {
+    rpcId = rpcId.replaceAll(initialism, `${initialism} `)
+  }
+  return rpcId.replace(/([a-z])([A-Z])/g, '$1 $2');
+}
+
+const document = yaml.load(fs.readFileSync(0, "utf-8"));
+
+for (const path of Object.keys(document.paths)) {
+  for (const verb of Object.keys(document.paths[path])) {
+    delete document.paths[path][verb].responses.default;
+
+    // map path to an x-fern-sdk-group-name
+    const [_, group] = PATH_PREFIXES_TO_SDK_GROUP_NAMES.find(([prefix, _]) => path.startsWith(prefix))
+    document.paths[path][verb]['x-fern-sdk-group-name'] = group
+
+    // gnostic generates operationIds like BackendService_GetSAMLConnection, so
+    // here we're recovering the original RPC name.
+    const rpcId = document.paths[path][verb].operationId.split('_')[1];
+    document.paths[path][verb]['x-fern-sdk-method-name'] = rpcId;
+    document.paths[path][verb].summary = rpcIDToSummary(rpcId);
+
+    document.paths[path][verb].responses['400'] = {
+      '$ref': '#/components/responses/APIError'
+    };
+
+    document.paths[path][verb].responses['401'] = {
+      '$ref': '#/components/responses/APIError'
+    };
+
+    document.paths[path][verb].responses['403'] = {
+      '$ref': '#/components/responses/APIError'
+    };
+
+    document.paths[path][verb].responses['404'] = {
+      '$ref': '#/components/responses/APIError'
+    };
+  }
+}
+
+document.components.responses = {
+  "APIError": {
+    description: "API Error",
+    content: {
+      'application/json': {
+        schema: {
+          '$ref': '#/components/schemas/APIError',
+        },
+      },
+    },
+  },
+}
+
+delete document.components.schemas.Status;
+delete document.components.schemas.GoogleProtobufAny;
+
+document.components.schemas.APIError = {
+  type: 'object',
+  description: 'An error returned from Tesseral.',
+  properties: {
+    message: {
+      type: 'string',
+      description: 'A developer-facing error message, such as "not_found". These are stable, and you can develop code that matches against them.',
+    },
+    details: {
+      type: 'array',
+      items: {
+        '$ref': '#/components/schemas/APIErrorDetail',
+      },
+      description: 'Additional details about this error.',
+    },
+  },
+}
+
+document.components.schemas.APIErrorDetail = {
+  type: 'object',
+  description: 'Additional details about an API error.',
+  properties: {
+    description: {
+      type: 'string',
+      description: 'A more human-friendly error message. Exists to help make an error easier to understand. This value may change at any time.',
+    },
+    docsLink: {
+      type: 'string',
+      description: 'A link to documentation about this error.',
+    },
+  },
+}
+
+console.log(JSON.stringify(document, undefined, 2))
