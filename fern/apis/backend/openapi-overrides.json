@@ -1,0 +1,19 @@
+{
+  "servers": [
+    {
+      "url": "https://api.tesseral.com"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "x-fern-bearer": {
+          "name": "backendApiKey",
+          "env": "TESSERAL_BACKEND_API_KEY"
+        }
+      }
+    }
+  }
+}

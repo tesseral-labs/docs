@@ -3,7 +3,27 @@ instances:
   - url: tesseral.docs.buildwithfern.com/docs
     custom-domain: tesseral.com/docs
 
+layout:
+  tabs-placement: header
+
+tabs:
+  backend-api:
+    display-name: Backend API Reference
+
 navigation:
-  - api: "API Reference"
-    api-name: backend
-    paginated: true
+  - tab: backend-api
+    layout:
+      - api: "API Reference"
+        api-name: backend
+        paginated: true
+        display-errors: false
+        layout:
+          - projects
+          - organizations
+          - users
+          - sessions
+          - passkeys
+          - userInvites
+          - samlConnections
+          - scimApiKeys:
+              title: SCIM API Keys
