@@ -14,6 +14,7 @@ groups:
           token: ${NPM_TOKEN}
         github:
           repository: tesseral-labs/tesseral-sdk-node
+        smart-casing: true
         config:
           namespaceExport: Tesseral
           allowCustomFetcher: true
@@ -29,6 +30,7 @@ groups:
           token: ${PYPI_TOKEN}
         github:
           repository: tesseral-labs/tesseral-sdk-python
+        smart-casing: true
         config:
           client_class_name: Tesseral
           package_name: tesseral
