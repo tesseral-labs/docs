@@ -1,4 +1,4 @@
-name: Publish Python SDK
+name: Publish Node SDK
 
 on:
   workflow_dispatch:
