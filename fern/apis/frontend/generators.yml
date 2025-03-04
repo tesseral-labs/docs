@@ -20,3 +20,4 @@ groups:
           allowCustomFetcher: true
           skipResponseValidation: true
           includeApiReference: false
+          includeCredentialsOnCrossOriginRequests: true
