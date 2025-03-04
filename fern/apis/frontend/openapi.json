@@ -5,7 +5,7 @@
     "version": "0.0.1"
   },
   "paths": {
-    "/frontend/v1/google-hosted-domains": {
+    "/api/frontend/v1/google-hosted-domains": {
       "get": {
         "tags": [
           "FrontendService"
@@ -101,7 +101,7 @@
         "summary": "Update Organization Google Hosted Domains"
       }
     },
-    "/frontend/v1/logout": {
+    "/api/frontend/v1/logout": {
       "post": {
         "tags": [
           "FrontendService"
@@ -145,7 +145,7 @@
         "summary": "Logout"
       }
     },
-    "/frontend/v1/me": {
+    "/api/frontend/v1/me": {
       "get": {
         "tags": [
           "FrontendService"
@@ -180,7 +180,7 @@
         "summary": "Whoami"
       }
     },
-    "/frontend/v1/me/authenticator-app/options": {
+    "/api/frontend/v1/me/authenticator-app/options": {
       "post": {
         "tags": [
           "FrontendService"
@@ -215,7 +215,7 @@
         "summary": "Get Authenticator App Options"
       }
     },
-    "/frontend/v1/me/authenticator-app/register": {
+    "/api/frontend/v1/me/authenticator-app/register": {
       "post": {
         "tags": [
           "FrontendService"
@@ -260,7 +260,7 @@
         "summary": "Register Authenticator App"
       }
     },
-    "/frontend/v1/me/passkeys": {
+    "/api/frontend/v1/me/passkeys": {
       "get": {
         "tags": [
           "FrontendService"
@@ -304,7 +304,7 @@
         "summary": "List My Passkeys"
       }
     },
-    "/frontend/v1/me/passkeys/options": {
+    "/api/frontend/v1/me/passkeys/options": {
       "post": {
         "tags": [
           "FrontendService"
@@ -339,7 +339,7 @@
         "summary": "Get Passkey Options"
       }
     },
-    "/frontend/v1/me/passkeys/register": {
+    "/api/frontend/v1/me/passkeys/register": {
       "post": {
         "tags": [
           "FrontendService"
@@ -384,7 +384,7 @@
         "summary": "Register Passkey"
       }
     },
-    "/frontend/v1/me/passkeys/{id}": {
+    "/api/frontend/v1/me/passkeys/{id}": {
       "delete": {
         "tags": [
           "FrontendService"
@@ -429,7 +429,7 @@
         "summary": "Delete My Passkey"
       }
     },
-    "/frontend/v1/me/set-password": {
+    "/api/frontend/v1/me/set-password": {
       "post": {
         "tags": [
           "FrontendService"
@@ -475,7 +475,7 @@
         "summary": "Set Password"
       }
     },
-    "/frontend/v1/microsoft-tenant-ids": {
+    "/api/frontend/v1/microsoft-tenant-ids": {
       "get": {
         "tags": [
           "FrontendService"
@@ -571,7 +571,7 @@
         "summary": "Update Organization Microsoft Tenant IDs"
       }
     },
-    "/frontend/v1/organization": {
+    "/api/frontend/v1/organization": {
       "get": {
         "tags": [
           "FrontendService"
@@ -649,7 +649,7 @@
         "summary": "Update Organization"
       }
     },
-    "/frontend/v1/project": {
+    "/api/frontend/v1/project": {
       "get": {
         "tags": [
           "FrontendService"
@@ -684,7 +684,7 @@
         "summary": "Get Project"
       }
     },
-    "/frontend/v1/refresh": {
+    "/api/frontend/v1/refresh": {
       "post": {
         "tags": [
           "FrontendService"
@@ -728,7 +728,7 @@
         "summary": "Refresh"
       }
     },
-    "/frontend/v1/saml-connections": {
+    "/api/frontend/v1/saml-connections": {
       "get": {
         "tags": [
           "FrontendService"
@@ -815,7 +815,7 @@
         "summary": "Create SAML Connection"
       }
     },
-    "/frontend/v1/saml-connections/{id}": {
+    "/api/frontend/v1/saml-connections/{id}": {
       "get": {
         "tags": [
           "FrontendService"
@@ -956,7 +956,7 @@
         "summary": "Update SAML Connection"
       }
     },
-    "/frontend/v1/scim-api-keys": {
+    "/api/frontend/v1/scim-api-keys": {
       "get": {
         "tags": [
           "FrontendService"
@@ -1043,7 +1043,7 @@
         "summary": "Create SCIM API Key"
       }
     },
-    "/frontend/v1/scim-api-keys/{id}": {
+    "/api/frontend/v1/scim-api-keys/{id}": {
       "get": {
         "tags": [
           "FrontendService"
@@ -1184,7 +1184,7 @@
         "summary": "Update SCIM API Key"
       }
     },
-    "/frontend/v1/scim-api-keys/{id}/revoke": {
+    "/api/frontend/v1/scim-api-keys/{id}/revoke": {
       "post": {
         "tags": [
           "FrontendService"
@@ -1229,7 +1229,7 @@
         "summary": "Revoke SCIM API Key"
       }
     },
-    "/frontend/v1/user-invites": {
+    "/api/frontend/v1/user-invites": {
       "get": {
         "tags": [
           "FrontendService"
@@ -1316,7 +1316,7 @@
         "summary": "Create User Invite"
       }
     },
-    "/frontend/v1/user-invites/{id}": {
+    "/api/frontend/v1/user-invites/{id}": {
       "get": {
         "tags": [
           "FrontendService"
@@ -1404,7 +1404,7 @@
         "summary": "Delete User Invite"
       }
     },
-    "/frontend/v1/users": {
+    "/api/frontend/v1/users": {
       "get": {
         "tags": [
           "FrontendService"
@@ -1455,7 +1455,7 @@
         "summary": "List Users"
       }
     },
-    "/frontend/v1/users/{id}": {
+    "/api/frontend/v1/users/{id}": {
       "get": {
         "tags": [
           "FrontendService"
