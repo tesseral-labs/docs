@@ -34,3 +34,5 @@ groups:
         config:
           client_class_name: Tesseral
           package_name: tesseral
+          extra_dependencies:
+            cryptography: '*'
