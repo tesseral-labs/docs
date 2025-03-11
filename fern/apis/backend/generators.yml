@@ -23,7 +23,7 @@ groups:
   python:
     generators:
       - name: fernapi/fern-python-sdk
-        version: 4.3.14
+        version: 4.3.16
         output:
           location: pypi
           package-name: tesseral-sdk
