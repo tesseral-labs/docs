@@ -36,3 +36,13 @@ groups:
           package_name: tesseral
           extra_dependencies:
             cryptography: '*'
+  go:
+    generators:
+      - name: fernapi/fern-go-sdk
+        version: 0.36.5
+        github:
+          repository: tesseral-labs/tesseral-sdk-go
+        config:
+          packageName: tesseral
+          union: v1
+        smart-casing: true

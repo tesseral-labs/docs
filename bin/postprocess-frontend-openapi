@@ -4,19 +4,20 @@ import * as fs from 'fs';
 import * as yaml from 'js-yaml';
 
 const PATH_PREFIXES_TO_SDK_GROUP_NAMES = [
-  ['/api/frontend/v1/refresh', undefined],
-  ['/api/frontend/v1/logout', undefined],
-  ['/api/frontend/v1/me', 'Me'],
-  ['/api/frontend/v1/project', 'Projects'],
-  ['/api/frontend/v1/organization', 'Organizations'],
-  ['/api/frontend/v1/google-hosted-domains', 'Organizations'],
-  ['/api/frontend/v1/microsoft-tenant-ids', 'Organizations'],
-  ['/api/frontend/v1/users', 'Users'],
-  ['/api/frontend/v1/sessions', 'Sessions'],
-  ['/api/frontend/v1/passkeys', 'Passkeys'],
-  ['/api/frontend/v1/user-invites', 'User Invites'],
-  ['/api/frontend/v1/saml-connections', 'SAML Connections'],
-  ['/api/frontend/v1/scim-api-keys', 'SCIM API Keys'],
+  ['/frontend/v1/refresh', undefined],
+  ['/frontend/v1/logout', undefined],
+  ['/frontend/v1/me', 'Me'],
+  ['/frontend/v1/set-user-password', 'Me'],
+  ['/frontend/v1/project', 'Projects'],
+  ['/frontend/v1/organization', 'Organizations'],
+  ['/frontend/v1/google-hosted-domains', 'Organizations'],
+  ['/frontend/v1/microsoft-tenant-ids', 'Organizations'],
+  ['/frontend/v1/users', 'Users'],
+  ['/frontend/v1/sessions', 'Sessions'],
+  ['/frontend/v1/passkeys', 'Passkeys'],
+  ['/frontend/v1/user-invites', 'User Invites'],
+  ['/frontend/v1/saml-connections', 'SAML Connections'],
+  ['/frontend/v1/scim-api-keys', 'SCIM API Keys'],
 ]
 
 const INITIALISMS = ['SAML', 'SCIM', 'API']
@@ -35,6 +36,7 @@ for (const path of Object.keys(document.paths)) {
     delete document.paths[path][verb].responses.default;
 
     // map path to an x-fern-sdk-group-name
+    console.error(path)
     const [_, group] = PATH_PREFIXES_TO_SDK_GROUP_NAMES.find(([prefix, _]) => path.startsWith(prefix))
     document.paths[path][verb]['x-fern-sdk-group-name'] = group
 

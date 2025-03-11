@@ -5,7 +5,7 @@
     "version": "0.0.1"
   },
   "paths": {
-    "/api/frontend/v1/google-hosted-domains": {
+    "/frontend/v1/google-hosted-domains": {
       "get": {
         "tags": [
           "FrontendService"
@@ -101,7 +101,7 @@
         "summary": "Update Organization Google Hosted Domains"
       }
     },
-    "/api/frontend/v1/logout": {
+    "/frontend/v1/logout": {
       "post": {
         "tags": [
           "FrontendService"
@@ -145,7 +145,7 @@
         "summary": "Logout"
       }
     },
-    "/api/frontend/v1/me": {
+    "/frontend/v1/me": {
       "get": {
         "tags": [
           "FrontendService"
@@ -180,7 +180,7 @@
         "summary": "Whoami"
       }
     },
-    "/api/frontend/v1/me/authenticator-app/options": {
+    "/frontend/v1/me/authenticator-app/options": {
       "post": {
         "tags": [
           "FrontendService"
@@ -215,7 +215,7 @@
         "summary": "Get Authenticator App Options"
       }
     },
-    "/api/frontend/v1/me/authenticator-app/register": {
+    "/frontend/v1/me/authenticator-app/register": {
       "post": {
         "tags": [
           "FrontendService"
@@ -260,7 +260,7 @@
         "summary": "Register Authenticator App"
       }
     },
-    "/api/frontend/v1/me/passkeys": {
+    "/frontend/v1/me/passkeys": {
       "get": {
         "tags": [
           "FrontendService"
@@ -304,7 +304,7 @@
         "summary": "List My Passkeys"
       }
     },
-    "/api/frontend/v1/me/passkeys/options": {
+    "/frontend/v1/me/passkeys/options": {
       "post": {
         "tags": [
           "FrontendService"
@@ -339,7 +339,7 @@
         "summary": "Get Passkey Options"
       }
     },
-    "/api/frontend/v1/me/passkeys/register": {
+    "/frontend/v1/me/passkeys/register": {
       "post": {
         "tags": [
           "FrontendService"
@@ -384,7 +384,7 @@
         "summary": "Register Passkey"
       }
     },
-    "/api/frontend/v1/me/passkeys/{id}": {
+    "/frontend/v1/me/passkeys/{id}": {
       "delete": {
         "tags": [
           "FrontendService"
@@ -429,53 +429,7 @@
         "summary": "Delete My Passkey"
       }
     },
-    "/api/frontend/v1/me/set-password": {
-      "post": {
-        "tags": [
-          "FrontendService"
-        ],
-        "description": "Sets a user's password.",
-        "operationId": "FrontendService_SetPassword",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SetPasswordRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SetPasswordResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "$ref": "#/components/responses/APIError"
-          },
-          "401": {
-            "$ref": "#/components/responses/APIError"
-          },
-          "403": {
-            "$ref": "#/components/responses/APIError"
-          },
-          "404": {
-            "$ref": "#/components/responses/APIError"
-          }
-        },
-        "x-fern-sdk-group-name": "Me",
-        "x-fern-sdk-method-name": "SetPassword",
-        "summary": "Set Password"
-      }
-    },
-    "/api/frontend/v1/microsoft-tenant-ids": {
+    "/frontend/v1/microsoft-tenant-ids": {
       "get": {
         "tags": [
           "FrontendService"
@@ -571,7 +525,7 @@
         "summary": "Update Organization Microsoft Tenant IDs"
       }
     },
-    "/api/frontend/v1/organization": {
+    "/frontend/v1/organization": {
       "get": {
         "tags": [
           "FrontendService"
@@ -649,7 +603,7 @@
         "summary": "Update Organization"
       }
     },
-    "/api/frontend/v1/project": {
+    "/frontend/v1/project": {
       "get": {
         "tags": [
           "FrontendService"
@@ -684,7 +638,7 @@
         "summary": "Get Project"
       }
     },
-    "/api/frontend/v1/refresh": {
+    "/frontend/v1/refresh": {
       "post": {
         "tags": [
           "FrontendService"
@@ -728,7 +682,7 @@
         "summary": "Refresh"
       }
     },
-    "/api/frontend/v1/saml-connections": {
+    "/frontend/v1/saml-connections": {
       "get": {
         "tags": [
           "FrontendService"
@@ -815,7 +769,7 @@
         "summary": "Create SAML Connection"
       }
     },
-    "/api/frontend/v1/saml-connections/{id}": {
+    "/frontend/v1/saml-connections/{id}": {
       "get": {
         "tags": [
           "FrontendService"
@@ -956,7 +910,7 @@
         "summary": "Update SAML Connection"
       }
     },
-    "/api/frontend/v1/scim-api-keys": {
+    "/frontend/v1/scim-api-keys": {
       "get": {
         "tags": [
           "FrontendService"
@@ -1043,7 +997,7 @@
         "summary": "Create SCIM API Key"
       }
     },
-    "/api/frontend/v1/scim-api-keys/{id}": {
+    "/frontend/v1/scim-api-keys/{id}": {
       "get": {
         "tags": [
           "FrontendService"
@@ -1184,7 +1138,7 @@
         "summary": "Update SCIM API Key"
       }
     },
-    "/api/frontend/v1/scim-api-keys/{id}/revoke": {
+    "/frontend/v1/scim-api-keys/{id}/revoke": {
       "post": {
         "tags": [
           "FrontendService"
@@ -1229,7 +1183,53 @@
         "summary": "Revoke SCIM API Key"
       }
     },
-    "/api/frontend/v1/user-invites": {
+    "/frontend/v1/set-user-password": {
+      "post": {
+        "tags": [
+          "FrontendService"
+        ],
+        "description": "Sets a user's password.",
+        "operationId": "FrontendService_SetPassword",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SetPasswordRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SetPasswordResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "Me",
+        "x-fern-sdk-method-name": "SetPassword",
+        "summary": "Set Password"
+      }
+    },
+    "/frontend/v1/user-invites": {
       "get": {
         "tags": [
           "FrontendService"
@@ -1316,7 +1316,7 @@
         "summary": "Create User Invite"
       }
     },
-    "/api/frontend/v1/user-invites/{id}": {
+    "/frontend/v1/user-invites/{id}": {
       "get": {
         "tags": [
           "FrontendService"
@@ -1404,7 +1404,7 @@
         "summary": "Delete User Invite"
       }
     },
-    "/api/frontend/v1/users": {
+    "/frontend/v1/users": {
       "get": {
         "tags": [
           "FrontendService"
@@ -1455,7 +1455,7 @@
         "summary": "List Users"
       }
     },
-    "/api/frontend/v1/users/{id}": {
+    "/frontend/v1/users/{id}": {
       "get": {
         "tags": [
           "FrontendService"
@@ -2228,26 +2228,26 @@
           }
         }
       },
-      "APIErrorDetail": {
+      "ErrorDetail": {
         "type": "object",
-        "description": "Additional details about an API error.",
         "properties": {
           "description": {
             "type": "string",
-            "description": "A more human-friendly error message. Exists to help make an error easier to understand. This value may change at any time."
+            "description": "A human-friendly description for the error. May change at any time."
           },
           "docsLink": {
             "type": "string",
-            "description": "A link to documentation about this error."
+            "description": "A link to the documentation about the error. May change at any time."
           }
-        }
+        },
+        "description": "An error returned from a Tesseral API."
       },
       "AccessTokenClaims": {
         "type": "object",
         "properties": {
           "iss": {
             "type": "string",
-            "description": "Will always be of the form \"https://project-xxx.tesseral.app\", where\n \"project-xxx\" is your project ID."
+            "description": "Will always be of the form \"https://project-xxx.tesseral.app\", where\n \"project-xxx\" is your Project ID."
           },
           "sub": {
             "type": "string",
@@ -2259,12 +2259,12 @@
           },
           "exp": {
             "type": "number",
-            "description": "When this access token expires, in seconds since the unix epoch.",
+            "description": "When this Access Token expires, in seconds since the unix epoch.",
             "format": "double"
           },
           "nbf": {
             "type": "number",
-            "description": "When this access token was issued, in seconds since the unix epoch.",
+            "description": "When this Access Token was issued, in seconds since the unix epoch.",
             "format": "double"
           },
           "iat": {

@@ -4,6 +4,7 @@
     "sdk:preview": "npm-run-all -p sdk:preview:**",
     "sdk:preview:backend:node": "fern generate --preview --api backend --group node",
     "sdk:preview:backend:python": "fern generate --preview --api backend --group python",
+    "sdk:preview:backend:go": "fern generate --preview --api backend --group go/",
     "sdk:preview:frontend:vanilla-clientside-javascript": "fern generate --preview --api frontend --group vanilla-clientside-javascript"
   },
   "dependencies": {

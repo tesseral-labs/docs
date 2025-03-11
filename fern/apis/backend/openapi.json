@@ -10,11 +10,13 @@
         "tags": [
           "BackendService"
         ],
+        "description": "List Organizations.",
         "operationId": "BackendService_ListOrganizations",
         "parameters": [
           {
             "name": "pageToken",
             "in": "query",
+            "description": "A pagination token. Leave empty to get the first page of results.",
             "schema": {
               "type": "string"
             }
@@ -52,6 +54,7 @@
         "tags": [
           "BackendService"
         ],
+        "description": "Create an Organization.",
         "operationId": "BackendService_CreateOrganization",
         "requestBody": {
           "content": {
@@ -97,11 +100,13 @@
         "tags": [
           "BackendService"
         ],
+        "description": "Get an Organization.",
         "operationId": "BackendService_GetOrganization",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "The Organization ID.",
             "required": true,
             "schema": {
               "type": "string"
@@ -140,11 +145,13 @@
         "tags": [
           "BackendService"
         ],
+        "description": "Delete an Organization.",
         "operationId": "BackendService_DeleteOrganization",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "The Organization ID.",
             "required": true,
             "schema": {
               "type": "string"
@@ -183,11 +190,13 @@
         "tags": [
           "BackendService"
         ],
+        "description": "Update an Organization.",
         "operationId": "BackendService_UpdateOrganization",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "The Organization ID.",
             "required": true,
             "schema": {
               "type": "string"
@@ -233,16 +242,120 @@
         "summary": "Update Organization"
       }
     },
+    "/v1/organizations/{organizationId}/domains": {
+      "get": {
+        "tags": [
+          "BackendService"
+        ],
+        "description": "Get Organization Domains.",
+        "operationId": "BackendService_GetOrganizationDomains",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "description": "The Organization ID.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetOrganizationDomainsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "Organizations",
+        "x-fern-sdk-method-name": "GetOrganizationDomains",
+        "summary": "Get Organization Domains"
+      },
+      "patch": {
+        "tags": [
+          "BackendService"
+        ],
+        "description": "Update Organization Domains.",
+        "operationId": "BackendService_UpdateOrganizationDomains",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "description": "The Organization ID.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrganizationDomains"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateOrganizationDomainsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "Organizations",
+        "x-fern-sdk-method-name": "UpdateOrganizationDomains",
+        "summary": "Update Organization Domains"
+      }
+    },
     "/v1/organizations/{organizationId}/google-hosted-domains": {
       "get": {
         "tags": [
           "BackendService"
         ],
+        "description": "Get Organization Google Hosted Domains.",
         "operationId": "BackendService_GetOrganizationGoogleHostedDomains",
         "parameters": [
           {
             "name": "organizationId",
             "in": "path",
+            "description": "The ID of the Organization.",
             "required": true,
             "schema": {
               "type": "string"
@@ -281,11 +394,13 @@
         "tags": [
           "BackendService"
         ],
+        "description": "Update Organization Google Hosted Domains.",
         "operationId": "BackendService_UpdateOrganizationGoogleHostedDomains",
         "parameters": [
           {
             "name": "organizationId",
             "in": "path",
+            "description": "The ID of the Organization.",
             "required": true,
             "schema": {
               "type": "string"
@@ -336,11 +451,13 @@
         "tags": [
           "BackendService"
         ],
+        "description": "Get Organization Microsoft Tenant IDs.",
         "operationId": "BackendService_GetOrganizationMicrosoftTenantIDs",
         "parameters": [
           {
             "name": "organizationId",
             "in": "path",
+            "description": "The ID of the Organization.",
             "required": true,
             "schema": {
               "type": "string"
@@ -379,11 +496,13 @@
         "tags": [
           "BackendService"
         ],
+        "description": "Update Organization Microsoft Tenant IDs.",
         "operationId": "BackendService_UpdateOrganizationMicrosoftTenantIDs",
         "parameters": [
           {
             "name": "organizationId",
             "in": "path",
+            "description": "The ID of the Organization.",
             "required": true,
             "schema": {
               "type": "string"
@@ -434,11 +553,13 @@
         "tags": [
           "BackendService"
         ],
+        "description": "List Passkeys.",
         "operationId": "BackendService_ListPasskeys",
         "parameters": [
           {
             "name": "userId",
             "in": "query",
+            "description": "The ID of the User.",
             "schema": {
               "type": "string"
             }
@@ -446,6 +567,7 @@
           {
             "name": "pageToken",
             "in": "query",
+            "description": "A pagination token. Leave empty to get the first page of results.",
             "schema": {
               "type": "string"
             }
@@ -485,11 +607,13 @@
         "tags": [
           "BackendService"
         ],
+        "description": "Get a Passkey.",
         "operationId": "BackendService_GetPasskey",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "The Passkey ID.",
             "required": true,
             "schema": {
               "type": "string"
@@ -528,11 +652,13 @@
         "tags": [
           "BackendService"
         ],
+        "description": "Delete a Passkey.",
         "operationId": "BackendService_DeletePasskey",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "The Passkey ID.",
             "required": true,
             "schema": {
               "type": "string"
@@ -571,11 +697,13 @@
         "tags": [
           "BackendService"
         ],
+        "description": "Update a Passkey.",
         "operationId": "BackendService_UpdatePasskey",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "The Passkey ID.",
             "required": true,
             "schema": {
               "type": "string"
@@ -626,6 +754,7 @@
         "tags": [
           "BackendService"
         ],
+        "description": "Get the current project.",
         "operationId": "BackendService_GetProject",
         "responses": {
           "200": {
@@ -661,11 +790,13 @@
         "tags": [
           "BackendService"
         ],
+        "description": "List SAML Connections.",
         "operationId": "BackendService_ListSAMLConnections",
         "parameters": [
           {
             "name": "organizationId",
             "in": "query",
+            "description": "The Organization ID.",
             "schema": {
               "type": "string"
             }
@@ -673,6 +804,7 @@
           {
             "name": "pageToken",
             "in": "query",
+            "description": "A pagination token. Leave empty to get the first page of results.",
             "schema": {
               "type": "string"
             }
@@ -710,6 +842,7 @@
         "tags": [
           "BackendService"
         ],
+        "description": "Create a SAML Connection.",
         "operationId": "BackendService_CreateSAMLConnection",
         "requestBody": {
           "content": {
@@ -755,11 +888,13 @@
         "tags": [
           "BackendService"
         ],
+        "description": "Get a SAML Connection.",
         "operationId": "BackendService_GetSAMLConnection",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "The SAML Connection ID.",
             "required": true,
             "schema": {
               "type": "string"
@@ -798,11 +933,13 @@
         "tags": [
           "BackendService"
         ],
+        "description": "Delete a SAML Connection.",
         "operationId": "BackendService_DeleteSAMLConnection",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "The SAML Connection ID.",
             "required": true,
             "schema": {
               "type": "string"
@@ -841,11 +978,13 @@
         "tags": [
           "BackendService"
         ],
+        "description": "Update a SAML Connection.",
         "operationId": "BackendService_UpdateSAMLConnection",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "The SAML Connection ID.",
             "required": true,
             "schema": {
               "type": "string"
@@ -896,11 +1035,13 @@
         "tags": [
           "BackendService"
         ],
+        "description": "List SCIM API Keys.",
         "operationId": "BackendService_ListSCIMAPIKeys",
         "parameters": [
           {
             "name": "organizationId",
             "in": "query",
+            "description": "The ID of the Organization.",
             "schema": {
               "type": "string"
             }
@@ -908,6 +1049,7 @@
           {
             "name": "pageToken",
             "in": "query",
+            "description": "A pagination token. Leave empty to get the first page of results.",
             "schema": {
               "type": "string"
             }
@@ -945,6 +1087,7 @@
         "tags": [
           "BackendService"
         ],
+        "description": "Create a SCIM API Key.",
         "operationId": "BackendService_CreateSCIMAPIKey",
         "requestBody": {
           "content": {
@@ -990,11 +1133,13 @@
         "tags": [
           "BackendService"
         ],
+        "description": "Get a SCIM API Key.",
         "operationId": "BackendService_GetSCIMAPIKey",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "The SCIM API Key ID.",
             "required": true,
             "schema": {
               "type": "string"
@@ -1033,11 +1178,13 @@
         "tags": [
           "BackendService"
         ],
+        "description": "Delete a SCIM API Key.",
         "operationId": "BackendService_DeleteSCIMAPIKey",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "The SCIM API Key ID.",
             "required": true,
             "schema": {
               "type": "string"
@@ -1076,11 +1223,13 @@
         "tags": [
           "BackendService"
         ],
+        "description": "Update a SCIM API Key.",
         "operationId": "BackendService_UpdateSCIMAPIKey",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "The SCIM API Key ID.",
             "required": true,
             "schema": {
               "type": "string"
@@ -1131,11 +1280,13 @@
         "tags": [
           "BackendService"
         ],
+        "description": "Revoke a SCIM API Key.",
         "operationId": "BackendService_RevokeSCIMAPIKey",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "The SCIM API Key ID.",
             "required": true,
             "schema": {
               "type": "string"
@@ -1176,11 +1327,13 @@
         "tags": [
           "BackendService"
         ],
+        "description": "List Sessions.",
         "operationId": "BackendService_ListSessions",
         "parameters": [
           {
             "name": "userId",
             "in": "query",
+            "description": "The User ID.",
             "schema": {
               "type": "string"
             }
@@ -1188,6 +1341,7 @@
           {
             "name": "pageToken",
             "in": "query",
+            "description": "A pagination token. Leave empty to get the first page of results.",
             "schema": {
               "type": "string"
             }
@@ -1227,11 +1381,13 @@
         "tags": [
           "BackendService"
         ],
+        "description": "Get a Session.",
         "operationId": "BackendService_GetSession",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "The Session ID.",
             "required": true,
             "schema": {
               "type": "string"
@@ -1272,11 +1428,13 @@
         "tags": [
           "BackendService"
         ],
+        "description": "List User Invites.",
         "operationId": "BackendService_ListUserInvites",
         "parameters": [
           {
             "name": "organizationId",
             "in": "query",
+            "description": "The Organization ID.",
             "schema": {
               "type": "string"
             }
@@ -1284,6 +1442,7 @@
           {
             "name": "pageToken",
             "in": "query",
+            "description": "A pagination token. Leave empty to get the first page of results.",
             "schema": {
               "type": "string"
             }
@@ -1321,6 +1480,7 @@
         "tags": [
           "BackendService"
         ],
+        "description": "Create a User Invite.",
         "operationId": "BackendService_CreateUserInvite",
         "requestBody": {
           "content": {
@@ -1366,11 +1526,13 @@
         "tags": [
           "BackendService"
         ],
+        "description": "Get a User Invite.",
         "operationId": "BackendService_GetUserInvite",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "The User Invite ID.",
             "required": true,
             "schema": {
               "type": "string"
@@ -1409,11 +1571,13 @@
         "tags": [
           "BackendService"
         ],
+        "description": "Delete a User Invite.",
         "operationId": "BackendService_DeleteUserInvite",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "The User Invite ID.",
             "required": true,
             "schema": {
               "type": "string"
@@ -1454,11 +1618,13 @@
         "tags": [
           "BackendService"
         ],
+        "description": "List Users.",
         "operationId": "BackendService_ListUsers",
         "parameters": [
           {
             "name": "organizationId",
             "in": "query",
+            "description": "The Organization ID.",
             "schema": {
               "type": "string"
             }
@@ -1466,6 +1632,7 @@
           {
             "name": "pageToken",
             "in": "query",
+            "description": "A pagination token. Leave empty to get the first page of results.",
             "schema": {
               "type": "string"
             }
@@ -1503,6 +1670,7 @@
         "tags": [
           "BackendService"
         ],
+        "description": "Create a User.",
         "operationId": "BackendService_CreateUser",
         "requestBody": {
           "content": {
@@ -1548,11 +1716,13 @@
         "tags": [
           "BackendService"
         ],
+        "description": "Get a User.",
         "operationId": "BackendService_GetUser",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "The User ID.",
             "required": true,
             "schema": {
               "type": "string"
@@ -1591,11 +1761,13 @@
         "tags": [
           "BackendService"
         ],
+        "description": "Delete a User.",
         "operationId": "BackendService_DeleteUser",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "The User ID.",
             "required": true,
             "schema": {
               "type": "string"
@@ -1634,11 +1806,13 @@
         "tags": [
           "BackendService"
         ],
+        "description": "Update a User.",
         "operationId": "BackendService_UpdateUser",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "The User ID.",
             "required": true,
             "schema": {
               "type": "string"
@@ -1691,7 +1865,12 @@
         "type": "object",
         "properties": {
           "organization": {
-            "$ref": "#/components/schemas/Organization"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Organization"
+              }
+            ],
+            "description": "The Organization to create."
           }
         }
       },
@@ -1699,7 +1878,12 @@
         "type": "object",
         "properties": {
           "samlConnection": {
-            "$ref": "#/components/schemas/SAMLConnection"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SAMLConnection"
+              }
+            ],
+            "description": "The created SAML Connection."
           }
         }
       },
@@ -1707,7 +1891,12 @@
         "type": "object",
         "properties": {
           "scimApiKey": {
-            "$ref": "#/components/schemas/SCIMAPIKey"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SCIMAPIKey"
+              }
+            ],
+            "description": "The created SCIM API Key."
           }
         }
       },
@@ -1715,7 +1904,12 @@
         "type": "object",
         "properties": {
           "userInvite": {
-            "$ref": "#/components/schemas/UserInvite"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/UserInvite"
+              }
+            ],
+            "description": "The created User Invite."
           }
         }
       },
@@ -1723,7 +1917,12 @@
         "type": "object",
         "properties": {
           "user": {
-            "$ref": "#/components/schemas/User"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/User"
+              }
+            ],
+            "description": "The created User."
           }
         }
       },
@@ -1751,11 +1950,29 @@
         "type": "object",
         "properties": {}
       },
+      "GetOrganizationDomainsResponse": {
+        "type": "object",
+        "properties": {
+          "organizationDomains": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/OrganizationDomains"
+              }
+            ],
+            "description": "The requested Organization Domains."
+          }
+        }
+      },
       "GetOrganizationGoogleHostedDomainsResponse": {
         "type": "object",
         "properties": {
           "organizationGoogleHostedDomains": {
-            "$ref": "#/components/schemas/OrganizationGoogleHostedDomains"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/OrganizationGoogleHostedDomains"
+              }
+            ],
+            "description": "The Organization's Google Hosted Domains."
           }
         }
       },
@@ -1763,7 +1980,12 @@
         "type": "object",
         "properties": {
           "organizationMicrosoftTenantIds": {
-            "$ref": "#/components/schemas/OrganizationMicrosoftTenantIDs"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/OrganizationMicrosoftTenantIDs"
+              }
+            ],
+            "description": "The Organization's Microsoft Tenant IDs."
           }
         }
       },
@@ -1771,7 +1993,12 @@
         "type": "object",
         "properties": {
           "organization": {
-            "$ref": "#/components/schemas/Organization"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Organization"
+              }
+            ],
+            "description": "The requested Organization."
           }
         }
       },
@@ -1779,7 +2006,12 @@
         "type": "object",
         "properties": {
           "passkey": {
-            "$ref": "#/components/schemas/Passkey"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Passkey"
+              }
+            ],
+            "description": "The requested Passkey."
           }
         }
       },
@@ -1787,7 +2019,12 @@
         "type": "object",
         "properties": {
           "project": {
-            "$ref": "#/components/schemas/Project"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Project"
+              }
+            ],
+            "description": "The requested Project."
           }
         }
       },
@@ -1795,7 +2032,12 @@
         "type": "object",
         "properties": {
           "samlConnection": {
-            "$ref": "#/components/schemas/SAMLConnection"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SAMLConnection"
+              }
+            ],
+            "description": "The requested SAML Connection."
           }
         }
       },
@@ -1803,7 +2045,12 @@
         "type": "object",
         "properties": {
           "scimApiKey": {
-            "$ref": "#/components/schemas/SCIMAPIKey"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SCIMAPIKey"
+              }
+            ],
+            "description": "The requested SCIM API Key."
           }
         }
       },
@@ -1811,7 +2058,12 @@
         "type": "object",
         "properties": {
           "session": {
-            "$ref": "#/components/schemas/Session"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Session"
+              }
+            ],
+            "description": "The requested Session."
           }
         }
       },
@@ -1819,7 +2071,12 @@
         "type": "object",
         "properties": {
           "userInvite": {
-            "$ref": "#/components/schemas/UserInvite"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/UserInvite"
+              }
+            ],
+            "description": "The requested User Invite."
           }
         }
       },
@@ -1827,7 +2084,12 @@
         "type": "object",
         "properties": {
           "user": {
-            "$ref": "#/components/schemas/User"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/User"
+              }
+            ],
+            "description": "The requested User."
           }
         }
       },
@@ -1838,10 +2100,12 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Organization"
-            }
+            },
+            "description": "A list of Organizations."
           },
           "nextPageToken": {
-            "type": "string"
+            "type": "string",
+            "description": "The pagination token for the next page of results. Empty if there is no\n next page."
           }
         }
       },
@@ -1852,10 +2116,12 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Passkey"
-            }
+            },
+            "description": "A list of Passkeys."
           },
           "nextPageToken": {
-            "type": "string"
+            "type": "string",
+            "description": "The pagination token for the next page of results. Empty if there is no next page."
           }
         }
       },
@@ -1866,10 +2132,12 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/SAMLConnection"
-            }
+            },
+            "description": "A list of SAML Connections."
           },
           "nextPageToken": {
-            "type": "string"
+            "type": "string",
+            "description": "The pagination token for the next page of results. Empty if there is no\n next page."
           }
         }
       },
@@ -1880,10 +2148,12 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/SCIMAPIKey"
-            }
+            },
+            "description": "A list of SCIM API Keys."
           },
           "nextPageToken": {
-            "type": "string"
+            "type": "string",
+            "description": "The pagination token for the next page of results. Empty if there is no\n next page."
           }
         }
       },
@@ -1894,10 +2164,12 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Session"
-            }
+            },
+            "description": "A list of Sessions."
           },
           "nextPageToken": {
-            "type": "string"
+            "type": "string",
+            "description": "The pagination token for the next page of results. Empty if there is no next page."
           }
         }
       },
@@ -1908,10 +2180,12 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/UserInvite"
-            }
+            },
+            "description": "A list of User Invites."
           },
           "nextPageToken": {
-            "type": "string"
+            "type": "string",
+            "description": "The pagination token for the next page of results. Empty if there is no next page."
           }
         }
       },
@@ -1922,10 +2196,12 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/User"
-            }
+            },
+            "description": "A list of Users."
           },
           "nextPageToken": {
-            "type": "string"
+            "type": "string",
+            "description": "The pagination token for the next page of results. Empty if there is no next page."
           }
         }
       },
@@ -1933,189 +2209,263 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "The Organization ID. Starts with `org_...`."
           },
           "displayName": {
-            "type": "string"
+            "type": "string",
+            "description": "A human-friendly name for the Organization."
           },
           "createTime": {
             "type": "string",
+            "description": "When the Organization was created.",
             "format": "date-time"
           },
           "updateTime": {
             "type": "string",
+            "description": "When the Organization was last updated.",
             "format": "date-time"
           },
           "logInWithGoogle": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether the Organization supports \"Log in with Google\"."
           },
           "logInWithMicrosoft": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether the Organization supports \"Log in with Microsoft\"."
           },
           "logInWithEmail": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether the Organization supports \"Log in with email\"."
           },
           "logInWithPassword": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether the Organization supports \"Log in with password\"."
           },
           "logInWithSaml": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether the Organization supports \"Log in with SAML\"."
           },
           "logInWithAuthenticatorApp": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether the Organization supports authenticator apps as a secondary auth factor."
           },
           "logInWithPasskey": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether the Organization supports passkeys as a secondary auth factor."
           },
           "requireMfa": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether the Organization requires a secondary auth factor."
           },
           "scimEnabled": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether the Organization has SCIM enabled."
           }
-        }
+        },
+        "description": "An Organization represents one of your corporate customers."
+      },
+      "OrganizationDomains": {
+        "type": "object",
+        "properties": {
+          "organizationId": {
+            "type": "string",
+            "description": "The ID of the Organization."
+          },
+          "domains": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "A list of domains associated with the organization.\n\n When an Organization uses SAML or SCIM, only emails from this list are\n permitted."
+          }
+        },
+        "description": "OrganizationDomains defines the domains associated with an Organization."
       },
       "OrganizationGoogleHostedDomains": {
         "type": "object",
         "properties": {
           "organizationId": {
-            "type": "string"
+            "type": "string",
+            "description": "The ID of the Organization."
           },
           "googleHostedDomains": {
             "type": "array",
             "items": {
               "type": "string"
-            }
+            },
+            "description": "A list of Google-hosted domains associated with the organization.\n\n These values correspond to Google OAuth `hd` claims:\n\n https://developers.google.com/identity/openid-connect/openid-connect#obtainuserinfo"
           }
-        }
+        },
+        "description": "OrganizationGoogleHostedDomains represents the Google Hosted Domains (\"HDs\")\n associated with an Organization."
       },
       "OrganizationMicrosoftTenantIDs": {
         "type": "object",
         "properties": {
           "organizationId": {
-            "type": "string"
+            "type": "string",
+            "description": "The ID of the Organization."
           },
           "microsoftTenantIds": {
             "type": "array",
             "items": {
               "type": "string"
-            }
+            },
+            "description": "A list of Microsoft Tenant IDs associated with the organization.\n\n These values correspond to Microsoft OAuth `tid` claims:\n\n https://learn.microsoft.com/en-us/entra/identity-platform/id-token-claims-reference"
           }
-        }
+        },
+        "description": "OrganizationMicrosoftTenantIDs represents the Microsoft Tenant IDs (\"TIDs\")\n associated with an Organization."
       },
       "Passkey": {
         "type": "object",
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "The Passkey ID. Starts with `passkey_...`."
           },
           "userId": {
-            "type": "string"
+            "type": "string",
+            "description": "The User this Passkey belongs to."
           },
           "createTime": {
             "type": "string",
+            "description": "The timestamp of when the Passkey was created.",
             "format": "date-time"
           },
           "updateTime": {
             "type": "string",
+            "description": "The timestamp of when the Passkey was last updated.",
             "format": "date-time"
           },
           "disabled": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Indicates whether the Passkey is disabled."
           },
           "credentialId": {
             "type": "string",
+            "description": "The unique credential ID for the Passkey, as a binary value.",
             "format": "bytes"
           },
           "publicKeyPkix": {
-            "type": "string"
+            "type": "string",
+            "description": "The public key associated with the Passkey, in PEM-encoded PKIX format.\n\n Starts with `-----BEGIN PUBLIC KEY-----`."
           },
           "aaguid": {
-            "type": "string"
+            "type": "string",
+            "description": "The Authenticator Attestation GUID (AAGUID) for the Passkey."
           },
           "rpId": {
-            "type": "string"
+            "type": "string",
+            "description": "The relying party ID associated with the Passkey."
           }
-        }
+        },
+        "description": "Passkey represents a WebAuthn public key credential registered by a User."
       },
       "Project": {
         "type": "object",
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "The Project ID. Starts with `project_...`."
           },
           "displayName": {
-            "type": "string"
+            "type": "string",
+            "description": "A human-friendly name for the Project."
           },
           "createTime": {
             "type": "string",
+            "description": "When the Project was created.",
             "format": "date-time"
           },
           "updateTime": {
             "type": "string",
+            "description": "When the Project was last modified.",
             "format": "date-time"
           },
           "logInWithGoogle": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether the Project supports \"Log in with Google\"."
           },
           "logInWithMicrosoft": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether the Project supports \"Log in with Microsoft\"."
           },
           "logInWithEmail": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether the Project supports \"Log in with email\"."
           },
           "logInWithPassword": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether the Project supports \"Log in with password\"."
           },
           "logInWithSaml": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether the Project supports \"Log in with SAML\"."
           },
           "logInWithAuthenticatorApp": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether the Project supports authenticator apps as a secondary auth factor."
           },
           "logInWithPasskey": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether the Project supports passkeys as a secondary auth factor."
           },
           "googleOauthClientId": {
-            "type": "string"
+            "type": "string",
+            "description": "The OAuth Client ID to use for \"Log in with Google\"."
           },
           "googleOauthClientSecret": {
-            "type": "string"
+            "type": "string",
+            "description": "The OAuth Client Secret to use for \"Log in with Google\".\n\n This field is write-only."
           },
           "microsoftOauthClientId": {
-            "type": "string"
+            "type": "string",
+            "description": "The OAuth Client ID to use for \"Log in with Microsoft\"."
           },
           "microsoftOauthClientSecret": {
-            "type": "string"
+            "type": "string",
+            "description": "The OAuth Client Secret to use for \"Log in with Microsoft\".\n\n This field is write-only."
           },
           "vaultDomain": {
-            "type": "string"
+            "type": "string",
+            "description": "The domain where the Project's Vault lives."
           },
           "trustedDomains": {
             "type": "array",
             "items": {
               "type": "string"
-            }
+            },
+            "description": "The set of domains the Project trusts.\n\n Client-side JavaScript on these domains can take actions on behalf of\n logged-in Users."
           },
           "redirectUri": {
-            "type": "string"
+            "type": "string",
+            "description": "Where Users are redirected after returning from the Vault."
           },
           "afterLoginRedirectUri": {
-            "type": "string"
+            "type": "string",
+            "description": "Where Users are redirected after logging in."
           },
           "afterSignupRedirectUri": {
-            "type": "string"
+            "type": "string",
+            "description": "Where Users are redirected after signing up."
           },
           "emailSendFromDomain": {
-            "type": "string"
+            "type": "string",
+            "description": "Emails sent to Users come from this domain."
           }
-        }
+        },
+        "description": "Projects are the top-level object in Tesseral.\n\n Everything in Tesseral happens within the context of a Project."
       },
       "RevokeSCIMAPIKeyResponse": {
         "type": "object",
         "properties": {
           "scimApiKey": {
-            "$ref": "#/components/schemas/SCIMAPIKey"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SCIMAPIKey"
+              }
+            ],
+            "description": "The revoked SCIM API Key."
           }
         }
       },
@@ -2123,90 +2473,129 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "The SAML Connection ID. Starts with `saml_connection_...`."
           },
           "organizationId": {
-            "type": "string"
+            "type": "string",
+            "description": "The Organization this SAML Connection belongs to."
           },
           "createTime": {
             "type": "string",
+            "description": "When the SAML Connection was created.",
             "format": "date-time"
           },
           "updateTime": {
             "type": "string",
+            "description": "When the SAML Connection was last updated.",
             "format": "date-time"
           },
           "primary": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether this is the primary SAML Connection for the Organization."
           },
           "spAcsUrl": {
-            "type": "string"
+            "type": "string",
+            "description": "The Service Provider Assertion Consumer Service (ACS) URL."
           },
           "spEntityId": {
-            "type": "string"
+            "type": "string",
+            "description": "The Service Provider Entity ID."
           },
           "idpRedirectUrl": {
-            "type": "string"
+            "type": "string",
+            "description": "The Identity Provider Redirect URL."
           },
           "idpX509Certificate": {
-            "type": "string"
+            "type": "string",
+            "description": "The Identity Provider certificate, in PEM-encoded X.509 format.\n\n Starts with `----BEGIN CERTIFICATE----`."
           },
           "idpEntityId": {
-            "type": "string"
+            "type": "string",
+            "description": "The Identity Provider Entity ID."
           }
-        }
+        },
+        "description": "SAMLConnection represents a SAML configuration for an Organization."
       },
       "SCIMAPIKey": {
         "type": "object",
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "The SCIM API Key ID. Starts with `scim_api_key_...`."
           },
           "organizationId": {
-            "type": "string"
+            "type": "string",
+            "description": "The Organization this SCIM API Key belongs to."
           },
           "createTime": {
             "type": "string",
+            "description": "When the SCIM API Key was created.",
             "format": "date-time"
           },
           "updateTime": {
             "type": "string",
+            "description": "When the SCIM API Key was last updated.",
             "format": "date-time"
           },
           "displayName": {
-            "type": "string"
+            "type": "string",
+            "description": "A human-readable display name for this SCIM API Key."
           },
           "secretToken": {
-            "type": "string"
+            "type": "string",
+            "description": "The secret token for this SCIM API Key."
           },
           "revoked": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether this SCIM API Key is revoked."
           }
-        }
+        },
+        "description": "SCIMAPIKey represents an API key for SCIM operations."
       },
       "Session": {
         "type": "object",
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "The Session ID. Starts with `session_...`."
           },
           "userId": {
-            "type": "string"
+            "type": "string",
+            "description": "The User this Session belongs to."
           },
           "revoked": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether the Session is revoked."
           },
           "createTime": {
             "type": "string",
+            "description": "When the Session was created.",
             "format": "date-time"
           },
           "lastActiveTime": {
             "type": "string",
+            "description": "When the Session was last active.",
             "format": "date-time"
           },
           "expireTime": {
             "type": "string",
+            "description": "When the Session expires.",
             "format": "date-time"
+          }
+        },
+        "description": "Represents a Session for a logged-in User."
+      },
+      "UpdateOrganizationDomainsResponse": {
+        "type": "object",
+        "properties": {
+          "organizationDomains": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/OrganizationDomains"
+              }
+            ],
+            "description": "The updated Organization Domains."
           }
         }
       },
@@ -2214,7 +2603,12 @@
         "type": "object",
         "properties": {
           "organizationGoogleHostedDomains": {
-            "$ref": "#/components/schemas/OrganizationGoogleHostedDomains"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/OrganizationGoogleHostedDomains"
+              }
+            ],
+            "description": "The updated Google Hosted Domains for the Organization."
           }
         }
       },
@@ -2222,7 +2616,12 @@
         "type": "object",
         "properties": {
           "organizationMicrosoftTenantIds": {
-            "$ref": "#/components/schemas/OrganizationMicrosoftTenantIDs"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/OrganizationMicrosoftTenantIDs"
+              }
+            ],
+            "description": "The updated Microsoft Tenant IDs for the Organization."
           }
         }
       },
@@ -2230,7 +2629,12 @@
         "type": "object",
         "properties": {
           "organization": {
-            "$ref": "#/components/schemas/Organization"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Organization"
+              }
+            ],
+            "description": "The updated Organization."
           }
         }
       },
@@ -2238,7 +2642,12 @@
         "type": "object",
         "properties": {
           "passkey": {
-            "$ref": "#/components/schemas/Passkey"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Passkey"
+              }
+            ],
+            "description": "The updated Passkey."
           }
         }
       },
@@ -2246,7 +2655,12 @@
         "type": "object",
         "properties": {
           "samlConnection": {
-            "$ref": "#/components/schemas/SAMLConnection"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SAMLConnection"
+              }
+            ],
+            "description": "The updated SAML Connection."
           }
         }
       },
@@ -2254,7 +2668,12 @@
         "type": "object",
         "properties": {
           "scimApiKey": {
-            "$ref": "#/components/schemas/SCIMAPIKey"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SCIMAPIKey"
+              }
+            ],
+            "description": "The updated SCIM API Key."
           }
         }
       },
@@ -2262,7 +2681,12 @@
         "type": "object",
         "properties": {
           "user": {
-            "$ref": "#/components/schemas/User"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/User"
+              }
+            ],
+            "description": "The updated User."
           }
         }
       },
@@ -2270,60 +2694,77 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "The User ID. Starts with `user_...`."
           },
           "organizationId": {
-            "type": "string"
+            "type": "string",
+            "description": "The Organization this User belongs to."
           },
           "email": {
-            "type": "string"
+            "type": "string",
+            "description": "The User's email address.\n\n This email is verified and unique within the Organization. Two Users in\n different Organizations may have the same email."
           },
           "createTime": {
             "type": "string",
+            "description": "When the User was created.",
             "format": "date-time"
           },
           "updateTime": {
             "type": "string",
+            "description": "When the User was last updated.",
             "format": "date-time"
           },
           "owner": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether the User is an owner of their Organization."
           },
           "googleUserId": {
-            "type": "string"
+            "type": "string",
+            "description": "The Google User ID, if the User has ever logged in with Google."
           },
           "microsoftUserId": {
-            "type": "string"
+            "type": "string",
+            "description": "The Microsoft User ID, if the User has ever logged in with Microsoft."
           },
           "hasAuthenticatorApp": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether the User has an authenticator app set up."
           }
-        }
+        },
+        "description": "A User represents an individual working for one of your corporate customers."
       },
       "UserInvite": {
         "type": "object",
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "The User Invite ID. Starts with `user_invite_...`."
           },
           "organizationId": {
-            "type": "string"
+            "type": "string",
+            "description": "The Organization this User Invite belongs to."
           },
           "createTime": {
             "type": "string",
+            "description": "When the User Invite was created.",
             "format": "date-time"
           },
           "updateTime": {
             "type": "string",
+            "description": "When the User Invite was last updated.",
             "format": "date-time"
           },
           "email": {
-            "type": "string"
+            "type": "string",
+            "description": "The invitee's email address."
           },
           "owner": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Indicates whether the invited User will have owner privileges in the\n Organization."
           }
-        }
+        },
+        "description": "UserInvite represents an invitation for a User to join an Organization."
       },
       "APIError": {
         "type": "object",
