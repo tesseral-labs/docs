@@ -29,10 +29,11 @@ jobs:
           script: |
             const url = '${{ steps.generate-docs.outputs.url }}';
             const pr = context.payload.pull_request;
-            const response = await github.rest.checks.create({
+            const response = await github.rest.checks.createCommitStatus({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              name: 'Docs Preview URL',
-              head_sha: pr.head.sha,
-              details_url: url,
+              sha: pr.head.sha,
+              state: "success",
+              target_url: url,
+              description: "Docs Preview URL",
             });
