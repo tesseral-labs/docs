@@ -21,101 +21,101 @@ navigation:
       - section: Getting Started
         contents:
           - page: What is Tesseral?
-            path: ../pages/what-is-tesseral.md
+            path: ./pages/what-is-tesseral.md
           - page: Quickstart
-            path: ../pages/quickstart.md
+            path: ./pages/quickstart.md
           - page: Customize
-            path: ../pages/customize.md
+            path: ./pages/customize.md
       - section: SDKs
         contents:
           - section: Clientside SDKs
             contents:
               - page: React
-                path: ../pages/sdks/clientside/react.md
+                path: ./pages/sdks/clientside/react.md
               - page: Vanilla JS
-                path: ../pages/sdks/clientside/vanilla-js.md
+                path: ./pages/sdks/clientside/vanilla-js.md
           - section: Serverside SDKs
             contents:
               - page: Node
-                path: ../pages/sdks/serverside/node.md
+                path: ./pages/sdks/serverside/node.md
               - page: Python
-                path: ../pages/sdks/serverside/python.md
+                path: ./pages/sdks/serverside/python.md
               - page: Go
-                path: ../pages/sdks/serverside/go.md
+                path: ./pages/sdks/serverside/go.md
       - section: Features
         contents:
           - page: Customizing Your Login Experience
-            path: ../pages/features/customizing-your-login-experience.md
+            path: ./pages/features/customizing-your-login-experience.md
           - page: B2B Multitenancy
-            path: ../pages/features/b2b-multitenancy.md
+            path: ./pages/features/b2b-multitenancy.md
           - page: User Management
-            path: ../pages/features/user-management.md
+            path: ./pages/features/user-management.md
           - page: Session Management
-            path: ../pages/features/session-management.md
+            path: ./pages/features/session-management.md
           - page: Multifactor Authentication (MFA)
-            path: ../pages/features/multifactor-authentication-mfa.md
+            path: ./pages/features/multifactor-authentication-mfa.md
           - page: SAML SSO
-            path: ../pages/features/saml-sso.md
+            path: ./pages/features/saml-sso.md
           - page: SCIM Provisioning
-            path: ../pages/features/scim-provisioning.md
+            path: ./pages/features/scim-provisioning.md
           - page: Transactional Emails
-            path: ../pages/features/transactional-emails.md
+            path: ./pages/features/transactional-emails.md
           - page: User Impersonation
-            path: ../pages/features/user-impersonation.md
+            path: ./pages/features/user-impersonation.md
       - section: Login Methods
         contents:
           - section: Primary Factors
             contents:
               - page: Login with Email (Magic Links)
-                path: ../pages/login-methods/primary-factors/login-with-email-magic-links.md
+                path: ./pages/login-methods/primary-factors/login-with-email-magic-links.md
               - page: Login with Google
-                path: ../pages/login-methods/primary-factors/login-with-google.md
+                path: ./pages/login-methods/primary-factors/login-with-google.md
               - page: Login with Microsoft
-                path: ../pages/login-methods/primary-factors/login-with-microsoft.md
+                path: ./pages/login-methods/primary-factors/login-with-microsoft.md
               - page: Login with Password
-                path: ../pages/login-methods/primary-factors/login-with-password.md
+                path: ./pages/login-methods/primary-factors/login-with-password.md
               - page: Login with Enterprise SSO (SAML)
-                path: ../pages/login-methods/primary-factors/login-with-enterprise-sso-saml.md
+                path: ./pages/login-methods/primary-factors/login-with-enterprise-sso-saml.md
           - section: Secondary Factors
             contents:
               - page: Login with Passkey
-                path: ../pages/login-methods/secondary-factors/login-with-passkey.md
+                path: ./pages/login-methods/secondary-factors/login-with-passkey.md
               - page: Login with Authenticator App
-                path: ../pages/login-methods/secondary-factors/login-with-authenticator-app.md
+                path: ./pages/login-methods/secondary-factors/login-with-authenticator-app.md
       - section: "Concepts: Tesseral resources"
         slug: concepts
         contents:
           - page: Overview
-            path: ../pages/concepts/overview.md
+            path: ./pages/concepts/overview.md
           - page: Projects
-            path: ../pages/concepts/projects.md
+            path: ./pages/concepts/projects.md
           - page: Project API Keys
-            path: ../pages/concepts/project-api-keys.md
+            path: ./pages/concepts/project-api-keys.md
           - page: Publishable Keys
-            path: ../pages/concepts/publishable-keys.md
+            path: ./pages/concepts/publishable-keys.md
           - page: Organizations
-            path: ../pages/concepts/organizations.md
+            path: ./pages/concepts/organizations.md
           - page: Users
-            path: ../pages/concepts/users.md
+            path: ./pages/concepts/users.md
           - page: Sessions
-            path: ../pages/concepts/sessions.md
+            path: ./pages/concepts/sessions.md
           - page: Passkeys
-            path: ../pages/concepts/passkeys.md
+            path: ./pages/concepts/passkeys.md
           - page: SAML Connections
-            path: ../pages/concepts/saml-connections.md
+            path: ./pages/concepts/saml-connections.md
           - page: SCIM API Keys
-            path: ../pages/concepts/scim-api-keys.md
+            path: ./pages/concepts/scim-api-keys.md
           - page: User Invites
-            path: ../pages/concepts/user-invites.md
+            path: ./pages/concepts/user-invites.md
       - section: Self-Hosting Tesseral
         slug: self-hosting
         contents:
           - page: Self-Hosting Tesseral
-            path: ../pages/self-hosting/self-hosting.md
+            path: ./pages/self-hosting/self-hosting.md
       - section: Advanced
         contents:
           - page: How Tesseral Works
-            path: ../pages/advanced/how-tesseral-works.md
+            path: ./pages/advanced/how-tesseral-works.md
   - tab: backend-api
     layout:
       - api: "API Reference"
