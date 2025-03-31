@@ -239,8 +239,7 @@ click on your production Project (it's the one whose name doesn't end in "Dev").
 
 Go to Project Settings, and then the "Vault Domain Settings" tab. Click on
 "Edit", and under "Custom Vault Domain" you'll input `vault.XXX`, where `XXX` is
-your App Production URL, the domain you used for your "Production App URL" in
-the first section of this document.
+the domain of your App Production URL.
 
 You'll now get a set of DNS records you need to set up. Create those DNS
 records. Once those records are all correct and widely propagated, you can
