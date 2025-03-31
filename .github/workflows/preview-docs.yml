@@ -36,6 +36,7 @@ jobs:
               head_sha: pr.head.sha,
               status: 'completed',
               conclusion: url ? 'success' : 'failure',
+              details_url: url,
               output: {
                 title: 'Docs Preview',
                 summary: url ? `Preview available at [${url}](${url})` : 'No preview URL generated.'
