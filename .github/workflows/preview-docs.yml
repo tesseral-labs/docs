@@ -1,9 +1,9 @@
-name: preview-docs
+name: Preview Docs
 
 on: pull_request
 
 jobs:
-  run:
+  preview-docs:
     runs-on: ubuntu-latest
     permissions: write-all
     steps:
@@ -32,13 +32,7 @@ jobs:
             const response = await github.rest.checks.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              name: 'Preview Docs',
+              name: 'Docs Preview URL',
               head_sha: pr.head.sha,
-              status: 'completed',
-              conclusion: url ? 'success' : 'failure',
               details_url: url,
-              output: {
-                title: 'Docs Preview',
-                summary: url ? `Preview available at [${url}](${url})` : 'No preview URL generated.'
-              }
             });
