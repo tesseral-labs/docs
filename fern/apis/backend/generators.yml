@@ -7,7 +7,7 @@ groups:
   node:
     generators:
       - name: fernapi/fern-typescript-node-sdk
-        version: 0.39.3
+        version: 0.49.6
         output:
           location: npm
           package-name: '@tesseral/tesseral-node'
