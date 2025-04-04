@@ -173,6 +173,7 @@ document.components.schemas = {
         "description": "If this is an impersonated Session, this contains information about who on\n your staff is impersonating the user."
       }
     },
+    "required": ["iss", "sub", "aud", "exp", "nbf", "iat", "organization", "user", "session"],
     "description": "The claims encoded in an Access Token."
   },
   "AccessTokenImpersonator": {
@@ -183,6 +184,7 @@ document.components.schemas = {
         "description": "The email address of the individual on your staff impersonating the User."
       }
     },
+    "required": ["email"],
     "description": "Information in an Access Token about who is impersonating the User."
   },
   "AccessTokenOrganization": {
@@ -197,6 +199,7 @@ document.components.schemas = {
         "description": "The Organization's display name."
       }
     },
+    "required": ["id", "displayName"],
     "description": "Information in an Access Token about the Organization the User is logged\n into."
   },
   "AccessTokenSession": {
@@ -207,6 +210,7 @@ document.components.schemas = {
         "description": "The Session ID."
       }
     },
+    "required": ["id"],
     "description": "Information in an Access Token about the current Session."
   },
   "AccessTokenUser": {
@@ -219,12 +223,9 @@ document.components.schemas = {
       "email": {
         "type": "string",
         "description": "The User's email."
-      },
-      "displayName": {
-        "type": "string",
-        "description": "The User's display name."
       }
     },
+    "required": ["id", "email"],
     "description": "Information in an Access Token about the logged-in User."
   },
 }

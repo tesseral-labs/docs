@@ -1229,6 +1229,41 @@
         "summary": "Set Password"
       }
     },
+    "/frontend/v1/switch-organizations/organizations": {
+      "get": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_ListSwitchableOrganizations",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListSwitchableOrganizationsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "Me",
+        "x-fern-sdk-method-name": "ListSwitchableOrganizations",
+        "summary": "List Switchable Organizations"
+      }
+    },
     "/frontend/v1/user-invites": {
       "get": {
         "tags": [
@@ -1774,6 +1809,17 @@
           }
         }
       },
+      "ListSwitchableOrganizationsResponse": {
+        "type": "object",
+        "properties": {
+          "switchableOrganizations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SwitchableOrganization"
+            }
+          }
+        }
+      },
       "ListUserInvitesResponse": {
         "type": "object",
         "properties": {
@@ -2102,6 +2148,17 @@
         "type": "object",
         "properties": {}
       },
+      "SwitchableOrganization": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          }
+        }
+      },
       "UpdateOrganizationGoogleHostedDomainsResponse": {
         "type": "object",
         "properties": {
@@ -2305,6 +2362,17 @@
             "description": "If this is an impersonated Session, this contains information about who on\n your staff is impersonating the user."
           }
         },
+        "required": [
+          "iss",
+          "sub",
+          "aud",
+          "exp",
+          "nbf",
+          "iat",
+          "organization",
+          "user",
+          "session"
+        ],
         "description": "The claims encoded in an Access Token."
       },
       "AccessTokenImpersonator": {
@@ -2315,6 +2383,9 @@
             "description": "The email address of the individual on your staff impersonating the User."
           }
         },
+        "required": [
+          "email"
+        ],
         "description": "Information in an Access Token about who is impersonating the User."
       },
       "AccessTokenOrganization": {
@@ -2329,6 +2400,10 @@
             "description": "The Organization's display name."
           }
         },
+        "required": [
+          "id",
+          "displayName"
+        ],
         "description": "Information in an Access Token about the Organization the User is logged\n into."
       },
       "AccessTokenSession": {
@@ -2339,6 +2414,9 @@
             "description": "The Session ID."
           }
         },
+        "required": [
+          "id"
+        ],
         "description": "Information in an Access Token about the current Session."
       },
       "AccessTokenUser": {
@@ -2351,12 +2429,12 @@
           "email": {
             "type": "string",
             "description": "The User's email."
-          },
-          "displayName": {
-            "type": "string",
-            "description": "The User's display name."
           }
         },
+        "required": [
+          "id",
+          "email"
+        ],
         "description": "Information in an Access Token about the logged-in User."
       }
     },
