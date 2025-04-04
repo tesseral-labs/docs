@@ -14,6 +14,8 @@ groups:
           token: ${NPM_TOKEN}
         github:
           repository: tesseral-labs/tesseral-sdk-node
+          license: MIT
+          mode: pull-request
         smart-casing: true
         config:
           namespaceExport: Tesseral
@@ -30,6 +32,8 @@ groups:
           token: ${PYPI_TOKEN}
         github:
           repository: tesseral-labs/tesseral-sdk-python
+          license: MIT
+          mode: pull-request
         smart-casing: true
         config:
           client_class_name: Tesseral
@@ -42,6 +46,8 @@ groups:
         version: 0.36.5
         github:
           repository: tesseral-labs/tesseral-sdk-go
+          license: MIT
+          mode: pull-request
         config:
           packageName: tesseral
           union: v1
