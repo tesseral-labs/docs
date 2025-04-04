@@ -14,6 +14,8 @@ groups:
           token: ${NPM_TOKEN}
         github:
           repository: tesseral-labs/tesseral-sdk-vanilla-clientside-js
+          license: MIT
+          mode: pull-request
         smart-casing: true
         config:
           namespaceExport: Tesseral
