@@ -43,7 +43,7 @@ groups:
   go:
     generators:
       - name: fernapi/fern-go-sdk
-        version: 0.37.0
+        version: 0.37.2
         github:
           repository: tesseral-labs/tesseral-sdk-go
           license: MIT
