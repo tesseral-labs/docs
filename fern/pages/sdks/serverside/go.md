@@ -1,5 +1,6 @@
 ---
 title: Tesseral for Go
+subtitle: Add B2B auth support to your Golang app in just a few lines of code.
 ---
 
 Tesseral's Go SDK lets you add authentication to your Go backend code.

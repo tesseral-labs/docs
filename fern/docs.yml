@@ -27,20 +27,32 @@ navigation:
           - page: Customize
             path: ./pages/customize.md
       - section: SDKs
+        slug: 'sdks'
         contents:
           - section: Clientside SDKs
+            slug: 'clientside-sdks'
             contents:
               - page: React
                 path: ./pages/sdks/clientside/react.md
               - page: Vanilla JS
                 path: ./pages/sdks/clientside/vanilla-js.md
           - section: Serverside SDKs
+            slug: 'serverside-sdks'
             contents:
-              - page: Node
-                path: ./pages/sdks/serverside/node.md
-              - page: Python
-                path: ./pages/sdks/serverside/python.md
+              - section: Node.js
+                skip-slug: true
+                contents:
+                  - page: Express
+                    path: ./pages/sdks/serverside/node/express.md
+                    slug: tesseral-sdk-express
+              - section: Python
+                skip-slug: true
+                contents:
+                  - page: Flask
+                    path: ./pages/sdks/serverside/python/flask.md
+                    slug: tesseral-sdk-flask
               - page: Go
+                slug: tesseral-sdk-go
                 path: ./pages/sdks/serverside/go.md
       - section: Features
         contents:
