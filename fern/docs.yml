@@ -47,6 +47,7 @@ navigation:
           - page: Customizing Your Login Experience
             path: ./pages/features/customizing-your-login-experience.md
           - page: B2B Multitenancy
+            slug: 'b2b-multitenancy'
             path: ./pages/features/b2b-multitenancy.md
           - page: User Management
             path: ./pages/features/user-management.md
