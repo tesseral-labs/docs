@@ -23,7 +23,10 @@ import "github.com/tesseral-labs/tesseral-sdk-go/auth"
 http.ListenAndServe("...", server)
 
 // after
-http.ListenAndServe("...", auth.RequireAuth(server, auth.WithPublishableKey("publishable_key_..."))
+http.ListenAndServe("...", auth.RequireAuth(
+    server, 
+    auth.WithPublishableKey("publishable_key_..."),
+))
 ```
 
 Replace `publishable_key_...` with your project's Publishable Key. You get can
