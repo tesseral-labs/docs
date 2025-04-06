@@ -19,6 +19,7 @@ navigation:
   - tab: documentation
     layout:
       - section: Getting Started
+        skip-slug: true
         contents:
           - page: What is Tesseral?
             path: ./pages/what-is-tesseral.md
