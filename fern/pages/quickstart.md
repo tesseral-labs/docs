@@ -79,172 +79,184 @@ automatically send authentication information in its requests to your server.
     Now, when you visit your webapp, your customers will automatically be redirected
     to a Tesseral-hosted login flow if they're not already logged in.
   </Step>
-
-  <Step title="Add an access token to all your requests to your backend API">
-    Your webapp now has a login gate. The last step is to make your React code's
-    requests to your backend include proof that they're legitimately logged in.
-
-    Take every place where your code sends `fetch` / `axios` / etc requests to your
-    backend, and call `useAccessToken()` to add an `Authorization` header to those
-    requests:
-
-
-    <CodeBlocks>
-    ```typescript {9} title="Example with fetch"
-    import { useAccessToken } from "@tesseral/tesseral-react";
-
-    const useFetch = (...) => {
-      const accessToken = useAccessToken()
-  
-      fetch("...", {
-        // ...
-        headers: {
-          Authorization: `Bearer ${accessToken}`
-        },
-      });
-    }
-    ```
-
-    ```typescript {9} title="Example with axios"
-    import { useAccessToken } from "@tesseral/tesseral-react";
-    
-    const useAxiosClient = (...) => {
-      const accessToken = useAccessToken();
-
-      return axios.create({
-        // ...
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      });
-    }
-    ```
-    </CodeBlocks>
-  </Step>
 </Steps>
 
 # Add Tesseral to your serverside code
 
-<Note>
-  We're working on more batteries-included backend SDKs. What you're seeing below
-  are our low-level SDKs. We are aware that these require too much work to set up.
-</Note>
-
-Tesseral provides SDKs for Python, Node (and Bun, Deno, etc.), and Golang
-backends. Install those SDKs and use them to authenticate all requests that go
-by. You'll need the Publishable Key you created previously.
+Tesseral provides SDKs for
+[Express.js](/docs/sdks/serverside-sdks/tesseral-sdk-express),
+[Flask](/docs/sdks/serverside-sdks/tesseral-sdk-flask), and
+[Golang](/docs/sdks/serverside-sdks/tesseral-sdk-go). You'll need the
+Publishable Key you created previously.
 
 <Tabs>
-  <Tab title="Node">
-    <Info>
-      These instructions focus on Node.js, but Bun and Deno are supported too.
-    </Info>
-
-    Install the Tesseral Node.js SDK by running:
+  <Tab title="Express.js">
+    Install the Tesseral Express.js SDK by running:
 
     ```bash
-    npm install @tesseral/tesseral-node
+    npm install @tesseral/tesseral-express
     ```
 
-    And then create a `TesseralAuthenticator`:
+    And then add `requireAuth()` to your Express app:
 
     ```typescript
-    import { TesseralAuthenticator } from "@tesseral/tesseral-node";
-
-    const authenticator = new TesseralAuthenticator({ publishableKey: "publishable_key_..." })
+    import express from "express";
+    import { requireAuth } from "@tesseral/tesseral-express";
+    
+    const app = express();
+    
+    // before
+    // app.listen(...)
+    
+    // after
+    app.use(
+      requireAuth({
+        publishableKey: "publishable_key_...",
+      }),
+    );
+    
+    app.listen(8080, "localhost", () => {
+      console.log("Listening on http://localhost:8080");
+    });
     ```
 
-    To authenticate requests that go by, run `authenticateAccessToken` on every
-    request that goes by:
+    Replace `publishable_key_...` with the same publishable key you used for your
+    frontend.
 
-    ```typescript
-    // adapt this to how you do http server middleware in your project
-    async function middleware(request) {
-      try {
-        await authenticator.authenticateAccessToken({ 
-          accessToken: request.headers["Authorization"].replace("Bearer ", ""), 
-        })
-      } catch {
-        return "401 Unauthorized";
-      }
-    }
+    All requests to your backend are now server-side authenticated. Anywhere in your
+    code where you need to know which customer you're talking to, you can use
+    `organizationId()`:
+
+    ```ts
+    import { organizationId } from "@tesseral/tesseral-express";
+    
+    app.get("/", (req, res) => {
+      console.log(`you work for ${organizationId(req)}`)
+    });
     ```
+
+    For more documentation, check out the [Tesseral Express.js SDK
+    docs](/docs/sdks/serverside-sdks/tesseral-sdk-express).
   </Tab>
 
-  <Tab title="Python">
-    Install the Tesseral Python SDK by running:
+  <Tab title="Flask">
+    Install the Tesseral Flask SDK by running:
 
     ```bash
-    pip install tesseral
+    pip install tesseral-flask
     ```
 
-    And then create a Tesseral `Authenticator` or `AsyncAuthenticator`:
+    And then add `require_auth()` to your Flask app:
 
     ```python
-    import TesseralAuthenticator from tesseral.authenticator
-
-    authenticator = TesseralAuthenticator(publishable_key="publishable_key_...")
+    from flask import Flask
+    from tesseral_flask import require_auth
+    
+    app = Flask(__name__)
+    
+    app.before_request(require_auth(publishable_key="publishable_key_..."))
     ```
 
-    To authenticate requests that go by, run `authenticate_access_token` on every
-    request that goes by:
+    Replace `publishable_key_...` with the same publishable key you used for your
+    frontend.
+
+    All requests to your backend are now server-side authenticated. Anywhere in your
+    code where you need to know which customer you're talking to, you can use
+    `organization_id()`:
 
     ```python
-    # adapt this to how you do http server middleware in your project
-    def middleware(request):
-        try:
-            authenticator.authenticate_access_token(request.headers["Authorization"].removeprefix("Bearer "))
-        except:
-            return "401 Unauthorized"
+    from tesseral_flask import organization_id
+    
+    organization_id()  # returns a string like "org_..."
     ```
+
+    For more documentation, check out the [Tesseral Flask SDK
+    docs](/docs/sdks/serverside-sdks/tesseral-sdk-flask).
   </Tab>
 
   <Tab title="Go">
-    Install the Tesseral Python SDK by running:
+    Install the Tesseral Go SDK by running:
 
     ```bash
     go get github.com/tesseral-labs/tesseral-sdk-go
     ```
 
-    And then create a Tesseral `Authenticator`:
+    And then add `auth.RequireAuth` to your server:
 
     ```go
-    import "github.com/tesseral-labs/tesseral-sdk-go/authenticator"
-
-    auth := authenticator.NewAuthenticator(authenticator.WithPublishableKey("publishable_key_..."))
+    import "github.com/tesseral-labs/tesseral-sdk-go/auth"
+    
+    // before
+    // http.ListenAndServe("...", server)
+    
+    // after
+    http.ListenAndServe("...", auth.RequireAuth(
+        server,
+        auth.WithPublishableKey("publishable_key_..."),
+    ))
     ```
 
-    To authenticate requests that go by, run `AuthenticateAccessToken` on every
-    request that goes by:
+    Replace `publishable_key_...` with the same publishable key you used for your
+    frontend.
+
+    All requests to your backend are now server-side authenticated. Anywhere in your
+    code where you need to know which customer you're talking to, you can use
+    `auth.OrganizationID(ctx)`:
 
     ```go
-    func withAuthentication(h http.Handler) http.Handler {
-        return http.HandlerFunc(func (w http.ResponseWriter, r *http.Request)) {
-            if err := auth.AuthenticateAccessToken(strings.StripPrefix("Bearer ", r.Header.Get("Authorization")); err != nil {
-                w.WriteHeader(http.StatusUnauthorized)
-                return;
-            }
-
-            h.ServeHTTP(w, r)
-        })
+    func(w http.ResponseWriter, r *http.Request) {
+        ctx := r.Context()
+        
+        fmt.Println("you work for:", auth.OrganizationID(ctx))   
     }
     ```
+
+    For more documentation, check out the [Tesseral Go SDK
+    docs](/docs/sdks/serverside-sdks/tesseral-sdk-go).
   </Tab>
 </Tabs>
 
 # Going to Production
 
-Go to the Tesseral Console. Click on the Project Switcher at the top left, and
-click on your production Project (it's the one whose name doesn't end in "Dev").
+In the previous two sections, you added authentication to your
+[frontend](#add-tesseral-to-your-clientside-code) and
+[backend](#add-tesseral-to-your-serverside-code). Both of these were running on
+localhost. To go to production, you need to:
 
-Go to Project Settings, and then the "Vault Domain Settings" tab. Click on
-"Edit", and under "Custom Vault Domain" you'll input `vault.XXX`, where `XXX` is
-the domain of your App Production URL.
+1. Use your production publishable keys, instead of the dev ones you've used so
+   far. This is the only code change you need to make.
 
-You'll now get a set of DNS records you need to set up. Create those DNS
-records. Once those records are all correct and widely propagated, you can
-enable your Custom Vault Domain.
+2. Go into the Tesseral Console, and configure a custom domain for your
+   Project's Vault. Right now, your production Project uses a Tesseral-assigned
+   URL that looks like `project-[...].tesseral.app`.
+
+   In production, you will a domain you control instead of one Tesseral provides
+   for you. You'll use a domain that looks like `vault.app.company.com` or
+   `vault.company.com`, depending on whether you use `app.company.com` or
+   `company.com` as your App Production URL.
+
+Here is how you configure a custom domain for your Project's Vault:
+
+1. Go to the Tesseral Console. Click on the Project Switcher at the top left,
+   and click on your production Project (it's the one whose name doesn't end in
+   "Dev").
+
+2. Go to Project Settings, and then the "Vault Domain Settings" tab. Click on
+   "Edit", and under "Custom Vault Domain" you'll input `vault.XXX`, where `XXX`
+   is the domain of your App Production URL that you used in ["Sign up for
+   Tesseral"](#sign-up-for-tesseral) above.
+
+   For example, if you used `https://app.company.com`, then use
+   `vault.app.company.com` as your production Project's Vault Domain.
+
+   If instead you used `https://company.com` (no `app.` or `console.` or
+   `dashboard.`-like subdomain), then use `vault.company.com` as your production
+   Project's Vault Domain.
+
+3. You'll now get a set of DNS records you need to set up. Create those DNS
+   records. Once those records are all correct and widely propagated, you can
+   enable your Custom Vault Domain.
 
 Now, when your customers are redirected to their login page, they'll see
-`vault.app.company.com` instead of the domain Tesseral automatically generated
-for your Project.
+`vault.app.company.com`. You can also [Customize](/docs/customize) the look here
+to make the experience seamless with your company's brand.

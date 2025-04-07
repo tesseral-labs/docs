@@ -20,7 +20,7 @@ handler with `auth.RequireAuth`:
 import "github.com/tesseral-labs/tesseral-sdk-go/auth"
 
 // before
-http.ListenAndServe("...", server)
+// http.ListenAndServe("...", server)
 
 // after
 http.ListenAndServe("...", auth.RequireAuth(
