@@ -21,7 +21,7 @@ It looks something like this:
 
 ```javascript
 
-<TesseralProvider publishableKey="publishable_key_0qo01898k369ncxc05oyyn8qn">
+<TesseralProvider publishableKey="publishable_key_0qo01238k456ncxc05oyyn8qn">
       <App />
 </TesseralProvider>
 
@@ -40,7 +40,7 @@ Publishable Keys have a few top-level properties:
 
 *Dev Mode* enables Tesseral to work on `localhost`. If you are using Tesseral with an app in local development, use a Publishable Key with Dev Mode set to `enabled`. If you are using Tesseral in production -- such that the Vault lives on a domain like `vault.app.myapp.com` -- you should use a Publishable Key with Dev Mode set to `disabled`.
 
-<Info> The mechanics of Dev Mode are quite involved and esoteric. They are **not** relevant to most developers. In short, some modern browsers limit Tesseral's ability to set cookies. Dev Mode navigates around such limitations on `localhost` by passing opaque data in a URL fragment. We have not yet published extensive public documentation on Dev Mode. If you wish to understand it in more detail, please reach out to contact@tesseral.com.</Info>
+<Info> The mechanics of Dev Mode are quite involved and esoteric. They are **not** relevant to most developers. In short, some modern browsers limit Tesseral's ability to set cookies. Dev Mode navigates around such limitations on `localhost` by passing opaque data in a URL fragment. We have not yet published extensive public documentation on Dev Mode. If you wish to understand Dev Mode in more detail, please reach out to contact@tesseral.com.</Info>
 
 
 ## Managing Publishable Keys
