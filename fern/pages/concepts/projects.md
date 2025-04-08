@@ -16,7 +16,7 @@ In fact, when you first sign up for Tesseral, we create *two* projects for you: 
 Projects directly relate to the following Tesseral concepts:
 * [Organizations](#projects-and-organizations)
 * [Publishable keys](#projects-and-publishable-keys)
-* [Project API keys](#projects-and-project-api-keys)
+* [Backend API keys](#projects-and-backend-api-keys)
 
 Projects have the following top level properties:
 
@@ -43,6 +43,35 @@ Projects have the following top level properties:
 * [After login redirect URI](#after-login-redirect-uri)
 * [After signup redirect URI](#after-signup-redirect-uri)
 * [Email send-from domain](#email-send-from-domain)
+
+
+### Related concepts
+
+#### Projects and Organizations
+
+[Organizations](/docs/concepts/organizations) in Tesseral correspond to businesses (or similar entities, such as schools or nonprofits) that use your application. Each Organization belongs to exactly one Project. A Project may -- and typically does -- have many Organizations. Organizations cannot exist outside of a Project. 
+
+You may view the Organizations within a Project. To do so, first navigate to the relevant Project. Then select *Organizations* from the navigation bar.
+
+#### Projects and Publishable Keys
+
+[Publishable Keys](/docs/concepts/publishable-keys) help Tesseral's [client-side SDKs](/docs/sdks/clientside) find your Project. A Publishable Key always identifies exactly one Project. However, a given Project may have many Publishable Keys. 
+
+A Publishable Key is not a secret. 
+
+You may view the Publishable Keys within a Project. To do so, first navigate to the relevant Project. Then select *Project API Keys* from the navigation bar. You will find the Publishable Keys for the Project on a card marked *Publishable Keys*. 
+
+#### Projects and Backend API Keys
+
+[Backend API Keys](/docs/concepts/backend-API-keys) identify your app to Tesseral's [backend API](/docs/backend-api-reference), which you'll often use with Tesseral's [server-side SDKs](/docs/sdks/serverside-sdks). A Backend API Key always identifies exactly one Project. However, a given Project may have many Backend API Keys. 
+
+Your Backend API Keys must always remain secret.
+
+You may view the Backend API Keys within a Project. To do so, first navigate to the relevant Project. Then select *Project API Keys* from the navigation bar. You will find the Backend API Keys for the Project on a card marked *Backend API Keys*. 
+
+
+
+
 
 ### Top-level properties
 #### ID
@@ -173,6 +202,12 @@ If you wish to override the Default Redirect URI in cases where users successful
 
 If you wish to override the Default Redirect URI in cases where users successfully *sign up*, you can optionally populate the *After-Signup Redirect URI*. Tesseral will redirect to this URI whenever a user successfully signs up. For example, you may wish to use the After-Signup Redirect URI to route new users into a specific onboarding flow. 
 
+#### Email Send-From Domain
 
+Tesseral often needs to send emails on your behalf. For example, Tesseral will require a new user to verify their email address -- which requires that Tesseral send the user an email. 
 
-#### Email send-from domain
+The *Email Send-From Domain* setting describes the mail domain from which Tesseral sends emails. By default, Tesseral sends such emails from `mail.tesseral.app`.
+
+You may optionally configure Tesseral to send emails from a domain that you control. You may, for instance, have Tesseral send emails from `mail.vault.myapp.com.`
+
+Learn more about transactional emails in Tesseral [here](/docs/features/transactional-emails). 
