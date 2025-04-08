@@ -103,8 +103,8 @@ navigation:
             path: ./pages/concepts/overview.md
           - page: Projects
             path: ./pages/concepts/projects.md
-          - page: Project API Keys
-            path: ./pages/concepts/project-api-keys.md
+          - page: Backend API Keys
+            path: ./pages/concepts/backend-api-keys.md
           - page: Publishable Keys
             path: ./pages/concepts/publishable-keys.md
           - page: Organizations
