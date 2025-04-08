@@ -132,6 +132,8 @@ navigation:
             path: ./pages/advanced/how-tesseral-works.md
   - tab: backend-api
     layout:
+      - page: Tesseral Backend API
+        path: ./pages/backend-api-reference/index.md
       - api: "API Reference"
         api-name: backend
         paginated: true
@@ -148,6 +150,8 @@ navigation:
               title: SCIM API Keys
   - tab: frontend-api
     layout:
+      - page: Tesseral Frontend API
+        path: ./pages/frontend-api-reference/index.md
       - api: "API Reference"
         api-name: frontend
         paginated: true
