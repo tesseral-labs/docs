@@ -142,11 +142,37 @@ You can generate a secret that both you and Microsoft know. This value is *sensi
 
 #### Vault domain
 
+Tesseral needs to host a login interface and set cookies. 
 
-#### Vault domain custom
+
 #### Trusted domains
+
+
 #### Cookie domain
-#### Redirect URI
-#### After login redirect URI
-#### After signup redirect URI
+
+
+#### Redirect URIs
+
+Tesseral frequently needs to redirect your users. Concretely, Tesseral redirects a user to your application in either of two scenarios:
+1. When the user successfully **logs in** through the [Vault UI](/docs/features/customizing-your-login-experience)
+2. When the user successfully **signs up** through the [Vault UI](/docs/features/customizing-your-login-experience)
+
+By default, Tesseral routes users to the same place in both scenarios using the [Default Redirect URI](#default-redirect-uri). However, you *can* use the [After-Login Redirect URI](#after-login-redirect-uri) and [After-Signup Redirect URI](#after-signup-redirect-uri) fields to deviate from default behavior.
+
+##### Default Redirect URI
+
+When you first sign up for Tesseral, the Tesseral console asks for two domains: one for your production app and another for where you run local development. Tesseral uses this data to populate the *Default Redirect URI* for your production and development Projects, respectively. By default, Tesseral redirects users to the Default Redirect UI whenever users successfully log in *or* sign up.
+
+
+##### After-Login Redirect URI
+
+If you wish to override the Default Redirect URI in cases where users successfully log in, you can optionally populate the *After-Login Redirect URI*. Tesseral will redirect to this URI whenever a user successfully logs in. 
+
+
+##### After-Signup Redirect URI
+
+If you wish to override the Default Redirect URI in cases where users successfully *sign up*, you can optionally populate the *After-Signup Redirect URI*. Tesseral will redirect to this URI whenever a user successfully signs up. For example, you may wish to use the After-Signup Redirect URI to route new users into a specific onboarding flow. 
+
+
+
 #### Email send-from domain
