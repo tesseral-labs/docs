@@ -111,8 +111,6 @@ navigation:
             path: ./pages/concepts/organizations.md
           - page: Users
             path: ./pages/concepts/users.md
-          - page: Sessions
-            path: ./pages/concepts/sessions.md
           - page: Passkeys
             path: ./pages/concepts/passkeys.md
           - page: SAML Connections
