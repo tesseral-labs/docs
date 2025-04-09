@@ -158,7 +158,7 @@ Login with Google uses a protocol called OAuth. To use Login with Google with yo
 
 When you register an application with Google, you will receive a *Client ID* from Google. 
 
-This is a *sensitive* string that both your application and Google know. It looks something like this: `ABCDEF-zyXtuVlM0Np2Qrs3abCd4z5YxnT1`. (This secret is made-up.)
+This is a *sensitive* value. Tesseral only stores it in encrypted form. You can only write to this value, and you cannot read it back out.
 
 
 #### Microsoft OAuth Client ID
@@ -173,18 +173,51 @@ This is a non-sensitive string that uniquely identifies your application to Micr
 
 Login with Microsoft uses a protocol called OAuth. To use Login with Microsoft with your app, you must register an *OAuth Client* with Microsoft. You can read more about this process in [Microsoft's documentation](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app?tabs=client-secret%2Cexpose-a-web-api).
 
-You can generate a secret that both you and Microsoft know. This value is *sensitive*. It is a string that looks something like this: `mfo2Q~Rnj6LQmdoNRvXoXapq-ml7QbAxyz5SPmtq`. (This secret is made-up.)
+This is a *sensitive* value. Tesseral only stores it in encrypted form. You can only write to this value, and you cannot read it back out.
 
-#### Vault domain
+#### Vault Domain
 
-Tesseral needs to host a login interface and set cookies. 
+Tesseral hosts a domain on your behalf that powers [login
+flows](/docs/features/customizing-your-login-experience), [self-serve User
+settings](/docs/features/self-serve-user-settings), [self-serve Organization
+settings](/docs/features/self-serve-user-settings), and
+the [Tesseral Frontend API](/docs/frontend-api-reference).
 
+The Vault Domain is the domain that your Project's Vault runs on.
 
-#### Trusted domains
+#### Trusted Domains
 
+Every Project has a set of Trusted Domains. Clientside code cannot access
+information about the current logged-in [User](/docs/concepts/users) unless that
+code is running on a Trusted Domain. For every domain you use the [Tesseral
+React SDK](/docs/sdks/clientside-sdks/tesseral-sdk-react) from, add that domain
+as a Trusted Domain.
 
-#### Cookie domain
+Tesseral will always include your [Vault Domain](#vault-domain) as a Trusted
+Domain.
 
+Under the hood, Trusted Domains control the
+[CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS) and
+[WebAuthn Related Origins](https://w3c.github.io/webauthn/#sctn-related-origins)
+configuration of your Project's Vault. You do not need to understand how CORS or
+WebAuthn work to use Tesseral.
+
+#### Cookie Domain
+
+Tesseral uses cookies to keep authentication state on your users' web browsers.
+Those cookies are always associated with your Project's Cookie Domain.
+
+Make sure your Cookie Domain is a equal to or a "parent domain" of both your web
+application's domain (e.g. `app.company.com`) and your Project's [Vault
+Domain](#vault-domain) (e.g. `vault.app.company.com`).
+
+For example, if your web application runs on `app.company.com` and your Vault
+Domain is `vault.app.company.com`, then `app.company.com` or `company.com` are
+valid Cookie Domains for you. 
+
+Tesseral recommends you choose the "deepest" domain
+possible (e.g. `app.company.com` is "deeper" than `company.com`), so that as few
+domains as possible have access to your user's authentication cookies.
 
 #### Redirect URIs
 
