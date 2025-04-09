@@ -5,7 +5,7 @@ subtitle: "Adapt the look and feel of Tesseral to blend with your product"
 
 ## Viewing your Vault UI (login page)
 
-Once you have Tesseral integrated with both your [clientside code](docs/getting-started/quickstart#add-tesseral-to-your-clientside-code) and your [serverside code](/docs/getting-started/quickstart#add-tesseral-to-your-serverside-code), you will have a functiona; login page. In Tesseral, this page is called a *Vault UI*. 
+Once you have Tesseral integrated with both your [clientside code](docs/quickstart#add-tesseral-to-your-clientside-code) and your [serverside code](/docs/quickstart#add-tesseral-to-your-serverside-code), you will have a functiona; login page. In Tesseral, this page is called a *Vault UI*. 
 
 You can view the current state of your Vault UI in your web browser by visiting your *Vault Domain*. You will find your current Vault Domain within your [Project Settings](https://console.tesseral.com/project-settings/vault-domain-settings) page in Tesseral's console. Look for the field labeled **Current Vault Domain**. 
 

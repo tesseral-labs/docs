@@ -40,6 +40,11 @@ Each User has the following top-level properties:
 
 Each User record always belongs to exactly one Organization record. 
 
+<Frame caption="Each User belongs to exactly one Organization" >
+    <img src = "/assets/concepts/hierarchy-user.png">
+    </img>
+</Frame>
+
 Learn more about the relationship between [Users and Organizations](/docs/concepts/organizations#organizations-and-users) and Tesseral's [B2B multitenancy model](/docs/features/b2b-multitenancy).
 
 #### Users and Sessions
@@ -61,7 +66,7 @@ Each User may (and generally will) have many Sessions. A Session always belongs 
 
 #### Users and Passkeys
 
-[Passkeys](/docs/concepts/passkeys) are a secondary authentication factor in Tesseral. They make possible a particular kind of [multifactor authentication (MFA)](/docs/features/multifactor-authenticaiton-mfa). 
+[Passkeys](/docs/concepts/passkeys) are a secondary authentication factor in Tesseral. They make possible a particular kind of [multifactor authentication (MFA)](/docs/features/multifactor-authentication-mfa). 
 
 A User may have many Passkeys. Each Passkey always belongs to exactly one User.
 
@@ -90,10 +95,32 @@ Identified in the [Backend API](/docs/backend-api-reference) as `updateTime`, th
 
 #### Owner
 
-Tesseral currently supports two roles for Users. Each User may either be an *owner* or not an owner. 
+Each User may either be an *owner* or not an owner. If a User has `owner` set to `True` (displayed as *Yes*), then the User is an owner. 
 
-Identified in the [Backend API](/docs/backend-api-reference) as `updateTime`, this field  represents the timestamp from the last change to the Organization record's properties.
+If an owner, a User may make certain changes to their Organization that other Users cannot make. Specifically, an owner may:
+* create [User Invites](/docs/concepts/user-invites)
+* edit [login methods](docs/features/customizing-your-login-experience) enabled for the Organization
 
 #### Google User ID
+
+If a User uses [Login with Google](/docs/login-methods/primary-factors), Google supplies Tesseral with certain data about the person logging in. Among that data, Google shares a unique identifier with Tesseral called `sub` that looks something like `10769150350006150715113082367`. You can read more about this identifier in [Google's documentation](https://developers.google.com/identity/openid-connect/openid-connect). 
+
+Tesseral stores this identifier as the *Google User ID* for the User. 
+
+
 #### Microsoft User ID
+
+If a User uses [Login with Microsoft](/docs/login-methods/primary-factors), Microsoft supplies Tesseral with certain data about the person logging in. Among that data, Microsoft shares a unique identifier with Tesseral called `oid` that looks something like `12345678-90ab-cdef-1234-567890abcdef`. You can read more about this identifier in [Microsoft's documentation](https://learn.microsoft.com/en-us/entra/identity-platform/id-token-claims-reference). 
+
+Tesseral stores this identifier as the *Microsoft User ID* for the User. 
+
+<Info>Note that Tesseral does *not* store the `sub` claim for Microsoft as it does for Google. Microsoft and Google logins work differently under the hood.</Info>
+
 #### Has Authenticator App
+
+Tesseral supports use of [authenticator apps](/docs/login-methods/secondary-factors/login-with-authenticator-app) (e.g., Okta Verify) for [multifactor authentication (MFA)](/docs/features/multifactor-authentication-mfa).
+
+Users must configure authenticator apps themselves. They may do so at your [Vault Domain](/docs/concepts/projects#vault-domain) under *User Settings*. 
+
+When a User has successfully configured an authenticator app, the User's `hasAuthenticatorApp` property will be set to `True` (displayed as *Enabled*). Otherwise, `hasAuthenticatorApp` will be set to `False` (displayed as *Not Enabled*).
+
