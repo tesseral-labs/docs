@@ -1,13 +1,13 @@
 ---
-title: Log in with Microsfot
-subtitle: Add Log in with Microsfot support to your product without any code
+title: Log in with Microsoft
+subtitle: Add Log in with Microsoft support to your product without any code
 ---
 
-Adding Log in with Microsfot to your Tesseral [Project](/docs/concepts/projects)
-gives your customers the ability to use their Microsfot account to log into your
-product. Configuring Log in with Microsfot doesn't require any code.
+Adding Log in with Microsoft to your Tesseral [Project](/docs/concepts/projects)
+gives your customers the ability to use their Microsoft account to log into your
+product. Configuring Log in with Microsoft doesn't require any code.
 
-## Configure Log in with Microsfot
+## Configure Log in with Microsoft
 
 To enable Log in with Microsoft for your product, open the Tesseral Console and go to
 your Project Settings. Scroll down to the "Microsoft settings" section and click "Edit".
@@ -51,12 +51,12 @@ You can disable Log in with Microsoft at any time.
 
 ## Customer Configuration
 
-Your customer does not need to take any steps to use Log in with Microsfot. All new
+Your customer does not need to take any steps to use Log in with Microsoft. All new
 customer [Organizations](/docs/concepts/organizations) support Log in with
-Microsfot once you enable Log in with Microsfot on your
+Microsoft once you enable Log in with Microsoft on your
 [Project](/docs/concepts/projects).
 
-It's common for customers to want to disable Log in with Microsfot for their
+It's common for customers to want to disable Log in with Microsoft for their
 organization. They can do this self-serve from their [Self-Serve Organization
 Settings](/docs/features/self-serve-organization-settings), or you can do it on
 their behalf by:
@@ -69,8 +69,8 @@ their behalf by:
 
 3. Under the Organization's "Details" section, click "Edit".
 
-4. Under "Login settings", switch "Log in with Microsfot" off.
+4. Under "Login settings", switch "Log in with Microsoft" off.
 
-Disabling Log in with Microsfot on an Organization only disables Log in with Microsfot
+Disabling Log in with Microsoft on an Organization only disables Log in with Microsoft
 for that specific Organization; all of your other customers can continue to use
-Log in with Microsfot.
+Log in with Microsoft.
