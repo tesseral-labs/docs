@@ -1,5 +1,5 @@
 ---
-title: SAML single sign-on (SSO)"
+title: SAML single sign-on (SSO)
 subtitle: "Tesseral supports enterprise single sign-on for all major identity providers (IDPs)"
 ---
 
