@@ -132,12 +132,12 @@ Identified in the [Backend API](/docs/backend-api-reference) as `logInWithSaml`,
 
 #### Log in with authenticator app
 
-Identified in the [Backend API](/docs/backend-api-reference) as `logInWithAuthenticatorApp`, this boolean field represents whether [logging in with an authenticator app](/docs/login-methods/secondary-factors/login-with-authenticator-app) as a [secondary factor](/docs/features/multifactor-authentication-mfa) is enabled for the Organization.
+Identified in the [Backend API](/docs/backend-api-reference) as `logInWithAuthenticatorApp`, this boolean field represents whether [logging in with an authenticator app](/docs/login-methods/secondary-factors/log-in-with-authenticator-app) as a [secondary factor](/docs/features/multifactor-authentication-mfa) is enabled for the Organization.
 
 
 #### Log in with passkey
 
-Identified in the [Backend API](/docs/backend-api-reference) as `logInWithPasskey`, this boolean field represents whether [logging in with passkey](/docs/login-methods/secondary-factors/login-with-passkey) as a [secondary factor](/docs/features/multifactor-authentication-mfa) is enabled for the Organization.
+Identified in the [Backend API](/docs/backend-api-reference) as `logInWithPasskey`, this boolean field represents whether [logging in with passkey](/docs/login-methods/secondary-factors/log-in-with-passkey) as a [secondary factor](/docs/features/multifactor-authentication-mfa) is enabled for the Organization.
 
 
 #### Require MFA

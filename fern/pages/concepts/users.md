@@ -118,9 +118,8 @@ Tesseral stores this identifier as the *Microsoft User ID* for the User.
 
 #### Has Authenticator App
 
-Tesseral supports use of [authenticator apps](/docs/login-methods/secondary-factors/login-with-authenticator-app) (e.g., Okta Verify) for [multifactor authentication (MFA)](/docs/features/multifactor-authentication-mfa).
+Tesseral supports use of [authenticator apps](/docs/login-methods/secondary-factors/log-in-with-authenticator-app) (e.g., Okta Verify) for [multifactor authentication (MFA)](/docs/features/multifactor-authentication-mfa).
 
 Users must configure authenticator apps themselves. They may do so at your [Vault Domain](/docs/concepts/projects#vault-domain) under *User Settings*. 
 
 When a User has successfully configured an authenticator app, the User's `hasAuthenticatorApp` property will be set to `True` (displayed as *Enabled*). Otherwise, `hasAuthenticatorApp` will be set to `False` (displayed as *Not Enabled*).
-

@@ -19,7 +19,7 @@ Your customer can use this page to configure a [passkey](/docs/concepts/passkeys
   <img src="/assets/features/vault-self-service/obfuscated-passkey.png" alt="" />
 </Frame>
 
-Your customer can also use this page to configure a [passkey](/docs/login-methods/secondary-factors/login-with-authenticator-app). Tesseral will show the customer a QR code. The customer can use an authenticator app like [Okta Verify](https://help.okta.com/en-us/content/topics/mobile/okta-verify-overview.htm) to scan this QR code and configure authenticator app MFA.
+Your customer can also use this page to configure a [passkey](/docs/login-methods/secondary-factors/log-in-with-authenticator-app). Tesseral will show the customer a QR code. The customer can use an authenticator app like [Okta Verify](https://help.okta.com/en-us/content/topics/mobile/okta-verify-overview.htm) to scan this QR code and configure authenticator app MFA.
 
 <Frame caption="What your customer sees when configuring an authenticator app">
   <img src="/assets/features/vault-self-service/obfuscated-authenticator-app.png" alt="" />

@@ -138,7 +138,7 @@ Be aware that Organizations have [a similar property](/docs/concepts/organizatio
 
 #### Log in with Passkey
 
-Identified in the [Backend API](/docs/backend-api-reference) as `logInWithPasskey`, this boolean field represents whether [logging in with passkey](/docs/login-methods/secondary-factors/login-with-passkey) as a [secondary factor](/docs/features/multifactor-authentication-mfa) is enabled for the Project.
+Identified in the [Backend API](/docs/backend-api-reference) as `logInWithPasskey`, this boolean field represents whether [logging in with passkey](/docs/login-methods/secondary-factors/log-in-with-passkey) as a [secondary factor](/docs/features/multifactor-authentication-mfa) is enabled for the Project.
 
 Be aware that Organizations have [a similar property](/docs/concepts/organizations#log-in-with-passkey). If logging in with passkeys is enabled for the Project but *not* enabled for a given Organization, no one within that Organization will be able to log in with passkeys.
 

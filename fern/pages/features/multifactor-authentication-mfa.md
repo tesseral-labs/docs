@@ -19,7 +19,7 @@ MFA substantially improves security. Even if an attacker steals a user's passwor
 Tesseral supports multifactor authentication (MFA). 
 
 Currently, Tesseral supports two secondary authentication factors: 
-1. Authenticator apps ([learn more](/docs/login-methods/secondary-factors/login-with-authenticator-app))
-2. Passkeys ([learn more](/docs/login-methods/secondary-factors/login-with-passkey))
+1. Authenticator apps ([learn more](/docs/login-methods/secondary-factors/log-in-with-authenticator-app))
+2. Passkeys ([learn more](/docs/login-methods/secondary-factors/log-in-with-passkey))
 
 Learn more about enabling these secondary authentication factors [here](/docs/features/customizing-your-login-experience).

@@ -106,9 +106,9 @@ navigation:
           - section: Secondary Factors
             contents:
               - page: Login with Passkey
-                path: ./pages/login-methods/secondary-factors/login-with-passkey.md
+                path: ./pages/login-methods/secondary-factors/log-in-with-passkey.md
               - page: Login with Authenticator App
-                path: ./pages/login-methods/secondary-factors/login-with-authenticator-app.md
+                path: ./pages/login-methods/secondary-factors/log-in-with-authenticator-app.md
       - section: "Concepts: Tesseral resources"
         slug: concepts
         contents:
