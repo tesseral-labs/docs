@@ -18,8 +18,10 @@ you likely want the [Tesseral Backend API](/docs/backend-api-reference).
 
 ## Accessing the Frontend API from the Tesseral React SDK
 
-If you're using the Tesseral React SDK, then the `frontendApiClient` property
-under `useTesseral()` gives you a TypeScript interface to the Frontend API:
+If you're using the [Tesseral React
+SDK](/docs/sdks/clientside-sdks/tesseral-sdk-react), then the
+`frontendApiClient` property under `useTesseral()` gives you a TypeScript
+interface to the Frontend API:
 
 ```typescript
 import { useTesseral } from "@tesseral/tesseral-react";
