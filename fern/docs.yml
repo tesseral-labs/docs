@@ -75,10 +75,6 @@ navigation:
           - page: Self-Serve Organization Settings
             slug: self-serve-organization-settings
             path: ./pages/features/self-serve-organization-settings.md
-          - page: User Management
-            path: ./pages/features/user-management.md
-          - page: Session Management
-            path: ./pages/features/session-management.md
           - page: Multifactor Authentication (MFA)
             path: ./pages/features/multifactor-authentication-mfa.md
           - page: SAML SSO
