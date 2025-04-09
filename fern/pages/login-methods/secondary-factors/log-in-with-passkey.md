@@ -4,7 +4,10 @@ subtitle: Add Log in with Passkey support to your product without any code
 ---
 
 Adding Log in with Passkey to your Tesseral [Project](/docs/concepts/projects)
-gives your customers the ability to configure Passkeys as a secondary factor.
+gives your customers the ability to configure passkeys as a secondary factor.
+
+Whenever one of your [Users](/docs/concepts/users) configures a passkey,
+Tesseral stores that configuration as a [Passkey](/docs/concepts/passkeys).
 
 For more information on secondary factors, see ["Multifactor
 Authentication"](/docs/features/multifactor-authentication-mfa).
