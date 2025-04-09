@@ -19,9 +19,9 @@ Enable the "Log in with Email (Magic Links)" option and click "Save".
 
 ## Customer Configuration
 
-Your customer does not need to take any steps to use Log in with Email Magic Links. All
-new customer [Organizations](/docs/concepts/organizations) support Log in with
-Email once you enable Log in with Google on your
+Your customer does not need to take any steps to use Log in with Email Magic
+Links. All new customer [Organizations](/docs/concepts/organizations) support
+Log in with Email once you enable Log in with Email Magic Links on your
 [Project](/docs/concepts/projects).
 
 It's common for customers to want to disable Log in with Email Magic Links for their
