@@ -97,7 +97,7 @@ Identified in the [Backend API](/docs/backend-api-reference) as `updateTime`, th
 
 #### Log in with Google
 
-Identified in the [Backend API](/docs/backend-api-reference) as `logInWithGoogle`, this boolean field represents whether [Login with Google](/docs/login-methods/primary-factors/login-with-google) is enabled for the Project. 
+Identified in the [Backend API](/docs/backend-api-reference) as `logInWithGoogle`, this boolean field represents whether [Login with Google](/docs/login-methods/primary-factors/log-in-with-google) is enabled for the Project. 
 
 Be aware that Organizations have [a similar property](/docs/concepts/organizations#log-in-with-google). If Login with Google is enabled for the Project but *not* enabled for a given Organization, no one within that Organization will be able to use Login with Google.
 
@@ -117,14 +117,14 @@ Be aware that Organizations have [a similar property](/docs/concepts/organizatio
 
 #### Log in with Password
 
-Identified in the [Backend API](/docs/backend-api-reference) as `logInWithPassword`, this boolean field represents whether [logging in with passwords](/docs/login-methods/primary-factors/login-with-password) is enabled for the Project.
+Identified in the [Backend API](/docs/backend-api-reference) as `logInWithPassword`, this boolean field represents whether [logging in with passwords](/docs/login-methods/primary-factors/log-in-with-password) is enabled for the Project.
 
 Be aware that Organizations have [a similar property](/docs/concepts/organizations#log-in-with-password). If logging in with passwords is enabled for the Project but *not* enabled for a given Organization, no one within that Organization will be able to use passwords.
 
 
 #### Log in with SAML
 
-Identified in the [Backend API](/docs/backend-api-reference) as `logInWithSaml`, this boolean field represents whether [logging in with SAML single sign-on](/docs/login-methods/primary-factors/login-with-enterprise-sso-saml) is enabled for the Organization.
+Identified in the [Backend API](/docs/backend-api-reference) as `logInWithSaml`, this boolean field represents whether [logging in with SAML single sign-on](/docs/login-methods/primary-factors/log-in-with-enterprise-sso-saml) is enabled for the Organization.
 
 Be aware that Organizations have [a similar property](/docs/concepts/organizations#log-in-with-saml). If logging in with SAML is enabled for the Project but *not* enabled for a given Organization, no one within that Organization will be able to use SAML SSO.
 
@@ -138,7 +138,7 @@ Be aware that Organizations have [a similar property](/docs/concepts/organizatio
 
 #### Log in with Passkey
 
-Identified in the [Backend API](/docs/backend-api-reference) as `logInWithPasskey`, this boolean field represents whether [logging in with passkey](/docs/login-methods/secondary-factors/login-with-passkey) as a [secondary factor](/docs/features/multifactor-authentication-mfa) is enabled for the Project.
+Identified in the [Backend API](/docs/backend-api-reference) as `logInWithPasskey`, this boolean field represents whether [logging in with passkey](/docs/login-methods/secondary-factors/log-in-with-passkey) as a [secondary factor](/docs/features/multifactor-authentication-mfa) is enabled for the Project.
 
 Be aware that Organizations have [a similar property](/docs/concepts/organizations#log-in-with-passkey). If logging in with passkeys is enabled for the Project but *not* enabled for a given Organization, no one within that Organization will be able to log in with passkeys.
 
