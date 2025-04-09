@@ -25,3 +25,4 @@ Here's how things fit together:
     <img src = "/assets/concepts/hierarchy.png">
     </img>
 </Frame>
+

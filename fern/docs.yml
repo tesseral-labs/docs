@@ -3,6 +3,14 @@ instances:
   - url: tesseral.docs.buildwithfern.com/docs
     custom-domain: tesseral.com/docs
 
+colors:
+  accent-primary:
+    light: "#7D26F6"
+    dark: "#A585FE"
+  background:
+    light: "#ffffff"
+    dark: "#0d0e11"
+
 layout:
   tabs-placement: header
 
@@ -35,8 +43,7 @@ navigation:
             contents:
               - page: React
                 path: ./pages/sdks/clientside/react.md
-              - page: Vanilla JS
-                path: ./pages/sdks/clientside/vanilla-js.md
+                slug: tesseral-sdk-react
           - section: Serverside SDKs
             slug: 'serverside-sdks'
             contents:
@@ -62,6 +69,12 @@ navigation:
           - page: B2B Multitenancy
             slug: 'b2b-multitenancy'
             path: ./pages/features/b2b-multitenancy.md
+          - page: Self-Serve User Settings
+            slug: self-serve-user-settings
+            path: ./pages/features/self-serve-user-settings.md
+          - page: Self-Serve Organization Settings
+            slug: self-serve-organization-settings
+            path: ./pages/features/self-serve-organization-settings.md
           - page: User Management
             path: ./pages/features/user-management.md
           - page: Session Management
@@ -111,8 +124,6 @@ navigation:
             path: ./pages/concepts/organizations.md
           - page: Users
             path: ./pages/concepts/users.md
-          - page: Sessions
-            path: ./pages/concepts/sessions.md
           - page: Passkeys
             path: ./pages/concepts/passkeys.md
           - page: SAML Connections
@@ -132,6 +143,8 @@ navigation:
             path: ./pages/advanced/how-tesseral-works.md
   - tab: backend-api
     layout:
+      - page: Tesseral Backend API
+        path: ./pages/backend-api-reference/index.md
       - api: "API Reference"
         api-name: backend
         paginated: true
@@ -148,6 +161,8 @@ navigation:
               title: SCIM API Keys
   - tab: frontend-api
     layout:
+      - page: Tesseral Frontend API
+        path: ./pages/frontend-api-reference/index.md
       - api: "API Reference"
         api-name: frontend
         paginated: true

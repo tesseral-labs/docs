@@ -7,7 +7,6 @@ subtitle: "Publishable Keys help Tesseral's client-side SDKs identify the approp
 
 A Publishable Key is a globally unique identifier that Tesseral uses to identify [Projects](/docs/concepts/projects) in its [client-side SDKs](/docs/sdks/clientside-sdks). Each Publishable Key belongs to exactly one Project. 
 
-
 A Publishable Key is **not** a secret. A Publishable Key does **not** authenticate your application to Tesseral. A Publishable Key does **not** itself confer any privileges. 
 
 A Publishable Key's value always begins with `publishable_key_`. Here's an example: `publishable_key_0qo01898k369ncxc05oyyn8qn`.
@@ -29,12 +28,14 @@ It looks something like this:
 ```
 
 ## Properties of Publishable Keys
+
 Each Publishable Key belongs to exactly one Project.
 
 <Frame caption="Publishable Keys always belong to Projects" >
     <img src = "/assets/concepts/hierarchy-publishable-key.png">
     </img>
 </Frame>
+
 
 Publishable Keys have a few top-level properties:
 1. Display name: a human-legible string describing the Publishable Key

@@ -23,6 +23,7 @@ Projects directly relate to the following Tesseral concepts:
     </img>
 </Frame>
 
+
 Projects have the following top level properties:
 
 * [ID](#id)

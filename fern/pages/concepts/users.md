@@ -123,3 +123,4 @@ Tesseral supports use of [authenticator apps](/docs/login-methods/secondary-fact
 Users must configure authenticator apps themselves. They may do so at your [Vault Domain](/docs/concepts/projects#vault-domain) under *User Settings*. 
 
 When a User has successfully configured an authenticator app, the User's `hasAuthenticatorApp` property will be set to `True` (displayed as *Enabled*). Otherwise, `hasAuthenticatorApp` will be set to `False` (displayed as *Not Enabled*).
+
