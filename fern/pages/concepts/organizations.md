@@ -13,6 +13,12 @@ Tesseral is designed for use in business software. It therefore imposes tenancy 
 
 Organizations may contain any number of Users. Users **always** belong to exactly one Organization. Users cannot exist outside of an Organization. Learn more about Tesseral Users [here](/docs/concepts/users).
 
+<Frame caption="Organizations always belong to Projects" >
+    <img src = "/assets/concepts/hierarchy-organization.png">
+    </img>
+</Frame>
+
+
 ## Properties of Organizations
 
 Organizations directly relate to the following Tesseral concepts:

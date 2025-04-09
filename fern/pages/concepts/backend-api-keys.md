@@ -9,6 +9,11 @@ A *Backend API Key* is a globally unique secret that you
 
 Each Backend API Key is scoped to exactly one Project. 
 
+<Frame caption="Backend API Keys always belong to Projects" >
+    <img src = "/assets/concepts/hierarchy-backend-api-key.png">
+    </img>
+</Frame>
+
 
 ## How a Backend API Key gets used
 

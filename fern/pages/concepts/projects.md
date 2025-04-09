@@ -18,6 +18,11 @@ Projects directly relate to the following Tesseral concepts:
 * [Publishable keys](#projects-and-publishable-keys)
 * [Backend API keys](#projects-and-backend-api-keys)
 
+<Frame caption="Everything in Tesseral happens within a project" >
+    <img src = "/assets/concepts/hierarchy-project.png">
+    </img>
+</Frame>
+
 Projects have the following top level properties:
 
 * [ID](#id)

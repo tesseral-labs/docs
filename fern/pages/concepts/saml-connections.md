@@ -16,7 +16,12 @@ SAML Connections in Tesseral exist to help you manage SAML configuration. Each S
 
 ### Related concepts
 
-SAML Connections directly relate to [Organizations](/docs/concepts/organizations). Each SAML Connection belongs to exactly one Organization. In most cases, each Organization will have either zero SAML Connections (i.e., the Organization doesn't use SAML) or one SAML Connection (i.e., the Organization uses SAML with a single identity provider). 
+Each SAML Connection belongs to exactly one [Organization](/docs/concepts/organizations). In most cases, each Organization will have either zero SAML Connections (i.e., the Organization doesn't use SAML) or one SAML Connection (i.e., the Organization uses SAML with a single identity provider). 
+
+<Frame caption="Each SAML Connection belongs to exactly one Organization" >
+    <img src = "/assets/concepts/hierarchy-saml-connection.png">
+    </img>
+</Frame>
 
 <Info> In rare cases, an Organization may use more than one identity provider. For example, US-based employees of a large organization may use Okta, wherease their colleagues in Canada might use OneLogin. For this reason, Tesseral allows Organizations to have many SAML Connections. This scenario is not very common. </Info>
  
