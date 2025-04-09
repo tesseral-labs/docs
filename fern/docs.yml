@@ -93,15 +93,15 @@ navigation:
         contents:
           - section: Primary Factors
             contents:
-              - page: Login with Email (Magic Links)
+              - page: Log in with Email (Magic Links)
                 path: ./pages/login-methods/primary-factors/login-with-email-magic-links.md
-              - page: Login with Google
+              - page: Log in with Google
                 path: ./pages/login-methods/primary-factors/login-with-google.md
-              - page: Login with Microsoft
+              - page: Log in with Microsoft
                 path: ./pages/login-methods/primary-factors/login-with-microsoft.md
-              - page: Login with Password
+              - page: Log in with Password
                 path: ./pages/login-methods/primary-factors/login-with-password.md
-              - page: Login with Enterprise SSO (SAML)
+              - page: Log in with Enterprise SSO (SAML)
                 path: ./pages/login-methods/primary-factors/login-with-enterprise-sso-saml.md
           - section: Secondary Factors
             contents:
