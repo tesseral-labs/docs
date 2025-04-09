@@ -132,15 +132,6 @@ navigation:
             path: ./pages/concepts/scim-api-keys.md
           - page: User Invites
             path: ./pages/concepts/user-invites.md
-      - section: Self-Hosting Tesseral
-        slug: self-hosting
-        contents:
-          - page: Self-Hosting Tesseral
-            path: ./pages/self-hosting/self-hosting.md
-      - section: Advanced
-        contents:
-          - page: How Tesseral Works
-            path: ./pages/advanced/how-tesseral-works.md
   - tab: backend-api
     layout:
       - page: Tesseral Backend API
