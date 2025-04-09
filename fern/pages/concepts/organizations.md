@@ -113,11 +113,11 @@ Identified in the [Backend API](/docs/backend-api-reference) as `logInWithGoogle
 
 #### Log in with Microsoft
 
-Identified in the [Backend API](/docs/backend-api-reference) as `logInWithMicrosoft`, this boolean field represents whether [Login with Microsoft](/docs/login-methods/primary-factors/login-with-Microsoft) is enabled for the Organization.
+Identified in the [Backend API](/docs/backend-api-reference) as `logInWithMicrosoft`, this boolean field represents whether [Login with Microsoft](/docs/login-methods/primary-factors/login-with-microsoft) is enabled for the Organization.
 
 #### Log in with email
 
-Identified in the [Backend API](/docs/backend-api-reference) as `logInWithEmail`, this boolean field represents whether [logging in with email](/docs/login-methods/primary-factors/login-with-email) is enabled for the Organization.
+Identified in the [Backend API](/docs/backend-api-reference) as `logInWithEmail`, this boolean field represents whether [logging in with email](/docs/login-methods/primary-factors/login-with-email-magic-links) is enabled for the Organization.
 
 
 #### Log in with password
@@ -132,12 +132,12 @@ Identified in the [Backend API](/docs/backend-api-reference) as `logInWithSaml`,
 
 #### Log in with authenticator app
 
-Identified in the [Backend API](/docs/backend-api-reference) as `logInWithAuthenticatorApp`, this boolean field represents whether [logging in with an authenticator app](/docs/login-methods/primary-factors/login-with-authenticator-app) as a [secondary factor](/docs/features/multifactor-authentication-mfa) is enabled for the Organization.
+Identified in the [Backend API](/docs/backend-api-reference) as `logInWithAuthenticatorApp`, this boolean field represents whether [logging in with an authenticator app](/docs/login-methods/secondary-factors/login-with-authenticator-app) as a [secondary factor](/docs/features/multifactor-authentication-mfa) is enabled for the Organization.
 
 
 #### Log in with passkey
 
-Identified in the [Backend API](/docs/backend-api-reference) as `logInWithPasskey`, this boolean field represents whether [logging in with passkey](/docs/login-methods/primary-factors/login-with-passkey) as a [secondary factor](/docs/features/multifactor-authentication-mfa) is enabled for the Organization.
+Identified in the [Backend API](/docs/backend-api-reference) as `logInWithPasskey`, this boolean field represents whether [logging in with passkey](/docs/login-methods/secondary-factors/login-with-passkey) as a [secondary factor](/docs/features/multifactor-authentication-mfa) is enabled for the Organization.
 
 
 #### Require MFA

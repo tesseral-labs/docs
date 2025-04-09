@@ -41,7 +41,7 @@ Each User has the following top-level properties:
 Each User record always belongs to exactly one Organization record. 
 
 <Frame caption="Each User belongs to exactly one Organization" >
-    <img src = "/assets/concepts/hierarchy-saml-user.png">
+    <img src = "/assets/concepts/hierarchy-user.png">
     </img>
 </Frame>
 
@@ -66,7 +66,7 @@ Each User may (and generally will) have many Sessions. A Session always belongs 
 
 #### Users and Passkeys
 
-[Passkeys](/docs/concepts/passkeys) are a secondary authentication factor in Tesseral. They make possible a particular kind of [multifactor authentication (MFA)](/docs/features/multifactor-authenticaiton-mfa). 
+[Passkeys](/docs/concepts/passkeys) are a secondary authentication factor in Tesseral. They make possible a particular kind of [multifactor authentication (MFA)](/docs/features/multifactor-authentication-mfa). 
 
 A User may have many Passkeys. Each Passkey always belongs to exactly one User.
 
@@ -99,7 +99,7 @@ Each User may either be an *owner* or not an owner. If a User has `owner` set to
 
 If an owner, a User may make certain changes to their Organization that other Users cannot make. Specifically, an owner may:
 * create [User Invites](/docs/concepts/user-invites)
-* edit [login methods](/customizing-your-login-experience) enabled for the Organization
+* edit [login methods](docs/features/customizing-your-login-experience) enabled for the Organization
 
 #### Google User ID
 

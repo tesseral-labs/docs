@@ -16,7 +16,7 @@ Broadly speaking, you have two options for customizing your login experience:
 
 Tesseral makes it easy to modify the styles of the Vault UI. 
 
-You can read more about styling the Vault UI [here](/docs/getting-started/customize).
+You can read more about styling the Vault UI [here](/docs/customize).
 
 
 ### Building a custom login page using the Tesseral SDKs

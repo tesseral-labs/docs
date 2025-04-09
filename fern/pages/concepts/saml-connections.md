@@ -47,7 +47,7 @@ Each SAML Connection record has a universally unique identifier in Tesseral call
 
 #### Organization ID
 
-Each SAML Connection belongs to exactly one Organization. The `organization_id` for a given SAML Connection [uniquely identifies](/docs/concepts/organizaitons#id) the Organization that the SAML Connection belongs to.
+Each SAML Connection belongs to exactly one Organization. The `organization_id` for a given SAML Connection [uniquely identifies](/docs/concepts/organizations#id) the Organization that the SAML Connection belongs to.
 
 #### Create time
 

@@ -40,7 +40,7 @@ Each SCIM API Key has an `id` property that begins with `scim_api_key_`. This va
 
 ### Organization ID
 
-Each SCIM API Key belongs to exactly one Organization. The `organization_id` for a given SCIM API Key [uniquely identifies](/docs/concepts/organizaitons#id) the Organization that the SCIM API Key belongs to.
+Each SCIM API Key belongs to exactly one Organization. The `organization_id` for a given SCIM API Key [uniquely identifies](/docs/concepts/organizations#id) the Organization that the SCIM API Key belongs to.
 
 #### Create time
 
@@ -56,7 +56,7 @@ Identified in the [Backend API](/docs/backend-api-reference) as `secretToken`, t
 
 This value **must** remain a secret between you and your customer. While you will have to share this string with your customer's IT administrator (for use in your customer's identity provider), avoid sharing the secret token broadly.
 
-<Info>Do not confuse SCIM API Keys with [Backend API Keys](/docs/concepts/backend-api-key). You may indeed use the Backend API Key to [perform CRUD operations](http://localhost:3000/docs/backend-api-reference/api-reference/scim-api-keys/list-scimapi-keys) on SCIM API Records, but it is not a SCIM API Key.</Info>
+<Info>Do not confuse SCIM API Keys with [Backend API Keys](/docs/concepts/backend-api-keys). You may indeed use the Backend API Key to [perform CRUD operations](http://localhost:3000/docs/backend-api-reference/api-reference/scim-api-keys/list-scimapi-keys) on SCIM API Records, but it is not a SCIM API Key.</Info>
 
 ### Revoked
 

@@ -13,7 +13,7 @@ A Publishable Key's value always begins with `publishable_key_`. Here's an examp
 
 ## How a Publishable Key gets used
 
-Let's consider an example with Tesseral's [React SDK](/docs/sdks/clientside-sdks/react). When you use the React SDKs, you will rely heavily on a `TesseralProvider` component. The `TesseralProvider` handles a great deal of work on your behalf; for example, it redirects the user to your Tesseral Vault when the user is not currently authenticated. 
+Let's consider an example with Tesseral's React SDK. When you use the React SDKs, you will rely heavily on a `TesseralProvider` component. The `TesseralProvider` handles a great deal of work on your behalf; for example, it redirects the user to your Tesseral Vault when the user is not currently authenticated. 
 
 When you instantiate a `TesseralProvider` component, you must pass it a Publishable Key. The `TesseralProvider` can infer the appropriate Project from the Publishable Key. 
 

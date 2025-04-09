@@ -13,7 +13,7 @@ In all implementations of Tesseral, you will use the following concepts:
 * [Publishable Keys](/docs/concepts/publishable-keys)
 
 Over time, you will likely use the following concepts:
-* [Project API Keys](/docs/concepts/project-api-keys)
+* [Project API Keys](/docs/concepts/backend-api-keys)
 * [Passkeys](/docs/concepts/passkeys)
 * [SAML Connections](/docs/concepts/saml-connections)
 * [SCIM API Keys](/docs/concepts/scim-api-keys)

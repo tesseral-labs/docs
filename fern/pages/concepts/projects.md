@@ -61,7 +61,7 @@ You may view the Organizations within a Project. To do so, first navigate to the
 
 #### Projects and Publishable Keys
 
-[Publishable Keys](/docs/concepts/publishable-keys) help Tesseral's [client-side SDKs](/docs/sdks/clientside) find your Project. A Publishable Key always identifies exactly one Project. However, a given Project may have many Publishable Keys. 
+[Publishable Keys](/docs/concepts/publishable-keys) help Tesseral's [client-side SDKs](/docs/sdks/clientside-sdks) find your Project. A Publishable Key always identifies exactly one Project. However, a given Project may have many Publishable Keys. 
 
 A Publishable Key is not a secret. 
 
@@ -69,7 +69,7 @@ You may view the Publishable Keys within a Project. To do so, first navigate to 
 
 #### Projects and Backend API Keys
 
-[Backend API Keys](/docs/concepts/backend-API-keys) identify your app to Tesseral's [backend API](/docs/backend-api-reference), which you'll often use with Tesseral's [server-side SDKs](/docs/sdks/serverside-sdks). A Backend API Key always identifies exactly one Project. However, a given Project may have many Backend API Keys. 
+[Backend API Keys](/docs/concepts/backend-api-keys) identify your app to Tesseral's [backend API](/docs/backend-api-reference), which you'll often use with Tesseral's [server-side SDKs](/docs/sdks/serverside-sdks). A Backend API Key always identifies exactly one Project. However, a given Project may have many Backend API Keys. 
 
 Your Backend API Keys must always remain secret.
 
@@ -103,14 +103,14 @@ Be aware that Organizations have [a similar property](/docs/concepts/organizatio
 
 #### Log in with Microsoft
 
-Identified in the [Backend API](/docs/backend-api-reference) as `logInWithMicrosoft`, this boolean field represents whether [Login with Microsoft](/docs/login-methods/primary-factors/login-with-Microsoft) is enabled for the Project.
+Identified in the [Backend API](/docs/backend-api-reference) as `logInWithMicrosoft`, this boolean field represents whether [Login with Microsoft](/docs/login-methods/primary-factors/microsoft) is enabled for the Project.
 
 Be aware that Organizations have [a similar property](/docs/concepts/organizations#log-in-with-microsoft). If Login with Microsoft is enabled for the Project but *not* enabled for a given Organization, no one within that Organization will be able to use Login with Microsoft.
 
 
 #### Log in with Email
 
-Identified in the [Backend API](/docs/backend-api-reference) as `logInWithEmail`, this boolean field represents whether [logging in with email](/docs/login-methods/primary-factors/login-with-email) is enabled for the Project.
+Identified in the [Backend API](/docs/backend-api-reference) as `logInWithEmail`, this boolean field represents whether [logging in with email](/docs/login-methods/primary-factors/-magic-links) is enabled for the Project.
 
 Be aware that Organizations have [a similar property](/docs/concepts/organizations#log-in-with-email). If logging in with email is enabled for the Project but *not* enabled for a given Organization, no one within that Organization will be able to log in via email.
 
@@ -131,14 +131,14 @@ Be aware that Organizations have [a similar property](/docs/concepts/organizatio
 
 #### Log in with Authenticator App
 
-Identified in the [Backend API](/docs/backend-api-reference) as `logInWithAuthenticatorApp`, this boolean field represents whether [logging in with an authenticator app](/docs/login-methods/primary-factors/login-with-authenticator-app) as a [secondary factor](/docs/features/multifactor-authentication-mfa) is enabled for the Organization.
+Identified in the [Backend API](/docs/backend-api-reference) as `logInWithAuthenticatorApp`, this boolean field represents whether [logging in with an authenticator app](/docs/login-methods/secondary-factors/authentication-mfa) is enabled for the Organization.
 
 Be aware that Organizations have [a similar property](/docs/concepts/organizations#log-in-with-authenticator-app). If logging in with authenticator apps is enabled for the Project but *not* enabled for a given Organization, no one within that Organization will be able to log in with passkeys.
 
 
 #### Log in with Passkey
 
-Identified in the [Backend API](/docs/backend-api-reference) as `logInWithPasskey`, this boolean field represents whether [logging in with passkey](/docs/login-methods/primary-factors/login-with-passkey) as a [secondary factor](/docs/features/multifactor-authentication-mfa) is enabled for the Project.
+Identified in the [Backend API](/docs/backend-api-reference) as `logInWithPasskey`, this boolean field represents whether [logging in with passkey](/docs/login-methods/secondary-factors/login-with-passkey) as a [secondary factor](/docs/features/multifactor-authentication-mfa) is enabled for the Project.
 
 Be aware that Organizations have [a similar property](/docs/concepts/organizations#log-in-with-passkey). If logging in with passkeys is enabled for the Project but *not* enabled for a given Organization, no one within that Organization will be able to log in with passkeys.
 
