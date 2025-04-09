@@ -3,7 +3,7 @@ title: "Tesseral Quickstart"
 subtitle: "Sign up for Tesseral, add your login flow, and authenticate requests"
 ---
 
-# Sign up for Tesseral
+## Sign up for Tesseral
 
 Go to https://console.tesseral.com and sign up. At a step in the flow, you'll be
 asked to Create a Project.
@@ -35,7 +35,7 @@ ends in "Dev").
 You'll be logged into your development Project. You can switch between your
 Projects from the Project Switcher at the top left of the Console.
 
-# Add Tesseral to your clientside code
+## Add Tesseral to your clientside code
 
 Tesseral's React SDK handles redirecting users to your login page, giving your
 React code hooks like `useUser()` or `useLogout()`, and having your frontend
@@ -216,7 +216,7 @@ Publishable Key you created previously.
   </Tab>
 </Tabs>
 
-# Going to Production
+## Going to Production
 
 In the previous two sections, you added authentication to your
 [frontend](#add-tesseral-to-your-clientside-code) and
