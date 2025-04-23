@@ -14,7 +14,9 @@ from the outside, using Chess.com as an example.
 
 ### Redirect to Google
 
-[...]
+<Frame caption="Let's see exactly what happens when you click Log in with Google on Chess.com">
+  <img src="chess-com-login.png" />
+</Frame>
 
 I click on the "Log in with Google" button on Chess.com. Chess.com redirects me
 to this URL:
@@ -641,6 +643,10 @@ relevant OAuth scopes. Google supports ["incremental
 authorization"](https://developers.google.com/identity/protocols/oauth2/web-server#incrementalAuth),
 meaning you can initially request minimal permissions, and then ask for more
 permissions later without losing the old permissions.
+
+<Frame caption="Incremental authorization in [Notion](https://notion.com). They already can access some of my data, and now they additionally want to access my Google Calendar.">
+  <img src="incremental-consent.png" />
+</Frame>
 
 For example, if your product has functionality that requires connecting to a
 user's Gmail account, that doesn't mean you need to ask for Gmail access as part
