@@ -128,6 +128,11 @@ navigation:
             path: ./pages/concepts/scim-api-keys.md
           - page: User Invites
             path: ./pages/concepts/user-invites.md
+      - section: "Technical Concepts"
+        slug: technical-concepts
+        contents:
+          - page: Log in with Google
+            path: ./pages/technical-concepts/log-in-with-google/index.md
   - tab: backend-api
     layout:
       - page: Tesseral Backend API
