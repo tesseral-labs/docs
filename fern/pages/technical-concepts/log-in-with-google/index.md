@@ -268,7 +268,7 @@ section of the Google Cloud Console.
 
 <Note>
 
-Take note of what account you're currenly logged into in Google Cloud Console.
+Take note of what account you're currently logged into in Google Cloud Console.
 If you have work and personal Google accounts, make sure you're not logged into
 the wrong one!
 
