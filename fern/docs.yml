@@ -85,6 +85,8 @@ navigation:
             path: ./pages/features/transactional-emails.md
           - page: User Impersonation
             path: ./pages/features/user-impersonation.md
+          - page: Self-Hosting Tesseral
+            path: ./pages/features/self-hosting/index.md
       - section: Login Methods
         contents:
           - section: Primary Factors
