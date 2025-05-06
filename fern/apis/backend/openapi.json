@@ -2743,6 +2743,14 @@
           "hasAuthenticatorApp": {
             "type": "boolean",
             "description": "Whether the User has an authenticator app set up."
+          },
+          "displayName": {
+            "type": "string",
+            "description": "The User's human-friendly name."
+          },
+          "profilePictureUrl": {
+            "type": "string",
+            "description": "The URL of the User's profile picture."
           }
         },
         "description": "A User represents an individual working for one of your corporate customers."
@@ -2940,6 +2948,14 @@
           "email": {
             "type": "string",
             "description": "The User's email."
+          },
+          "displayName": {
+            "type": "string",
+            "description": "The User's full name."
+          },
+          "profilePictureUrl": {
+            "type": "string",
+            "description": "A URL of the User's profile picture."
           }
         },
         "required": [
