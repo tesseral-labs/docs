@@ -10,6 +10,7 @@ colors:
   background:
     light: "#ffffff"
     dark: "#0d0e11"
+js: ./custom.js
 
 layout:
   tabs-placement: header
@@ -36,16 +37,16 @@ navigation:
           - page: Customize
             path: ./pages/customize.md
       - section: SDKs
-        slug: 'sdks'
+        slug: "sdks"
         contents:
           - section: Clientside SDKs
-            slug: 'clientside-sdks'
+            slug: "clientside-sdks"
             contents:
               - page: React
                 path: ./pages/sdks/clientside/react.md
                 slug: tesseral-sdk-react
           - section: Serverside SDKs
-            slug: 'serverside-sdks'
+            slug: "serverside-sdks"
             contents:
               - section: Node.js
                 skip-slug: true
@@ -67,7 +68,7 @@ navigation:
           - page: Customizing Your Login Experience
             path: ./pages/features/customizing-your-login-experience.md
           - page: B2B Multitenancy
-            slug: 'b2b-multitenancy'
+            slug: "b2b-multitenancy"
             path: ./pages/features/b2b-multitenancy.md
           - page: Self-Serve User Settings
             slug: self-serve-user-settings
