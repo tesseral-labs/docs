@@ -27,5 +27,4 @@ function gtag() {
   dataLayer.push(arguments);
 }
 gtag("js", new Date());
-
 gtag("config", "G-HW27FX565S");
