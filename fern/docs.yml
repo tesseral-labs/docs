@@ -84,6 +84,8 @@ navigation:
             path: ./pages/features/scim-provisioning.md
           - page: Transactional Emails
             path: ./pages/features/transactional-emails.md
+          - page: Webhooks
+            path: ./pages/features/webhooks.md
           - page: User Impersonation
             path: ./pages/features/user-impersonation.md
           - page: Self-Hosting Tesseral
