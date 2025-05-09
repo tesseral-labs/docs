@@ -63,11 +63,8 @@ The event body will contain a JSON object with the following format:
 
 ```json
 {
-  "event_type": "sync.user",
-  "data": {
-    "type": "sync.user",
-    "userId": "user_xxxxxxxxxxxxxxx"
-  }
+  "type": "sync.user",
+  "userId": "user_xxxxxxxxxxxxxxx"
 }
 ```
 
@@ -75,11 +72,8 @@ The event body will contain a JSON object with the following format:
 
 ```json
 {
-  "event_type": "sync.organization",
-  "data": {
-    "type": "sync.organization",
-    "organizationId": "org_xxxxxxxxxxxxxxx"
-  }
+  "type": "sync.organization",
+  "organizationId": "org_xxxxxxxxxxxxxxx"
 }
 ```
 
