@@ -12,6 +12,8 @@ const PATH_PREFIXES_TO_SDK_GROUP_NAMES = [
     ['/v1/user-invites', 'User Invites'],
     ['/v1/saml-connections', 'SAML Connections'],
     ['/v1/scim-api-keys', 'SCIM API Keys'],
+    ['/v1/roles', 'Roles'],
+    ['/v1/user-role-assignments', 'User Role Assignments'],
 ]
 
 const INITIALISMS = ['SAML', 'SCIM', 'API']
@@ -30,6 +32,7 @@ for (const path of Object.keys(document.paths)) {
     delete document.paths[path][verb].responses.default;
 
     // map path to an x-fern-sdk-group-name
+    console.error(path)
     const [_, group] = PATH_PREFIXES_TO_SDK_GROUP_NAMES.find(([prefix, _]) => path.startsWith(prefix))
     document.paths[path][verb]['x-fern-sdk-group-name'] = group
 
@@ -139,6 +142,13 @@ document.components.schemas = {
         "type": "number",
         "description": "Will always be equal to the `nbf` claim.",
         "format": "double"
+      },
+      "actions": {
+        "type": "array",
+        "description": "The set of actions the User has permission to carry out.",
+        "items": {
+          "type": "string"
+        },
       },
       "organization": {
         "allOf": [
