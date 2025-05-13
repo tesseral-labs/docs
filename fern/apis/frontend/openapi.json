@@ -682,6 +682,246 @@
         "summary": "Refresh"
       }
     },
+    "/frontend/v1/roles": {
+      "get": {
+        "tags": [
+          "FrontendService"
+        ],
+        "description": "List Roles.",
+        "operationId": "FrontendService_ListRoles",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageToken",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListRolesResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "Roles",
+        "x-fern-sdk-method-name": "ListRoles",
+        "summary": "List Roles"
+      },
+      "post": {
+        "tags": [
+          "FrontendService"
+        ],
+        "description": "Create a Role.",
+        "operationId": "FrontendService_CreateRole",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Role"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateRoleResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "Roles",
+        "x-fern-sdk-method-name": "CreateRole",
+        "summary": "Create Role"
+      }
+    },
+    "/frontend/v1/roles/{id}": {
+      "get": {
+        "tags": [
+          "FrontendService"
+        ],
+        "description": "Get a Role.",
+        "operationId": "FrontendService_GetRole",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetRoleResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "Roles",
+        "x-fern-sdk-method-name": "GetRole",
+        "summary": "Get Role"
+      },
+      "delete": {
+        "tags": [
+          "FrontendService"
+        ],
+        "description": "Delete a Role.",
+        "operationId": "FrontendService_DeleteRole",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteRoleResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "Roles",
+        "x-fern-sdk-method-name": "DeleteRole",
+        "summary": "Delete Role"
+      },
+      "patch": {
+        "tags": [
+          "FrontendService"
+        ],
+        "description": "Update a Role.",
+        "operationId": "FrontendService_UpdateRole",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Role"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateRoleResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "Roles",
+        "x-fern-sdk-method-name": "UpdateRole",
+        "summary": "Update Role"
+      }
+    },
     "/frontend/v1/saml-connections": {
       "get": {
         "tags": [
@@ -1312,6 +1552,15 @@
           "FrontendService"
         ],
         "operationId": "FrontendService_CreateUserInvite",
+        "parameters": [
+          {
+            "name": "sendEmail",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -1437,6 +1686,199 @@
         "x-fern-sdk-group-name": "User Invites",
         "x-fern-sdk-method-name": "DeleteUserInvite",
         "summary": "Delete User Invite"
+      }
+    },
+    "/frontend/v1/user-role-assignments": {
+      "get": {
+        "tags": [
+          "FrontendService"
+        ],
+        "description": "List User Role Assignments.",
+        "operationId": "FrontendService_ListUserRoleAssignments",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "roleId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageToken",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListUserRoleAssignmentsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "User Role Assignments",
+        "x-fern-sdk-method-name": "ListUserRoleAssignments",
+        "summary": "List User Role Assignments"
+      },
+      "post": {
+        "tags": [
+          "FrontendService"
+        ],
+        "description": "Create a User Role Assignment.",
+        "operationId": "FrontendService_CreateUserRoleAssignment",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserRoleAssignment"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateUserRoleAssignmentResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "User Role Assignments",
+        "x-fern-sdk-method-name": "CreateUserRoleAssignment",
+        "summary": "Create User Role Assignment"
+      }
+    },
+    "/frontend/v1/user-role-assignments/{id}": {
+      "get": {
+        "tags": [
+          "FrontendService"
+        ],
+        "description": "Get a User Role Assignment.",
+        "operationId": "FrontendService_GetUserRoleAssignment",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetUserRoleAssignmentResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "User Role Assignments",
+        "x-fern-sdk-method-name": "GetUserRoleAssignment",
+        "summary": "Get User Role Assignment"
+      },
+      "delete": {
+        "tags": [
+          "FrontendService"
+        ],
+        "description": "Delete a User Role Assignment.",
+        "operationId": "FrontendService_DeleteUserRoleAssignment",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteUserRoleAssignmentResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "User Role Assignments",
+        "x-fern-sdk-method-name": "DeleteUserRoleAssignment",
+        "summary": "Delete User Role Assignment"
       }
     },
     "/frontend/v1/users": {
@@ -1634,6 +2076,14 @@
   },
   "components": {
     "schemas": {
+      "CreateRoleResponse": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "$ref": "#/components/schemas/Role"
+          }
+        }
+      },
       "CreateSAMLConnectionResponse": {
         "type": "object",
         "properties": {
@@ -1658,7 +2108,19 @@
           }
         }
       },
+      "CreateUserRoleAssignmentResponse": {
+        "type": "object",
+        "properties": {
+          "userRoleAssignment": {
+            "$ref": "#/components/schemas/UserRoleAssignment"
+          }
+        }
+      },
       "DeleteMyPasskeyResponse": {
+        "type": "object",
+        "properties": {}
+      },
+      "DeleteRoleResponse": {
         "type": "object",
         "properties": {}
       },
@@ -1675,6 +2137,10 @@
         "properties": {}
       },
       "DeleteUserResponse": {
+        "type": "object",
+        "properties": {}
+      },
+      "DeleteUserRoleAssignmentResponse": {
         "type": "object",
         "properties": {}
       },
@@ -1735,6 +2201,14 @@
           }
         }
       },
+      "GetRoleResponse": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "$ref": "#/components/schemas/Role"
+          }
+        }
+      },
       "GetSAMLConnectionResponse": {
         "type": "object",
         "properties": {
@@ -1767,6 +2241,14 @@
           }
         }
       },
+      "GetUserRoleAssignmentResponse": {
+        "type": "object",
+        "properties": {
+          "userRoleAssignment": {
+            "$ref": "#/components/schemas/UserRoleAssignment"
+          }
+        }
+      },
       "ListMyPasskeysResponse": {
         "type": "object",
         "properties": {
@@ -1774,6 +2256,20 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Passkey"
+            }
+          },
+          "nextPageToken": {
+            "type": "string"
+          }
+        }
+      },
+      "ListRolesResponse": {
+        "type": "object",
+        "properties": {
+          "roles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Role"
             }
           },
           "nextPageToken": {
@@ -1827,6 +2323,20 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/UserInvite"
+            }
+          },
+          "nextPageToken": {
+            "type": "string"
+          }
+        }
+      },
+      "ListUserRoleAssignmentsResponse": {
+        "type": "object",
+        "properties": {
+          "userRoleAssignments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserRoleAssignment"
             }
           },
           "nextPageToken": {
@@ -1910,6 +2420,9 @@
             }
           },
           "samlEnabled": {
+            "type": "boolean"
+          },
+          "customRolesEnabled": {
             "type": "boolean"
           }
         }
@@ -2076,6 +2589,45 @@
           }
         }
       },
+      "Role": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The Role ID. Starts with `role_...`."
+          },
+          "organizationId": {
+            "type": "string",
+            "description": "The Organization this Role belongs to, if any."
+          },
+          "createTime": {
+            "type": "string",
+            "description": "When the Role was created.",
+            "format": "date-time"
+          },
+          "updateTime": {
+            "type": "string",
+            "description": "When the Role was last updated.",
+            "format": "date-time"
+          },
+          "displayName": {
+            "type": "string",
+            "description": "A human-readable display name for this Role."
+          },
+          "description": {
+            "type": "string",
+            "description": "A human-readable description of the Role."
+          },
+          "actions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The names of the Actions associated with this Role."
+          }
+        },
+        "description": "Role represents a logical grouping of permissions that Users may have."
+      },
       "SAMLConnection": {
         "type": "object",
         "properties": {
@@ -2183,6 +2735,14 @@
           }
         }
       },
+      "UpdateRoleResponse": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "$ref": "#/components/schemas/Role"
+          }
+        }
+      },
       "UpdateSAMLConnectionResponse": {
         "type": "object",
         "properties": {
@@ -2266,6 +2826,24 @@
           }
         }
       },
+      "UserRoleAssignment": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The User Role Assignment ID. Starts with `user_role_assignment_...`."
+          },
+          "userId": {
+            "type": "string",
+            "description": "The User ID."
+          },
+          "roleId": {
+            "type": "string",
+            "description": "The Role ID."
+          }
+        },
+        "description": "UserRoleAssignment represents a User being assigned to a Role."
+      },
       "WhoamiResponse": {
         "type": "object",
         "properties": {
@@ -2334,6 +2912,13 @@
             "type": "number",
             "description": "Will always be equal to the `nbf` claim.",
             "format": "double"
+          },
+          "actions": {
+            "type": "array",
+            "description": "The set of actions this user has permission to carry out.",
+            "items": {
+              "type": "string"
+            }
           },
           "organization": {
             "allOf": [
@@ -2438,7 +3023,7 @@
           },
           "displayName": {
             "type": "string",
-            "description": "The User's full name, or an empty string if not known."
+            "description": "The User's full name."
           },
           "profilePictureUrl": {
             "type": "string",

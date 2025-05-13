@@ -19,6 +19,8 @@ const PATH_PREFIXES_TO_SDK_GROUP_NAMES = [
   ['/frontend/v1/user-invites', 'User Invites'],
   ['/frontend/v1/saml-connections', 'SAML Connections'],
   ['/frontend/v1/scim-api-keys', 'SCIM API Keys'],
+  ['/frontend/v1/roles', 'Roles'],
+  ['/frontend/v1/user-role-assignments', 'User Role Assignments'],
 ]
 
 const INITIALISMS = ['SAML', 'SCIM', 'API']
@@ -146,6 +148,13 @@ document.components.schemas = {
         "type": "number",
         "description": "Will always be equal to the `nbf` claim.",
         "format": "double"
+      },
+      "actions": {
+        "type": "array",
+        "description": "The set of actions the User has permission to carry out.",
+        "items": {
+          "type": "string"
+        },
       },
       "organization": {
         "allOf": [
