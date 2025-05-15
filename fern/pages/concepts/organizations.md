@@ -36,6 +36,7 @@ Organizations have the following top level properties:
 * [Update time](#update-time)
 * [Log in with Google](#log-in-with-google)
 * [Log in with Microsoft](#log-in-with-microsoft)
+* [Log in with GitHub](#log-in-with-github)
 * [Log in with email](#log-in-with-microsoft)
 * [Log in with password](#log-in-with-password)
 * [Log in with SAML](#log-in-with-saml)
@@ -115,6 +116,10 @@ Identified in the [Backend API](/docs/backend-api-reference) as `logInWithGoogle
 #### Log in with Microsoft
 
 Identified in the [Backend API](/docs/backend-api-reference) as `logInWithMicrosoft`, this boolean field represents whether [Login with Microsoft](/docs/login-methods/primary-factors/log-in-with-microsoft) is enabled for the Organization.
+
+#### Log in with GitHub
+
+Identified in the [Backend API](/docs/backend-api-reference) as `logInWithGithub`, this boolean field represents whether [Login with GitHub](/docs/login-methods/primary-factors/log-in-with-github) is enabled for the Organization.
 
 #### Log in with email
 
