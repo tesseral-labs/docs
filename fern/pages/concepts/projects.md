@@ -49,7 +49,7 @@ Projects have the following top level properties:
 * [After login redirect URI](#after-login-redirect-uri)
 * [After signup redirect URI](#after-signup-redirect-uri)
 * [Email send-from domain](#email-send-from-domain)
-
+* [RBAC Policy](#rbac-policy)
 
 ### Related concepts
 
@@ -250,3 +250,10 @@ The *Email Send-From Domain* setting describes the mail domain from which Tesser
 You may optionally configure Tesseral to send emails from a domain that you control. You may, for instance, have Tesseral send emails from `mail.vault.myapp.com.`
 
 Learn more about transactional emails in Tesseral [here](/docs/features/transactional-emails). 
+
+#### RBAC Policy
+
+In order to support [Role-Based Access
+Control](/docs/features/role-based-access-control), every Project has exactly
+one [RBAC Policy](/docs/features/role-based-access-control#rbac-policy). An RBAC
+Policy is a list of [Actions](/docs/features/role-based-access-control#actions).

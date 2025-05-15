@@ -43,6 +43,7 @@ Organizations have the following top level properties:
 * [Log in with passkey](#log-in-with-passkey)
 * [Require MFA](#require-mfa)
 * [SCIM enabled](#scim-enabled)
+* [Custom Roles enabled](#custom-roles-enabled)
 
 
 ### Related concepts
@@ -147,3 +148,7 @@ Identified in the [Backend API](/docs/backend-api-reference) as `requireMFA`, th
 #### SCIM enabled
 
 Identified in the [Backend API](/docs/backend-api-reference) as `scimEnabled`, this boolean field represents whether [SCIM provisioning](/docs/features/scim-provisioning) is enabled for the Organization.
+
+#### Custom Roles enabled
+
+Identified in the [Backend API](/docs/backend-api-reference) as `customRolesEnabled`, this boolean field represents whether [Custom Roles](/docs/features/role-based-access-control#custom-roles) are enabled for the Organization.
