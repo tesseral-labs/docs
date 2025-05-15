@@ -95,11 +95,23 @@ Identified in the [Backend API](/docs/backend-api-reference) as `updateTime`, th
 
 #### Owner
 
-Each User may either be an *owner* or not an owner. If a User has `owner` set to `True` (displayed as *Yes*), then the User is an owner. 
+Each User may either be an *owner* or not an owner. If a User has `owner` set to
+`true` (displayed as *Yes*), then the User is an owner.
 
-If an owner, a User may make certain changes to their Organization that other Users cannot make. Specifically, an owner may:
-* create [User Invites](/docs/concepts/user-invites)
-* edit [login methods](docs/features/customizing-your-login-experience) enabled for the Organization
+Owners of an Organization have broad administrative control over their
+Organization. Owners can make certain changes to their Organization that other
+Users cannot make. Specifically, an owner can:
+
+* Create [User Invites](/docs/concepts/user-invites)
+* Edit [login methods](docs/features/customizing-your-login-experience) enabled for the Organization
+* Configure [SCIM provisioning](/docs/features/scim-provisioning) for the Organization, if [SCIM provisioning is enabled](/docs/concepts/organizations#scim-enabled).
+* Modify [Organization-Specific Roles](/docs/concepts/roles#organization-specific-roles) for the Organization, if [custom Roles are enabled](/docs/concepts/organizations#custom-roles-enabled).
+* Remove Users from their Organization.
+* Edit whether other Users are Owners.
+
+When using [Role-Based Access
+Control](/docs/concepts/role-based-access-control), owners have all
+[Actions](/docs/concepts/role-based-access-control#actions) enabled.
 
 #### Google User ID
 
