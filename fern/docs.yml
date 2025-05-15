@@ -100,6 +100,9 @@ navigation:
                 path: ./pages/login-methods/primary-factors/log-in-with-google.md
               - page: Log in with Microsoft
                 path: ./pages/login-methods/primary-factors/log-in-with-microsoft.md
+              - page: Log in with GitHub
+                path: ./pages/login-methods/primary-factors/log-in-with-github.md
+                slug: log-in-with-github
               - page: Log in with Password
                 path: ./pages/login-methods/primary-factors/log-in-with-password.md
               - page: Log in with Enterprise SSO (SAML)

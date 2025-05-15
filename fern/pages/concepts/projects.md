@@ -32,6 +32,7 @@ Projects have the following top level properties:
 * [Update time](#update-time)
 * [Log in with Google](#log-in-with-google)
 * [Log in with Microsoft](#log-in-with-microsoft)
+* [Log in with GitHub](#log-in-with-github)
 * [Log in with Email](#log-in-with-email)
 * [Log in with Password](#log-in-with-password)
 * [Log in with SAML](#log-in-with-saml)
@@ -41,6 +42,8 @@ Projects have the following top level properties:
 * [Google OAuth Client Secret](#google-oauth-client-secret)
 * [Microsoft OAuth Client ID](#microsoft-oauth-client-id)
 * [Microsoft OAuth Client Secret](#microsoft-oauth-client-secret)
+* [GitHub OAuth Client ID](#github-oauth-client-id)
+* [GitHub OAuth Client Secret](#github-oauth-client-secret)
 * [Vault domain](#vault-domain)
 * [Vault domain custom](#vault-domain-custom)
 * [Trusted domains](#trusted-domains)
@@ -107,6 +110,11 @@ Identified in the [Backend API](/docs/backend-api-reference) as `logInWithMicros
 
 Be aware that Organizations have [a similar property](/docs/concepts/organizations#log-in-with-microsoft). If Login with Microsoft is enabled for the Project but *not* enabled for a given Organization, no one within that Organization will be able to use Login with Microsoft.
 
+#### Log in with GitHub
+
+Identified in the [Backend API](/docs/backend-api-reference) as `logInWithGithub`, this boolean field represents whether [Login with GitHub](/docs/login-methods/primary-factors/log-in-with-github) is enabled for the Project.
+
+Be aware that Organizations have [a similar property](/docs/concepts/organizations#log-in-with-google). If Login with GitHub is enabled for the Project but *not* enabled for a given Organization, no one within that Organization will be able to use Login with GitHub.
 
 #### Log in with Email
 
@@ -154,9 +162,9 @@ This is a non-sensitive string that will appear as a query parameter every time 
 
 #### Google OAuth Client Secret
 
-Login with Google uses a protocol called OAuth. To use Login with Google with your app, you must register your application with Microsoft. You can read more about this process in [Google's documentation](https://developers.google.com/identity/protocols/oauth2).
+Login with Google uses a protocol called OAuth. To use Login with Google with your app, you must register your application with Google. You can read more about this process in [Google's documentation](https://developers.google.com/identity/protocols/oauth2).
 
-When you register an application with Google, you will receive a *Client ID* from Google. 
+When you register an application with Google, you will receive a *Client Secret* from Google. 
 
 This is a *sensitive* value. Tesseral only stores it in encrypted form. You can only write to this value, and you cannot read it back out.
 
@@ -172,6 +180,23 @@ This is a non-sensitive string that uniquely identifies your application to Micr
 #### Microsoft OAuth Client Secret
 
 Login with Microsoft uses a protocol called OAuth. To use Login with Microsoft with your app, you must register an *OAuth Client* with Microsoft. You can read more about this process in [Microsoft's documentation](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app?tabs=client-secret%2Cexpose-a-web-api).
+
+This is a *sensitive* value. Tesseral only stores it in encrypted form. You can only write to this value, and you cannot read it back out.
+
+#### GitHub OAuth Client ID
+
+Login with GitHub uses a protocol called OAuth. To use Login with GitHub with your app, you must register an *OAuth Client* with GitHub. You can read more about this process in [GitHub's documentation](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app).
+
+When you register an OAuth Client with GitHub, you will receive a *Client ID* from GitHub.
+
+This is a non-sensitive string that will appear as a query parameter every time someone uses Login with GitHub to access your application. It looks something like this: `Ov24lb8r3bwJrtWJl5aR`.
+
+
+#### GitHub OAuth Client Secret
+
+Login with GitHub uses a protocol called OAuth. To use Login with GitHub with your app, you must register your application with GitHub. You can read more about this process in [GitHub's documentation](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app).
+
+When you register an application with GitHub, you will receive a *Client Secret* from GitHub.
 
 This is a *sensitive* value. Tesseral only stores it in encrypted form. You can only write to this value, and you cannot read it back out.
 
