@@ -1,28 +1,30 @@
 #!/usr/bin/env node
 
-import * as fs from 'fs';
-import * as yaml from 'js-yaml';
+import * as fs from "fs";
+import * as yaml from "js-yaml";
 
 const PATH_PREFIXES_TO_SDK_GROUP_NAMES = [
-    ['/v1/project', 'Projects'],
-    ['/v1/organizations', 'Organizations'],
-    ['/v1/users', 'Users'],
-    ['/v1/sessions', 'Sessions'],
-    ['/v1/passkeys', 'Passkeys'],
-    ['/v1/user-invites', 'User Invites'],
-    ['/v1/saml-connections', 'SAML Connections'],
-    ['/v1/scim-api-keys', 'SCIM API Keys'],
-    ['/v1/roles', 'Roles'],
-    ['/v1/user-role-assignments', 'User Role Assignments'],
-]
+  ["/v1/project", "Projects"],
+  ["/v1/organizations", "Organizations"],
+  ["/v1/users", "Users"],
+  ["/v1/sessions", "Sessions"],
+  ["/v1/passkeys", "Passkeys"],
+  ["/v1/user-invites", "User Invites"],
+  ["/v1/saml-connections", "SAML Connections"],
+  ["/v1/scim-api-keys", "SCIM API Keys"],
+  ["/v1/roles", "Roles"],
+  ["/v1/user-role-assignments", "User Role Assignments"],
+  ["/v1/api-keys", "API Keys"],
+  ["/v1/api-key-role-assignments", "API Key Role Assignments"],
+];
 
-const INITIALISMS = ['SAML', 'SCIM', 'API']
+const INITIALISMS = ["SAML", "SCIM", "API"];
 
 function rpcIDToSummary(rpcId) {
   for (const initialism of INITIALISMS) {
-    rpcId = rpcId.replaceAll(initialism, `${initialism} `)
+    rpcId = rpcId.replaceAll(initialism, `${initialism} `);
   }
-  return rpcId.replace(/([a-z])([A-Z])/g, '$1 $2');
+  return rpcId.replace(/([a-z])([A-Z])/g, "$1 $2");
 }
 
 const document = yaml.load(fs.readFileSync(0, "utf-8"));
@@ -32,220 +34,241 @@ for (const path of Object.keys(document.paths)) {
     delete document.paths[path][verb].responses.default;
 
     // map path to an x-fern-sdk-group-name
-    console.error(path)
-    const [_, group] = PATH_PREFIXES_TO_SDK_GROUP_NAMES.find(([prefix, _]) => path.startsWith(prefix))
-    document.paths[path][verb]['x-fern-sdk-group-name'] = group
+    console.error(path);
+    const [_, group] = PATH_PREFIXES_TO_SDK_GROUP_NAMES.find(([prefix, _]) =>
+      path.startsWith(prefix)
+    );
+    document.paths[path][verb]["x-fern-sdk-group-name"] = group;
 
     // gnostic generates operationIds like BackendService_GetSAMLConnection, so
     // here we're recovering the original RPC name.
-    const rpcId = document.paths[path][verb].operationId.split('_')[1];
-    document.paths[path][verb]['x-fern-sdk-method-name'] = rpcId;
+    const rpcId = document.paths[path][verb].operationId.split("_")[1];
+    document.paths[path][verb]["x-fern-sdk-method-name"] = rpcId;
     document.paths[path][verb].summary = rpcIDToSummary(rpcId);
 
-    document.paths[path][verb].responses['400'] = {
-      '$ref': '#/components/responses/APIError'
+    document.paths[path][verb].responses["400"] = {
+      $ref: "#/components/responses/APIError",
     };
 
-    document.paths[path][verb].responses['401'] = {
-      '$ref': '#/components/responses/APIError'
+    document.paths[path][verb].responses["401"] = {
+      $ref: "#/components/responses/APIError",
     };
 
-    document.paths[path][verb].responses['403'] = {
-      '$ref': '#/components/responses/APIError'
+    document.paths[path][verb].responses["403"] = {
+      $ref: "#/components/responses/APIError",
     };
 
-    document.paths[path][verb].responses['404'] = {
-      '$ref': '#/components/responses/APIError'
+    document.paths[path][verb].responses["404"] = {
+      $ref: "#/components/responses/APIError",
     };
   }
 }
 
 document.components.responses = {
-  "APIError": {
+  APIError: {
     description: "API Error",
     content: {
-      'application/json': {
+      "application/json": {
         schema: {
-          '$ref': '#/components/schemas/APIError',
+          $ref: "#/components/schemas/APIError",
         },
       },
     },
   },
-}
-
+};
 
 delete document.components.schemas.Status;
 delete document.components.schemas.GoogleProtobufAny;
 
 document.components.schemas = {
   ...document.components.schemas,
-  "APIError": {
-    type: 'object',
-    description: 'An error returned from Tesseral.',
+  APIError: {
+    type: "object",
+    description: "An error returned from Tesseral.",
     properties: {
       message: {
-        type: 'string',
-        description: 'A developer-facing error message, such as "not_found". These are stable, and you can develop code that matches against them.',
+        type: "string",
+        description:
+          'A developer-facing error message, such as "not_found". These are stable, and you can develop code that matches against them.',
       },
       details: {
-        type: 'array',
+        type: "array",
         items: {
-          '$ref': '#/components/schemas/APIErrorDetail',
+          $ref: "#/components/schemas/APIErrorDetail",
         },
-        description: 'Additional details about this error.',
+        description: "Additional details about this error.",
       },
     },
   },
 
   // these are generated from messages in tesseral-labs/tesseral's common.proto
 
-  "ErrorDetail": {
-    "type": "object",
-    "properties": {
-      "description": {
-        "type": "string",
-        "description": "A human-friendly description for the error. May change at any time."
+  ErrorDetail: {
+    type: "object",
+    properties: {
+      description: {
+        type: "string",
+        description:
+          "A human-friendly description for the error. May change at any time.",
       },
-      "docsLink": {
-        "type": "string",
-        "description": "A link to the documentation about the error. May change at any time."
-      }
+      docsLink: {
+        type: "string",
+        description:
+          "A link to the documentation about the error. May change at any time.",
+      },
     },
-    "description": "An error returned from a Tesseral API."
+    description: "An error returned from a Tesseral API.",
   },
-  "AccessTokenClaims": {
-    "type": "object",
-    "properties": {
-      "iss": {
-        "type": "string",
-        "description": "Will always be of the form \"https://project-xxx.tesseral.app\", where\n \"project-xxx\" is your Project ID."
+  AccessTokenClaims: {
+    type: "object",
+    properties: {
+      iss: {
+        type: "string",
+        description:
+          'Will always be of the form "https://project-xxx.tesseral.app", where\n "project-xxx" is your Project ID.',
       },
-      "sub": {
-        "type": "string",
-        "description": "Will always be equal to the `user.id` claim."
+      sub: {
+        type: "string",
+        description: "Will always be equal to the `user.id` claim.",
       },
-      "aud": {
-        "type": "string",
-        "description": "Will always be equal to the `iss` claim."
+      aud: {
+        type: "string",
+        description: "Will always be equal to the `iss` claim.",
       },
-      "exp": {
-        "type": "number",
-        "description": "When this Access Token expires, in seconds since the unix epoch.",
-        "format": "double"
+      exp: {
+        type: "number",
+        description:
+          "When this Access Token expires, in seconds since the unix epoch.",
+        format: "double",
       },
-      "nbf": {
-        "type": "number",
-        "description": "When this Access Token was issued, in seconds since the unix epoch.",
-        "format": "double"
+      nbf: {
+        type: "number",
+        description:
+          "When this Access Token was issued, in seconds since the unix epoch.",
+        format: "double",
       },
-      "iat": {
-        "type": "number",
-        "description": "Will always be equal to the `nbf` claim.",
-        "format": "double"
+      iat: {
+        type: "number",
+        description: "Will always be equal to the `nbf` claim.",
+        format: "double",
       },
-      "actions": {
-        "type": "array",
-        "description": "The set of actions the User has permission to carry out.",
-        "items": {
-          "type": "string"
+      actions: {
+        type: "array",
+        description: "The set of actions the User has permission to carry out.",
+        items: {
+          type: "string",
         },
       },
-      "organization": {
-        "allOf": [
+      organization: {
+        allOf: [
           {
-            "$ref": "#/components/schemas/AccessTokenOrganization"
-          }
+            $ref: "#/components/schemas/AccessTokenOrganization",
+          },
         ],
-        "description": "The Organization the User is logged into."
+        description: "The Organization the User is logged into.",
       },
-      "user": {
-        "allOf": [
+      user: {
+        allOf: [
           {
-            "$ref": "#/components/schemas/AccessTokenUser"
-          }
+            $ref: "#/components/schemas/AccessTokenUser",
+          },
         ],
-        "description": "The User that's logged in."
+        description: "The User that's logged in.",
       },
-      "session": {
-        "allOf": [
+      session: {
+        allOf: [
           {
-            "$ref": "#/components/schemas/AccessTokenSession"
-          }
+            $ref: "#/components/schemas/AccessTokenSession",
+          },
         ],
-        "description": "The user's current Session."
+        description: "The user's current Session.",
       },
-      "impersonator": {
-        "allOf": [
+      impersonator: {
+        allOf: [
           {
-            "$ref": "#/components/schemas/AccessTokenImpersonator"
-          }
+            $ref: "#/components/schemas/AccessTokenImpersonator",
+          },
         ],
-        "description": "If this is an impersonated Session, this contains information about who on\n your staff is impersonating the user."
-      }
-    },
-    "required": ["iss", "sub", "aud", "exp", "nbf", "iat", "organization", "user", "session"],
-    "description": "The claims encoded in an Access Token."
-  },
-  "AccessTokenImpersonator": {
-    "type": "object",
-    "properties": {
-      "email": {
-        "type": "string",
-        "description": "The email address of the individual on your staff impersonating the User."
-      }
-    },
-    "required": ["email"],
-    "description": "Information in an Access Token about who is impersonating the User."
-  },
-  "AccessTokenOrganization": {
-    "type": "object",
-    "properties": {
-      "id": {
-        "type": "string",
-        "description": "The Organization's ID."
-      },
-      "displayName": {
-        "type": "string",
-        "description": "The Organization's display name."
-      }
-    },
-    "required": ["id", "displayName"],
-    "description": "Information in an Access Token about the Organization the User is logged\n into."
-  },
-  "AccessTokenSession": {
-    "type": "object",
-    "properties": {
-      "id": {
-        "type": "string",
-        "description": "The Session ID."
-      }
-    },
-    "required": ["id"],
-    "description": "Information in an Access Token about the current Session."
-  },
-  "AccessTokenUser": {
-    "type": "object",
-    "properties": {
-      "id": {
-        "type": "string",
-        "description": "The User's ID."
-      },
-      "email": {
-        "type": "string",
-        "description": "The User's email."
-      },
-      "displayName": {
-        "type": "string",
-        "description": "The User's full name.",
-      },
-      "profilePictureUrl": {
-        "type": "string",
-        "description": "A URL of the User's profile picture."
+        description:
+          "If this is an impersonated Session, this contains information about who on\n your staff is impersonating the user.",
       },
     },
-    "required": ["id", "email"],
-    "description": "Information in an Access Token about the logged-in User."
+    required: [
+      "iss",
+      "sub",
+      "aud",
+      "exp",
+      "nbf",
+      "iat",
+      "organization",
+      "user",
+      "session",
+    ],
+    description: "The claims encoded in an Access Token.",
   },
-}
+  AccessTokenImpersonator: {
+    type: "object",
+    properties: {
+      email: {
+        type: "string",
+        description:
+          "The email address of the individual on your staff impersonating the User.",
+      },
+    },
+    required: ["email"],
+    description:
+      "Information in an Access Token about who is impersonating the User.",
+  },
+  AccessTokenOrganization: {
+    type: "object",
+    properties: {
+      id: {
+        type: "string",
+        description: "The Organization's ID.",
+      },
+      displayName: {
+        type: "string",
+        description: "The Organization's display name.",
+      },
+    },
+    required: ["id", "displayName"],
+    description:
+      "Information in an Access Token about the Organization the User is logged\n into.",
+  },
+  AccessTokenSession: {
+    type: "object",
+    properties: {
+      id: {
+        type: "string",
+        description: "The Session ID.",
+      },
+    },
+    required: ["id"],
+    description: "Information in an Access Token about the current Session.",
+  },
+  AccessTokenUser: {
+    type: "object",
+    properties: {
+      id: {
+        type: "string",
+        description: "The User's ID.",
+      },
+      email: {
+        type: "string",
+        description: "The User's email.",
+      },
+      displayName: {
+        type: "string",
+        description: "The User's full name.",
+      },
+      profilePictureUrl: {
+        type: "string",
+        description: "A URL of the User's profile picture.",
+      },
+    },
+    required: ["id", "email"],
+    description: "Information in an Access Token about the logged-in User.",
+  },
+};
 
-console.log(JSON.stringify(document, undefined, 2))
+console.log(JSON.stringify(document, undefined, 2));
