@@ -5,6 +5,483 @@
     "version": "0.0.1"
   },
   "paths": {
+    "/v1/api-key-role-assignments": {
+      "get": {
+        "tags": [
+          "BackendService"
+        ],
+        "operationId": "BackendService_ListAPIKeyRoleAssignments",
+        "parameters": [
+          {
+            "name": "apiKeyId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageToken",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAPIKeyRoleAssignmentsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "API Key Role Assignments",
+        "x-fern-sdk-method-name": "ListAPIKeyRoleAssignments",
+        "summary": "List API Key Role Assignments"
+      },
+      "post": {
+        "tags": [
+          "BackendService"
+        ],
+        "operationId": "BackendService_CreateAPIKeyRoleAssignment",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAPIKeyRoleAssignmentRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateAPIKeyRoleAssignmentResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "API Key Role Assignments",
+        "x-fern-sdk-method-name": "CreateAPIKeyRoleAssignment",
+        "summary": "Create API Key Role Assignment"
+      }
+    },
+    "/v1/api-key-role-assignments/{id}": {
+      "delete": {
+        "tags": [
+          "BackendService"
+        ],
+        "operationId": "BackendService_DeleteAPIKeyRoleAssignment",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "apiKeyId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteAPIKeyRoleAssignmentResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "API Key Role Assignments",
+        "x-fern-sdk-method-name": "DeleteAPIKeyRoleAssignment",
+        "summary": "Delete API Key Role Assignment"
+      }
+    },
+    "/v1/api-keys": {
+      "get": {
+        "tags": [
+          "BackendService"
+        ],
+        "description": "List API Keys.",
+        "operationId": "BackendService_ListAPIKeys",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageToken",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAPIKeysResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "API Keys",
+        "x-fern-sdk-method-name": "ListAPIKeys",
+        "summary": "List API Keys"
+      },
+      "post": {
+        "tags": [
+          "BackendService"
+        ],
+        "description": "Create an API Key for an Organization.",
+        "operationId": "BackendService_CreateAPIKey",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAPIKeyRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateAPIKeyResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "API Keys",
+        "x-fern-sdk-method-name": "CreateAPIKey",
+        "summary": "Create API Key"
+      }
+    },
+    "/v1/api-keys/authenticate": {
+      "post": {
+        "tags": [
+          "BackendService"
+        ],
+        "operationId": "BackendService_AuthenticateAPIKey",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthenticateAPIKeyRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthenticateAPIKeyResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "API Keys",
+        "x-fern-sdk-method-name": "AuthenticateAPIKey",
+        "summary": "Authenticate API Key"
+      }
+    },
+    "/v1/api-keys/{id}": {
+      "get": {
+        "tags": [
+          "BackendService"
+        ],
+        "description": "Get an API Key.",
+        "operationId": "BackendService_GetAPIKey",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetAPIKeyResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "API Keys",
+        "x-fern-sdk-method-name": "GetAPIKey",
+        "summary": "Get API Key"
+      },
+      "delete": {
+        "tags": [
+          "BackendService"
+        ],
+        "description": "Delete an API Key.",
+        "operationId": "BackendService_DeleteAPIKey",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteAPIKeyResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "API Keys",
+        "x-fern-sdk-method-name": "DeleteAPIKey",
+        "summary": "Delete API Key"
+      },
+      "patch": {
+        "tags": [
+          "BackendService"
+        ],
+        "description": "Update an API Key.",
+        "operationId": "BackendService_UpdateAPIKey",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateAPIKeyRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateAPIKeyResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "API Keys",
+        "x-fern-sdk-method-name": "UpdateAPIKey",
+        "summary": "Update API Key"
+      }
+    },
+    "/v1/api-keys/{id}/revoke": {
+      "post": {
+        "tags": [
+          "BackendService"
+        ],
+        "description": "Revoke an API Key.",
+        "operationId": "BackendService_RevokeAPIKey",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RevokeAPIKeyResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "API Keys",
+        "x-fern-sdk-method-name": "RevokeAPIKey",
+        "summary": "Revoke API Key"
+      }
+    },
     "/v1/organizations": {
       "get": {
         "tags": [
@@ -2304,6 +2781,124 @@
   },
   "components": {
     "schemas": {
+      "APIKey": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The API Key ID. Starts with `api_key_...`."
+          },
+          "organizationId": {
+            "type": "string",
+            "description": "The Organization this API Key belongs to."
+          },
+          "createTime": {
+            "type": "string",
+            "description": "When the API Key was created.",
+            "format": "date-time"
+          },
+          "updateTime": {
+            "type": "string",
+            "description": "When the API Key was last updated.",
+            "format": "date-time"
+          },
+          "expireTime": {
+            "type": "string",
+            "description": "The expire time of the API Key.",
+            "format": "date-time"
+          },
+          "displayName": {
+            "type": "string",
+            "description": "A human-readable display name for this API Key."
+          },
+          "secretToken": {
+            "type": "string",
+            "description": "The secret token for this API Key."
+          },
+          "secretTokenSuffix": {
+            "type": "string",
+            "description": "The secret token suffix for this API Key."
+          },
+          "revoked": {
+            "type": "boolean",
+            "description": "Whether this API Key is revoked."
+          }
+        }
+      },
+      "APIKeyRoleAssignment": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The API Key Role Assignment ID. Starts with `api_key_role_assignment_...`."
+          },
+          "apiKeyId": {
+            "type": "string",
+            "description": "The API Key ID."
+          },
+          "roleId": {
+            "type": "string",
+            "description": "The Role ID."
+          }
+        }
+      },
+      "AuthenticateAPIKeyRequest": {
+        "type": "object",
+        "properties": {
+          "secretToken": {
+            "type": "string"
+          }
+        }
+      },
+      "AuthenticateAPIKeyResponse": {
+        "type": "object",
+        "properties": {
+          "apiKeyId": {
+            "type": "string"
+          },
+          "organizationId": {
+            "type": "string"
+          },
+          "actions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "CreateAPIKeyRequest": {
+        "type": "object",
+        "properties": {
+          "apiKey": {
+            "$ref": "#/components/schemas/APIKey"
+          }
+        }
+      },
+      "CreateAPIKeyResponse": {
+        "type": "object",
+        "properties": {
+          "apiKey": {
+            "$ref": "#/components/schemas/APIKey"
+          }
+        }
+      },
+      "CreateAPIKeyRoleAssignmentRequest": {
+        "type": "object",
+        "properties": {
+          "apiKeyRoleAssignment": {
+            "$ref": "#/components/schemas/APIKeyRoleAssignment"
+          }
+        }
+      },
+      "CreateAPIKeyRoleAssignmentResponse": {
+        "type": "object",
+        "properties": {
+          "apiKeyRoleAssignment": {
+            "$ref": "#/components/schemas/APIKeyRoleAssignment"
+          }
+        }
+      },
       "CreateOrganizationResponse": {
         "type": "object",
         "properties": {
@@ -2385,6 +2980,14 @@
           }
         }
       },
+      "DeleteAPIKeyResponse": {
+        "type": "object",
+        "properties": {}
+      },
+      "DeleteAPIKeyRoleAssignmentResponse": {
+        "type": "object",
+        "properties": {}
+      },
       "DeleteOrganizationResponse": {
         "type": "object",
         "properties": {}
@@ -2416,6 +3019,14 @@
       "DeleteUserRoleAssignmentResponse": {
         "type": "object",
         "properties": {}
+      },
+      "GetAPIKeyResponse": {
+        "type": "object",
+        "properties": {
+          "apiKey": {
+            "$ref": "#/components/schemas/APIKey"
+          }
+        }
       },
       "GetOrganizationDomainsResponse": {
         "type": "object",
@@ -2573,6 +3184,34 @@
         "properties": {
           "userRoleAssignment": {
             "$ref": "#/components/schemas/UserRoleAssignment"
+          }
+        }
+      },
+      "ListAPIKeyRoleAssignmentsResponse": {
+        "type": "object",
+        "properties": {
+          "apiKeyRoleAssignments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/APIKeyRoleAssignment"
+            }
+          },
+          "nextPageToken": {
+            "type": "string"
+          }
+        }
+      },
+      "ListAPIKeysResponse": {
+        "type": "object",
+        "properties": {
+          "apiKeys": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/APIKey"
+            }
+          },
+          "nextPageToken": {
+            "type": "string"
           }
         }
       },
@@ -2745,6 +3384,10 @@
             "type": "boolean",
             "description": "Whether the Organization supports \"Log in with Microsoft\"."
           },
+          "logInWithGithub": {
+            "type": "boolean",
+            "description": "Whether the Organization supports Log in with GitHub."
+          },
           "logInWithEmail": {
             "type": "boolean",
             "description": "Whether the Organization supports \"Log in with email\"."
@@ -2776,6 +3419,10 @@
           "customRolesEnabled": {
             "type": "boolean",
             "description": "Whether the Organization's Users can create Organization-specific Roles."
+          },
+          "apiKeysEnabled": {
+            "type": "boolean",
+            "description": "Whether API Keys are enabled for the Organization."
           }
         },
         "description": "An Organization represents one of your corporate customers."
@@ -2905,6 +3552,10 @@
             "type": "boolean",
             "description": "Whether the Project supports \"Log in with Microsoft\"."
           },
+          "logInWithGithub": {
+            "type": "boolean",
+            "description": "Whether the Project supports \"Log in with GitHub\"."
+          },
           "logInWithEmail": {
             "type": "boolean",
             "description": "Whether the Project supports \"Log in with email\"."
@@ -2941,6 +3592,14 @@
             "type": "string",
             "description": "The OAuth Client Secret to use for \"Log in with Microsoft\".\n\n This field is write-only."
           },
+          "githubOauthClientId": {
+            "type": "string",
+            "description": "The OAuth Client ID to use for \"Log in with GitHub\"."
+          },
+          "githubOauthClientSecret": {
+            "type": "string",
+            "description": "The OAuth Client ID to use for \"Log in with GitHub\"\n\n This field is write only."
+          },
           "vaultDomain": {
             "type": "string",
             "description": "The domain where the Project's Vault lives."
@@ -2975,9 +3634,21 @@
           "emailSendFromDomain": {
             "type": "string",
             "description": "Emails sent to Users come from this domain."
+          },
+          "apiKeysEnabled": {
+            "type": "boolean",
+            "description": "Whether the Project supports API Keys."
+          },
+          "apiKeySecretTokenPrefix": {
+            "type": "string",
+            "description": "The prefix used for API Key secret tokens."
           }
         },
         "description": "Projects are the top-level object in Tesseral.\n\n Everything in Tesseral happens within the context of a Project."
+      },
+      "RevokeAPIKeyResponse": {
+        "type": "object",
+        "properties": {}
       },
       "RevokeSCIMAPIKeyResponse": {
         "type": "object",
@@ -3153,6 +3824,25 @@
         },
         "description": "Represents a Session for a logged-in User."
       },
+      "UpdateAPIKeyRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "apiKey": {
+            "$ref": "#/components/schemas/APIKey"
+          }
+        }
+      },
+      "UpdateAPIKeyResponse": {
+        "type": "object",
+        "properties": {
+          "apiKey": {
+            "$ref": "#/components/schemas/APIKey"
+          }
+        }
+      },
       "UpdateOrganizationDomainsResponse": {
         "type": "object",
         "properties": {
@@ -3301,6 +3991,10 @@
           "microsoftUserId": {
             "type": "string",
             "description": "The Microsoft User ID, if the User has ever logged in with Microsoft."
+          },
+          "githubUserId": {
+            "type": "string",
+            "description": "The Github User ID, if the User has ever logged in with GitHub."
           },
           "hasAuthenticatorApp": {
             "type": "boolean",
