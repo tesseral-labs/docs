@@ -35,6 +35,11 @@ ends in "Dev").
 You'll be logged into your development Project. You can switch between your
 Projects from the Project Switcher at the top left of the Console.
 
+<Frame caption="Use the Project Switcher at the top left of the console to switch between your Projects">
+  <img src="quickstart-project-switcher.png" />
+</Frame>
+
+
 ## Add Tesseral to your clientside code
 
 Tesseral's React SDK handles redirecting users to your login page, giving your
