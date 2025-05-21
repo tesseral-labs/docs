@@ -1,6 +1,6 @@
 ---
-title: "B2B multitenancy in Tesseral"
-subtitle: "Tesseral's tenancy model is designed specifically for B2B SaaS"
+title: "Customizing your login experience"
+subtitle: "You can configure the appearance and functionality of your login flow without code"
 ---
 
 ## Styling your login experience
