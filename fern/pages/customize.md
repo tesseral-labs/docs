@@ -60,7 +60,7 @@ Note that dark mode uses a different [logo](#logos) and [primary color](#primary
 
 ### Logo(s)
 
-By default, the Vault UI displays a Tesseral logo to your users. You may change this to show your own logo. Simply upload a new file.
+You may add your own logo to your Vault UI. Simply upload a new file.
 
 <Frame caption="Uploading a new Vault UI logo" >
     <img src = "/assets/customize/customize-logo.gif">
