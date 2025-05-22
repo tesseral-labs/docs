@@ -12,6 +12,8 @@ colors:
     dark: "#0d0e11"
 js: ./custom.js
 
+favicon: ./assets/favicon.png
+
 layout:
   tabs-placement: header
 
