@@ -91,6 +91,8 @@ navigation:
             path: ./pages/features/webhooks.md
           - page: User Impersonation
             path: ./pages/features/user-impersonation.md
+          - page: Managed API Keys
+            path: ./pages/features/managed-api-keys.md
           - page: Self-Hosting Tesseral
             path: ./pages/features/self-hosting/index.md
       - section: Login Methods
