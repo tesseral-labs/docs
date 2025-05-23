@@ -63,7 +63,7 @@ acmecorp_sk_vqvzz9m7pgxlrmcq025xf45k1hf4q9o4jfsqw99nyf5sojpicg6t0g9
 ### Enabling API Keys for an Organization
 
 By default, Organizations in your [Project](/docs/concepts/projects) cannot
-create custom Roles. You must [enable API
+create API Keys. You must [enable API
 Keys](/docs/concepts/organizations#api-keys-enabled) on an Organization to add
 this functionality.
 
