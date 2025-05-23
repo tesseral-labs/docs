@@ -84,9 +84,8 @@ print("User email:", claims.user.email)
 [`AccessTokenClaims`](https://github.com/tesseral-labs/tesseral-sdk-python/blob/master/src/tesseral/types/access_token_claims.py),
 which contains details about the current Session ID, User, and Organization.
 
-A future version of the Tesseral SDK will add support for API Keys-as-a-Service.
-In the future, `access_token_claims` may return an error if the request isn't
-from one of your Users, but instead from one of their API Keys.
+If the request if from an [API Key](/docs/features/managed-api-keys), then
+`access_token_claims` will throw a `NotAnAccessTokenError`.
 
 We recommend that you mostly use `organization_id()` in the vast majority of
 your code; that is almost always the correct piece of information for most B2B

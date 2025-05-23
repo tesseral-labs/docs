@@ -101,9 +101,8 @@ fmt.Println("your email is:", accessTokenClaims.User.Email)
 struct, which contains details about the current Session ID, User, and
 Organization.
 
-A future version of the Tesseral SDK will add support for API Keys-as-a-Service.
-In the future, `auth.AccessTokenClaims` may return an error if the request isn't
-from one of your Users, but instead from one of their API Keys.
+If the request if from an [API Key](/docs/features/managed-api-keys), then
+`auth.AccessTokenClaims` will return an `ErrNotAnAccessToken` error.
 
 We recommend that you mostly use `auth.OrganizationID(ctx)` in the vast majority
 of your code; that is almost always the correct piece of information for most

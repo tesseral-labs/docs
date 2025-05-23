@@ -50,7 +50,7 @@ tesseral_secret_key_...
 
 If you're using one of Tesseral's [Backend API
 SDKs](#tesseral-backend-api-sdks), then put this secret into an environment
-variable named `TESSERAL_API_KEY`.
+variable named `TESSERAL_BACKEND_API_KEY`.
 
 If you're using Tesseral's Backend API using a plain HTTP client, then include
 the secret token as an `Authorization: Bearer` token:

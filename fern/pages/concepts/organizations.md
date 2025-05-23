@@ -45,6 +45,7 @@ Organizations have the following top level properties:
 * [Require MFA](#require-mfa)
 * [SCIM enabled](#scim-enabled)
 * [Custom Roles enabled](#custom-roles-enabled)
+* [API Keys enabled](#api-keys-enabled)
 
 
 ### Related concepts
@@ -157,3 +158,7 @@ Identified in the [Backend API](/docs/backend-api-reference) as `scimEnabled`, t
 #### Custom Roles enabled
 
 Identified in the [Backend API](/docs/backend-api-reference) as `customRolesEnabled`, this boolean field represents whether [Custom Roles](/docs/features/role-based-access-control#custom-roles) are enabled for the Organization.
+
+#### API Keys enabled
+
+Identified in the [Backend API](/docs/backend-api-reference) as `apiKeysEnabled`, this boolean field represents whether [API Keys](/docs/features/managed-api-keys) are enabled for the Organization.
