@@ -130,14 +130,14 @@ From there, all of your endpoints can now be called either by
 [User](/docs/concepts/users) access tokens or by API Keys.
 
 You can detect whether a request is from an API Key or an Access Token using
-`authType()`:
+`credentialsType()`:
 
 ```typescript
-import { authType } from "@tesseral/tesseral-express";
+import { credentialsType } from "@tesseral/tesseral-express";
 
 app.get("/", (req, res) => {
-  // authType() returns "access_token" or "api_key"
-  console.log(authType(req))
+  // credentialsType() returns "access_token" or "api_key"
+  console.log(credentialsType(req))
 });
 ```
 
@@ -152,7 +152,7 @@ However,
 [`accessTokenClaims()`](/docs/sdks/serverside-sdks/tesseral-sdk-express#getting-details-about-the-current-user)
 will throw a `NotAnAccessTokenError` for requests that are from an API Key
 instead of an access token. You can either `try / catch` for these errors, do an
-`authType` check before calling `accessTokenClaims()`.
+`credentialsType` check before calling `accessTokenClaims()`.
 
 </Tab>
 
@@ -174,15 +174,15 @@ app.before_request(
 Once enabled, your Flask routes can be authenticated with either
 [User](/docs/concepts/users) access tokens or API Keys.
 
-To detect the type of token in a request, use `auth_type()`:
+To detect the type of token in a request, use `credentials_type()`:
 
 ```python
-from tesseral_flask import auth_type
+from tesseral_flask import credentials_type
 
 @app.route("/")
 def home():
-    # auth_type() returns "access_token" or "api_key"
-    print(auth_type())
+    # credentials_type() returns "access_token" or "api_key"
+    print(credentials_type())
     return "ok"
 ```
 
@@ -195,7 +195,7 @@ These `tesseral_flask` functions will work the same with either auth type:
 If you call
 [`access_token_claims()`](/docs/sdks/serverside-sdks/tesseral-sdk-flask#getting-details-about-the-current-user)
 on an API Key-authenticated request, a `NotAnAccessTokenError` will be raised.
-Wrap calls in `try / except`, or check `auth_type()` beforehand.
+Wrap calls in `try / except`, or check `credentials_type()` beforehand.
 
 </Tab>
 
@@ -217,7 +217,7 @@ http.ListenAndServe("...", auth.RequireAuth(
 After enabling, your HTTP handlers will support both
 [User](/docs/concepts/users) access tokens and API Keys.
 
-To determine the auth type of a request, use `auth.AuthType(r)`:
+To determine the auth type of a request, use `auth.CredentialsType(r)`:
 
 ```go
 import "github.com/tesseral/tesseral-sdk-go/auth"
@@ -225,8 +225,8 @@ import "github.com/tesseral/tesseral-sdk-go/auth"
 func(w http.ResponseWriter, r *http.Request) {
     ctx := r.Context()
     
-    // auth.AuthType returns "access_token" or "api_key"
-    fmt.Println(auth.AuthType(ctx))
+    // auth.CredentialsType returns "access_token" or "api_key"
+    fmt.Println(auth.CredentialsType(ctx))
 }
 ```
 
@@ -239,7 +239,8 @@ These functions will behave the same regardless of the token type:
 Calling
 [`AccessTokenClaims()`](/docs/sdks/serverside-sdks/tesseral-sdk-go#getting-details-about-the-current-user)
 on an API Key-authenticated request will return a `ErrNotAnAccessToken` error.
-Check `auth.AuthType(ctx)` before calling it or handle the error explicitly.
+Check `auth.CredentialsType(ctx)` before calling it or handle the error
+explicitly.
 
 </Tab>
 
