@@ -86,7 +86,7 @@ automatically send authentication information in its requests to your server.
   </Step>
 </Steps>
 
-# Add Tesseral to your serverside code
+## Add Tesseral to your serverside code
 
 Tesseral provides SDKs for
 [Express.js](/docs/sdks/serverside-sdks/tesseral-sdk-express),

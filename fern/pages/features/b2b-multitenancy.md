@@ -3,59 +3,102 @@ title: "B2B multitenancy in Tesseral"
 subtitle: "Tesseral's tenancy model is designed specifically for B2B SaaS"
 ---
 
+Tesseral is auth infrastructure specifically for B2B SaaS. That means it has B2B
+multitenancy built-in. This article explains what multitenancy is, and how B2B
+multitenancy works differently from B2C multitenancy.
+
 ## What is multitenancy?
 
-Consider the calculator app on your phone. It doesn't really store any data. It doesn't need to support multiple people using the app. It's a pretty simple app that just handles arithmetic for you. 
+In the context of software-as-a-service (SaaS), customers are also called
+"tenants". "Multitenancy" means that one application serves many customers,
+instead of having a separate deployment of your application for each customer.
 
-Most web-based software is more complicated than that. Loosely speaking, people who use web-based software will interact with the same application, which runs on shared cloud infrastructure. Again loosely speaking, that means everyone's data inhabits the same database. 
+When you implement multitenancy, you need *tenant isolation*. That refers to the
+idea that one tenant can't see another tenant's data.
 
-A software application can't generally show *all* of its data to just *anyone*. Imagine a chat application; messages exchanged between Alice and Bob likely should not be available to a third person, Eve.
+There are two kinds of SaaS products, and they each have their own tenancy
+model: Business-to-Consumer (B2C) and Business-to-Business (B2B).
 
-Software applications therefore usually implement *multitenant logical isolation*, using software-defined rules that scope access to certain data or functionality. 
+### B2C multitenancy
 
+<Frame caption="A typical B2C data model. Most resources belong to users, and users can't see each others' resources.">
+  <img src="b2c.png" />
+</Frame>
 
-## The main multitenancy models in cloud software
+In B2C, you sell your software to *individuals*. E-commerce (Amazon, Walmart),
+entertainment (Netflix, Spotify), and personal development (Strava, Duolingo)
+products are mostly B2C.
 
-Not all multitenancy models work the same way. Two main archetypes of multitenancy characterize cloud software applications:
+B2C tenant isolation is around *users*. A user can see their own data, but they
+can never see other users' data. To make that work, most data in a B2C product
+exclusively belongs to a particular user (e.g. it has a `user_id` property in
+the database).
 
-1. Consumer (B2C) multitenancy
-2. Enterprise (B2B) multitenancy
+### B2B multitenancy
 
-### Consumer (B2C) multitenancy
+<Frame caption="A typical B2B data model. Users belong to organizations, and can see other resources in the same organization. But users can't see resources in other organizations.">
+  <img src="b2b.png" />
+</Frame>
 
-Consumer (B2C) multitenancy generally characterizes cloud software applications used by individuals. Familiar examples of such applications might include:
-* Social media like Reddit or Pinterest
-* Ecommerce websites like Etsy or Brooklinen
-* Video games like Chess.com or Geoguessr
+In B2B, you sell your software to *businesses*. CRMs (Salesforce, HubSpot),
+cloud vendors (Amazon Web Services, Azure), and HR software (Workday, Rippling)
+are mostly B2B.
 
-Software using the B2C multitenancy model implements tenancy boundaries around *individuals*. The software considers each person using the software to be a tenant. Settings, permissions, and other data belong to the individual. 
+B2B tenant isolation is around *organizations*, and users live inside
+organizations. Users can see their own data and the data of other users in their
+organization, but not data outside their organization. To make that work, most
+data in a B2B product exclusively belongs to an organization (e.g. it has a
+`organization_id` property in the database).
 
+<Info>
+  This article uses the word "organization". Other products have a different
+  name for the same concept. Synonyms include "workspace", "team", or "company".
+</Info>
 
-### Enterprise (B2B) multitenancy
+B2B multitenancy introduces complexities:
 
-Enterprise (B2B) multitenancy characterizes cloud software applications used by *businesses* or similar entities (e.g., schools); we usually just call this kind of software "B2B SaaS." Familiar examples might include:
-* Human resources software like Workday or Paylocity
-* Collaboration software like Slack or Asana
-* Technical software like Datadog or Hashicorp
+* Users need to be able to invite coworkers to join them. B2B products need to
+  support [user invitations](/docs/concepts/user-invites).
 
-In B2B SaaS, Users belong to Organizations. For example, if a human resources manager at Southwest Airlines signs into Workday, he signs in as a member of the Southwest Airlines Organization. If he leaves Southwest to begin a new job at Best Buy, he will need a new Workday account that represents his employment at Best Buy. 
+* Businesses have compliance requirements around how their employees log into
+  software. Customers will ask to [customize their login
+  methods](/docs/features/customizing-your-login-experience#changing-login-methods-for-an-organization),
+  such as disabling passwords, or requiring MFA, for their organization.
 
-In this sense, the *Organization* is the first-class tenant, not the User.
+* Businesses want to be able to configure [SAML](/docs/features/saml-sso), and
+  to make it the exclusive login mechanism for their organization.
 
-This matters greatly for a few reasons, including:
-1. The Organization receives the bill for services. For example, if a B2B SaaS charges for seat-based licenses, it needs a way to aggregate charges at the Organization level. 
-2. Users within an Organization change all the time. For example, companies frequently hire new employees and/or part ways with employees.
-3. Organizations usually wish to implement policies that apply to all Users. For example, an IT team may wish to require single sign-on. 
-4. Users may have different roles within an Organization. For example, an Organization may have *admins* that have broader privileges.
+* Businesses want to be able to create, update, and delete their users
+  programmatically using [SCIM](/docs/features/scim-provisioning).
 
-Business software nearly always requires this form of multitenancy.
+* Businesses want to be able to configure [Role-Based Access
+  Control](/docs/features/role-based-access-control) so that users only have the
+  permissions their job requires.
+
+Tesseral is designed to support all of these complexities head-on, giving your
+product a simple way to implement all of this functionality at once.
 
 ## How multitenancy works in Tesseral
 
-Tesseral always uses the enterprise (B2B) multitenancy model. In Tesseral, users always belong to Organizations. Users cannot exist outside an Organization.
+Tesseral is built around the B2B multitenancy model. In Tesseral, each of your
+customers corresponds to an [Organization](/docs/concepts/organizations).
+[Users](/docs/concepts/users) exclusively belong to Organizations; every User
+belongs to exactly one Organization.
 
-Note that Organizations do not need to have multiple users. To accommodate individual users -- as in the consumer (B2C) multitenancy model -- you may create Organizations that simply have one user.
+Organizations come pre-built with support for [User
+Invites](/docs/concepts/user-invites),
+[Roles](/docs/features/role-based-access-control#rbac-concepts), [SAML
+Connections](/docs/concepts/saml-connections), and [SCIM API
+Keys](/docs/concepts/scim-api-keys). Owners of an Organization can restrict the
+set of login methods they want their Users to authenticate with, and can
+[require MFA](/docs/concepts/organizations#require-mfa). UIs for all these
+settings are prebuilt as part of [Organization self-serve
+settings](/docs/features/self-serve-organization-settings).
 
-<Info>
-If you wish to hide the creation of Organizations from your customers, you may toggle the *Auto-create Organizations*. 
-</Info>
+When you [implement
+Tesseral](/docs/quickstart#add-tesseral-to-your-clientside-code), you get all of
+this functionality without writing any code. From your backend, you can always
+[extract an
+`organization_id`](/docs/quickstart#add-tesseral-to-your-serverside-code) from
+any authenticated request, and know that Tesseral has already implemented all
+the logic to make that login legitimate for that Organization.
