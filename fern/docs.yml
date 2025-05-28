@@ -65,6 +65,9 @@ navigation:
               - page: Go
                 slug: tesseral-sdk-go
                 path: ./pages/sdks/serverside/go.md
+          - page: Next.js
+            path: ./pages/sdks/nextjs.md
+            slug: tesseral-sdk-nextjs
       - section: Features
         contents:
           - page: Customizing Your Login Experience
