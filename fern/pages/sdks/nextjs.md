@@ -144,8 +144,6 @@ emails, resetting passwords, and configuring multi-factor authentication.
 You can get a link to that UI using `getUserSettingsUrl`:
 
 ```tsx
-"use client";
-
 import { getUserSettingsUrl } from "@tesseral/tesseral-nextjs/serverside";
 
 export default async function Page() {
@@ -167,8 +165,6 @@ login methods.
 You can get a link to that UI using `getOrganizationSettingsUrl`:
 
 ```tsx
-"use client";
-
 import { getOrganizationSettingsUrl } from "@tesseral/tesseral-nextjs/serverside";
 
 export default async function Page() {
