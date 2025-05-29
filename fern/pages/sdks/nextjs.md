@@ -3,7 +3,7 @@ title: Tesseral for Next.js
 subtitle: Add B2B auth support to your Next.js app in just a few lines of code.
 ---
 
-Tesseral's Next.js SDK lets you add authentication to your Go backend code.
+Tesseral's Next.js SDK lets you add authentication to your Next.js application.
 
 ## Getting Started
 
