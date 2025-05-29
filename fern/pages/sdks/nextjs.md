@@ -135,7 +135,6 @@ export default async function Page() {
 }
 ```
 
-
 ### `getUserSettingsUrl`
 
 Tesseral automatically provides a [self-serve user settings
