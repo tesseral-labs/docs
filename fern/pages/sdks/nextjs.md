@@ -89,15 +89,19 @@ Tesseral's Next.js SDK lets you add authentication to your Go backend code.
 </Steps>
 
 You've now added Tesseral to your Next.js application! From here, you can add
-auth checks to your [Server Components](#auth-in-server-components-rscs),
-[Client Components](#auth-in-client-components), [Route
-Handlers](#auth-in-route-handlers), and [Server
-Actions](#auth-in-server-actions).
+auth checks to your:
 
-## Auth in Server Components (RSCs)
+* [Server Components](#server-components-rscs)
+* [Client Components](#client-components)
+* [Route Handlers](#route-handlers)
+* [Server Actions](#server-actions)
 
-In Next.js layouts and pages, you can get the current
-[User](/docs/concepts/users), and the
+## Server Components (RSCs)
+
+In Next.js
+[layouts](https://nextjs.org/docs/app/api-reference/file-conventions/layout) and
+[pages](https://nextjs.org/docs/app/api-reference/file-conventions/page), you
+can get the current [User](/docs/concepts/users), and the
 [Organization](/docs/concepts/organizations) they work for, with [`await
 getUser()`](#getuser) and [`await getOrganization()`](#getorganization).
 
@@ -176,10 +180,11 @@ export default async function Page() {
 }
 ```
 
-## Auth in Client Components
+## Client Components
 
-In Next.js Client Components, you can get the current
-[User](/docs/concepts/users), and the
+In Next.js [Client
+Components](https://nextjs.org/docs/app/getting-started/server-and-client-components#using-client-components),
+you can get the current [User](/docs/concepts/users), and the
 [Organization](/docs/concepts/organizations) they work for, with
 [`useUser()`](#useuser) and [`useOrganization()`](#useorganization).
 
@@ -319,7 +324,7 @@ export default function ClientComponent() {
 }
 ```
 
-## Auth in Route Handlers
+## Route Handlers
 
 To get authentication details about the current request in a [Route
 Handler](https://nextjs.org/docs/app/building-your-application/routing/route-handlers),
@@ -334,7 +339,7 @@ export async function GET(request: Request) {
 }
 ```
 
-## Auth in Server Actions
+## Server Actions
 
 To get authentication details about the current request in a [Server
 Action](https://nextjs.org/docs/app/building-your-application/routing/route-handlers),
@@ -362,7 +367,7 @@ you can use the same methods as in [Server Components
     export default function Page() {
       // Server Action
       async function create() {
-        "user server";
+        "use server";
         const user = await getUser();
 
         // ...
@@ -379,7 +384,7 @@ you can use the same methods as in [Server Components
 The `auth()` function from Tesseral's Next.js SDK works with both
 [Users](/docs/concepts/users) and [API Keys](/docs/features/managed-api-keys).
 That's why `auth()` is recommended for [Next.js Route
-Handlers](#auth-in-route-handlers). You should also use `auth()` from code that
+Handlers](#route-handlers). You should also use `auth()` from code that
 gets called from both Server Components and Route Handlers.
 
 ### `auth()` parameters
