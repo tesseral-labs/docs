@@ -135,9 +135,51 @@ export default async function Page() {
 }
 ```
 
-### `getOrganizationSettingsUrl`
 
 ### `getUserSettingsUrl`
+
+Tesseral automatically provides a [self-serve user settings
+UI](/docs/features/self-serve-user-settings) to handle tasks like changing
+emails, resetting passwords, and configuring multi-factor authentication.
+
+You can get a link to that UI using `getUserSettingsUrl`:
+
+```tsx
+"use client";
+
+import { getUserSettingsUrl } from "@tesseral/tesseral-nextjs/serverside";
+
+export default async function Page() {
+  const userSettingsUrl = await getUserSettingsUrl();
+
+  return (
+    <a href={userSettingsUrl}>User Settings</a>
+  );
+}
+```
+
+### `getOrganizationSettingsUrl`
+
+Tesseral automatically provides a [self-serve organization settings
+UI](/docs/features/self-serve-organization-settings) to handle tasks like
+managing collaborators, creating and revoking user invites, and customizing
+login methods.
+
+You can get a link to that UI using `getOrganizationSettingsUrl`:
+
+```tsx
+"use client";
+
+import { getOrganizationSettingsUrl } from "@tesseral/tesseral-nextjs/serverside";
+
+export default async function Page() {
+  const organizationSettingsUrl = await getOrganizationSettingsUrl();
+
+  return (
+    <a href={organizationSettingsUrl}>Organization Settings</a>
+  );
+}
+```
 
 ## Auth in Client Components
 
