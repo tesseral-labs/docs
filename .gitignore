@@ -1,3 +1,4 @@
 /node_modules
 /fern/apis/backend/.preview
 /fern/apis/frontend/.preview
+/fern/custom-app-dist

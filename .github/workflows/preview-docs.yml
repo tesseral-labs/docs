@@ -13,6 +13,11 @@ jobs:
       - name: Install Fern
         run: npm install -g fern-api
 
+      - name: Build custom app
+        run: |
+          npm ci
+          npm run docs:custom-app:build
+
       - name: Generate preview URL
         id: generate-docs
         env:

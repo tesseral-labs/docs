@@ -3,6 +3,10 @@ instances:
   - url: tesseral.docs.buildwithfern.com/docs
     custom-domain: tesseral.com/docs
 
+js:
+  - path: ./custom-app-dist/index.js
+    strategy: beforeInteractive
+
 colors:
   accent-primary:
     light: "#7D26F6"
@@ -10,7 +14,6 @@ colors:
   background:
     light: "#ffffff"
     dark: "#0d0e11"
-js: ./custom.js
 
 favicon: ./assets/favicon.png
 
