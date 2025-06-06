@@ -14,6 +14,7 @@ Tesseral's Next.js SDK lets you add authentication to your Next.js application.
 
     When signing up, you'll be asked for your development URL. Choose
     `http://localhost:3000`.
+
   </Step>
 
   <Step title="Install `@tesseral/tesseral-nextjs`">
@@ -22,6 +23,7 @@ Tesseral's Next.js SDK lets you add authentication to your Next.js application.
     ```bash
     npm install @tesseral/tesseral-nextjs
     ```
+
   </Step>
 
   <Step title="Add `NEXT_PUBLIC_TESSERAL_PUBLISHABLE_KEY` to your `.env`">
@@ -35,6 +37,7 @@ Tesseral's Next.js SDK lets you add authentication to your Next.js application.
     your Publishable Key from the [API Keys
     Settings](https://console.tesseral.com/project-settings/api-keys) settings in
     the Tesseral Console.
+
   </Step>
 
   <Step title="Add `authMiddleware` to your `middleware.ts`">
@@ -43,10 +46,10 @@ Tesseral's Next.js SDK lets you add authentication to your Next.js application.
 
     ```ts
     import { NextRequest } from "next/server";
-    import { authMiddleware } from "../src/middleware";
-    
+    import { authMiddleware } from "@tesseral/tesseral-nextjs/dist/middleware";
+
     export default authMiddleware;
-    
+
     export const config = {
       matcher: [
         /*
@@ -60,6 +63,7 @@ Tesseral's Next.js SDK lets you add authentication to your Next.js application.
       ],
     };
     ```
+
   </Step>
 
   <Step title="Add `TesseralProvider` to your root layout">
@@ -67,8 +71,8 @@ Tesseral's Next.js SDK lets you add authentication to your Next.js application.
     and add `TesseralProvider`:
 
     ```tsx
-    import { TesseralProvider } from "../../src/serverside";
-    
+    import { TesseralProvider } from "@tesseral/tesseral-nextjs/dist/serverside";
+
     export default function RootLayout({ children }: { children: React.ReactNode }) {
       return (
         <html lang="en">
@@ -85,16 +89,17 @@ Tesseral's Next.js SDK lets you add authentication to your Next.js application.
     `TesseralProvider` will redirect users to log in if they aren't already. If your
     Next.js app serves both public and non-public pages, then add `TesseralProvider`
     at the layout for your non-public pages instead.
+
   </Step>
 </Steps>
 
 You've now added Tesseral to your Next.js application! From here, you can add
 auth checks to your:
 
-* [Server Components](#server-components-rscs)
-* [Client Components](#client-components)
-* [Route Handlers](#route-handlers)
-* [Server Actions](#server-actions)
+- [Server Components](#server-components-rscs)
+- [Client Components](#client-components)
+- [Route Handlers](#route-handlers)
+- [Server Actions](#server-actions)
 
 ## Server Components (RSCs)
 
@@ -102,8 +107,8 @@ In Next.js
 [layouts](https://nextjs.org/docs/app/api-reference/file-conventions/layout) and
 [pages](https://nextjs.org/docs/app/api-reference/file-conventions/page), you
 can get the current [User](/docs/concepts/users), and the
-[Organization](/docs/concepts/organizations) they work for, with [`await
-getUser()`](#getuser) and [`await getOrganization()`](#getorganization).
+[Organization](/docs/concepts/organizations) they work for, with
+[`await getUser()`](#getuser) and [`await getOrganization()`](#getorganization).
 
 ### `getUser`
 
@@ -115,7 +120,7 @@ import { getUser } from "@tesseral/tesseral-nextjs/serverside";
 
 export default async function Page() {
   const { id, email, displayName, profilePictureUrl } = await getUser();
-  
+
   return (
     // ...
   )
@@ -132,7 +137,7 @@ import { getOrganization } from "@tesseral/tesseral-nextjs/serverside";
 
 export default async function Page() {
   const { id, displayName } = await getOrganization();
-  
+
   return (
     // ...
   )
@@ -141,9 +146,10 @@ export default async function Page() {
 
 ### `getUserSettingsUrl`
 
-Tesseral automatically provides a [self-serve user settings
-UI](/docs/features/self-serve-user-settings) to handle tasks like changing
-emails, resetting passwords, and configuring multi-factor authentication.
+Tesseral automatically provides a
+[self-serve user settings UI](/docs/features/self-serve-user-settings) to handle
+tasks like changing emails, resetting passwords, and configuring multi-factor
+authentication.
 
 You can get a link to that UI using `getUserSettingsUrl`:
 
@@ -153,18 +159,16 @@ import { getUserSettingsUrl } from "@tesseral/tesseral-nextjs/serverside";
 export default async function Page() {
   const userSettingsUrl = await getUserSettingsUrl();
 
-  return (
-    <a href={userSettingsUrl}>User Settings</a>
-  );
+  return <a href={userSettingsUrl}>User Settings</a>;
 }
 ```
 
 ### `getOrganizationSettingsUrl`
 
-Tesseral automatically provides a [self-serve organization settings
-UI](/docs/features/self-serve-organization-settings) to handle tasks like
-managing collaborators, creating and revoking user invites, and customizing
-login methods.
+Tesseral automatically provides a
+[self-serve organization settings UI](/docs/features/self-serve-organization-settings)
+to handle tasks like managing collaborators, creating and revoking user invites,
+and customizing login methods.
 
 You can get a link to that UI using `getOrganizationSettingsUrl`:
 
@@ -174,16 +178,14 @@ import { getOrganizationSettingsUrl } from "@tesseral/tesseral-nextjs/serverside
 export default async function Page() {
   const organizationSettingsUrl = await getOrganizationSettingsUrl();
 
-  return (
-    <a href={organizationSettingsUrl}>Organization Settings</a>
-  );
+  return <a href={organizationSettingsUrl}>Organization Settings</a>;
 }
 ```
 
 ## Client Components
 
-In Next.js [Client
-Components](https://nextjs.org/docs/app/getting-started/server-and-client-components#using-client-components),
+In Next.js
+[Client Components](https://nextjs.org/docs/app/getting-started/server-and-client-components#using-client-components),
 you can get the current [User](/docs/concepts/users), and the
 [Organization](/docs/concepts/organizations) they work for, with
 [`useUser()`](#useuser) and [`useOrganization()`](#useorganization).
@@ -200,7 +202,7 @@ import { useUser } from "@tesseral/tesseral-nextjs/clientside";
 
 export default function ClientComponent() {
   const { id, email, displayName, profilePictureUrl } = useUser();
-  
+
   return (
     // ...
   )
@@ -219,7 +221,7 @@ import { useOrganization } from "@tesseral/tesseral-nextjs/clientside";
 
 export default function ClientComponent() {
   const { id, displayName } = useOrganization();
-  
+
   return (
     // ...
   )
@@ -247,7 +249,7 @@ export default function ClientComponent() {
     <Button disabled={!hasPermission("acme.expense_reports.approve")}>
       Approve Expense Report
     </Button>
-  )
+  );
 }
 ```
 
@@ -263,7 +265,8 @@ export default function ClientComponent() {
 
 ### `useLogout`
 
-To force the current [User](/docs/concepts/users) to log out from a Client Component, use the `useLogout()` hook:
+To force the current [User](/docs/concepts/users) to log out from a Client
+Component, use the `useLogout()` hook:
 
 ```tsx
 "use client";
@@ -273,17 +276,16 @@ import { useLogout } from "@tesseral/tesseral-nextjs/clientside";
 export default function ClientComponent() {
   const logout = useLogout();
 
-  return (
-    <button onClick={logout}>Log out</button>
-  );
+  return <button onClick={logout}>Log out</button>;
 }
 ```
 
 ### `useUserSettingsUrl`
 
-Tesseral automatically provides a [self-serve user settings
-UI](/docs/features/self-serve-user-settings) to handle tasks like changing
-emails, resetting passwords, and configuring multi-factor authentication.
+Tesseral automatically provides a
+[self-serve user settings UI](/docs/features/self-serve-user-settings) to handle
+tasks like changing emails, resetting passwords, and configuring multi-factor
+authentication.
 
 You can get a link to that UI using `useUserSettingsUrl`:
 
@@ -295,18 +297,16 @@ import { useUserSettingsUrl } from "@tesseral/tesseral-nextjs/clientside";
 export default function ClientComponent() {
   const userSettingsUrl = useUserSettingsUrl();
 
-  return (
-    <a href={userSettingsUrl}>User Settings</a>
-  );
+  return <a href={userSettingsUrl}>User Settings</a>;
 }
 ```
 
 ### `useOrganizationSettingsUrl`
 
-Tesseral automatically provides a [self-serve organization settings
-UI](/docs/features/self-serve-organization-settings) to handle tasks like
-managing collaborators, creating and revoking user invites, and customizing
-login methods.
+Tesseral automatically provides a
+[self-serve organization settings UI](/docs/features/self-serve-organization-settings)
+to handle tasks like managing collaborators, creating and revoking user invites,
+and customizing login methods.
 
 You can get a link to that UI using `useOrganizationSettingsUrl`:
 
@@ -318,16 +318,14 @@ import { useOrganizationSettingsUrl } from "@tesseral/tesseral-nextjs/clientside
 export default function ClientComponent() {
   const organizationSettingsUrl = useOrganizationSettingsUrl();
 
-  return (
-    <a href={organizationSettingsUrl}>Organization Settings</a>
-  );
+  return <a href={organizationSettingsUrl}>Organization Settings</a>;
 }
 ```
 
 ## Route Handlers
 
-To get authentication details about the current request in a [Route
-Handler](https://nextjs.org/docs/app/building-your-application/routing/route-handlers),
+To get authentication details about the current request in a
+[Route Handler](https://nextjs.org/docs/app/building-your-application/routing/route-handlers),
 call [`await auth()`](#using-await-auth):
 
 ```tsx
@@ -341,10 +339,10 @@ export async function GET(request: Request) {
 
 ## Server Actions
 
-To get authentication details about the current request in a [Server
-Action](https://nextjs.org/docs/app/building-your-application/routing/route-handlers),
-you can use the same methods as in [Server Components
-(RSCs)](#auth-in-server-components-rscs):
+To get authentication details about the current request in a
+[Server Action](https://nextjs.org/docs/app/building-your-application/routing/route-handlers),
+you can use the same methods as in
+[Server Components (RSCs)](#auth-in-server-components-rscs):
 
 <Tabs>
   <Tab title="actions.ts">
@@ -352,12 +350,13 @@ you can use the same methods as in [Server Components
     "use server";
 
     import { getUser } from "@tesseral/tesseral-nextjs/serverside";
-    
+
     export async function action() {
       const user = await getUser();
       // ...
     }
     ```
+
   </Tab>
 
   <Tab title="page.tsx">
@@ -372,10 +371,11 @@ you can use the same methods as in [Server Components
 
         // ...
       }
-    
+
     // ...
     }
     ```
+
   </Tab>
 </Tabs>
 
@@ -383,24 +383,24 @@ you can use the same methods as in [Server Components
 
 The `auth()` function from Tesseral's Next.js SDK works with both
 [Users](/docs/concepts/users) and [API Keys](/docs/features/managed-api-keys).
-That's why `auth()` is recommended for [Next.js Route
-Handlers](#route-handlers). You should also use `auth()` from code that
-gets called from both Server Components and Route Handlers.
+That's why `auth()` is recommended for
+[Next.js Route Handlers](#route-handlers). You should also use `auth()` from
+code that gets called from both Server Components and Route Handlers.
 
 ### `auth()` parameters
 
 `auth()` takes one parameter, called `or`. `or` controls what happens if a
 request is not properly authenticated. It has three possible values:
 
-* `await auth({ or: "throw" })` will throw a `AuthError` if the request is not
+- `await auth({ or: "throw" })` will throw a `AuthError` if the request is not
   properly authenticated. Use this if you want to have different behavior based
   on authenticated vs unauthenticated requests, using `try` / `catch`.
 
-* `await auth({ or: "redirect" })` will redirect to the login page if the
+- `await auth({ or: "redirect" })` will redirect to the login page if the
   request is not properly authenticated. Use this for pages that are only meant
   to be used Users from their web browser.
 
-* `await auth({ or "return_404" })` will call Next.js's
+- `await auth({ or "return_404" })` will call Next.js's
   [`notFound()`](https://nextjs.org/docs/app/api-reference/functions/not-found)
   if the request is not properly authenticated. Use this if a 404 is the
   appropriate response for unauthenticated requests.
@@ -457,8 +457,9 @@ you're building internal service-to-service calls.
 The `credentialsType` property is a string indicating how the request was
 authenticated. It will either be:
 
-* `access_token` if the request is from a [User](/docs/concepts/users).
-* `api_key` if the request is from an [API Key](/docs/features/managed-api-keys).
+- `access_token` if the request is from a [User](/docs/concepts/users).
+- `api_key` if the request is from an
+  [API Key](/docs/features/managed-api-keys).
 
 ```ts
 import { auth } from "@tesseral/tesseral-nextjs/serverside";
@@ -474,8 +475,8 @@ if (credentialsType === "access_token") {
 #### Getting details about the current User
 
 If the request is from a [User](/docs/concepts/users), then `accessTokenClaims`
-will contain details about that User. If the request is from an [API
-Key](/docs/features/managed-api-keys), then `accessTokenClaims` will be
+will contain details about that User. If the request is from an
+[API Key](/docs/features/managed-api-keys), then `accessTokenClaims` will be
 `undefined`.
 
 ```ts
@@ -488,8 +489,8 @@ console.log(accessTokenClaims?.user?.email);
 We recommend that you mostly use
 [`organizationId`](#getting-the-current-organization) in the vast majority of
 your code; that is almost always the correct piece of information for most B2B
-SaaS code should pay attention to. For more details, see [B2B
-Multitenancy](/docs/features/b2b-multitenancy).
+SaaS code should pay attention to. For more details, see
+[B2B Multitenancy](/docs/features/b2b-multitenancy).
 
 #### Checking the requester's permissions
 
