@@ -3,13 +3,36 @@ instances:
   - url: tesseral.docs.buildwithfern.com/docs
     custom-domain: tesseral.com/docs
 
+logo:
+  light: ./assets/logo.svg
+
+navbar-links:
+  - type: minimal
+    text: Pricing
+    href: https://tesseral.com/pricing
+  - type: minimal
+    text: Docs
+    href: https://tesseral.com/docs
+  - type: minimal
+    text: Blog
+    href: https://tesseral.com/blog
+  - type: outlined
+    text: Schedule a Call
+    href: https://cal.com/ned-o-leary-j8ydyi
+    rounded: true
+  - type: filled
+    text: Sign Up
+    href: https://console.tesseral.com
+    rounded: true
+    rightIcon: null
+
 colors:
   accent-primary:
     light: "#7D26F6"
-    dark: "#A585FE"
+#    light: "#000"
   background:
-    light: "#ffffff"
-    dark: "#0d0e11"
+    light: "#F9FAFB"
+
 js: ./custom.js
 
 favicon: ./assets/favicon.png
