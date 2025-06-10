@@ -51,7 +51,7 @@ API](/docs/backend-api-reference/tesseral-backend-api)'s
 
     ```typescript
     import { TesseralClient } from "@tesseral/tesseral-node";
-    
+
     const tesseralClient = new TesseralClient();
     ```
 
@@ -83,6 +83,96 @@ API](/docs/backend-api-reference/tesseral-backend-api)'s
     audit logging.
 
   </Tab> 
-</Tabs>
 
-## What audit log events to collect
+  <Tab title="Flask">
+    <Tip>
+      These instructions assume you've already set up [Tesseral for Flask](/docs/sdks/serverside/python/flask).
+    </Tip>
+
+    First, construct a Tesseral Backend API client:
+
+    ```python
+    from tesseral import Tesseral
+
+    tesseral_client = Tesseral() # or AsyncTesseral()
+    ```
+
+    Then, anywhere in your code where you need to create an audit log event, call
+    `audit_log_events.create_audit_log_event()`:
+
+    ```python
+    from flask import request
+    from tesseral_flask import credentials
+
+    @app.post("/approve-expense-report")
+    def approve_expense_report():
+        # ...
+
+        tesseral_client.audit_log_events.create_audit_log_event(
+            audit_log_event={
+                "credentials": credentials(),
+                "event_name": "acme.expense_reports.approve",
+                "event_details": {
+                    "expenseReportId": "expense_report_123",
+                }
+            }
+        )
+    ```
+
+    When you pass along the current
+    [`credentials()`](/docs/sdks/serverside-sdks/tesseral-sdk-flask#getting-the-requests-authenticated-credentials),
+    Tesseral will automatically know which [User](/docs/concepts/users) or (if
+    enabled) [API Key](/docs/features/managed-api-keys) performed the action you're
+    audit logging.
+
+  </Tab>
+
+  <Tab title="Go">
+    <Tip>
+      These instructions assume you've already set up [Tesseral for Go](/docs/sdks/serverside/go).
+    </Tip>
+
+    First, construct a Tesseral Backend API client:
+
+    ```go
+    import (
+        tesseralclient "github.com/tesseral-labs/tesseral-sdk-go/client"
+    )
+
+    tesseralClient := tesseralclient.NewClient()
+    ```
+
+    Then, anywhere in your code where you need to create an audit log event, call
+    `AuditLogEvents.CreateAuditLogEvent()`:
+
+    ```go
+    import (
+        "net/http"
+        "github.com/tesseral-labs/tesseral-sdk-go/auth"
+    )
+
+    func ApproveExpenseReport(w http.ResponseWriter, r *http.Request) {
+        // ...
+
+        tesseralClient.AuditLogEvents.CreateAuditLogEvent(r.Context(), &AuditLogEventRequest{
+            AuditLogEvent: &AuditLogEvent{
+                Credentials: auth.Credentials(r.Context()),
+                EventName:   "acme.expense_reports.approve",
+                EventDetails: map[string]interface{}{
+                    "expenseReportId": "expense_report_123",
+                },
+            },
+        })
+
+        // ...
+    }
+    ```
+
+    When you pass along the current
+    [`auth.Credentials(ctx)`](/docs/sdks/serverside-sdks/tesseral-sdk-go#getting-the-requests-authenticated-credentials),
+    Tesseral will automatically know which [User](/docs/concepts/users) or (if
+    enabled) [API Key](/docs/features/managed-api-keys) performed the action you're
+    audit logging.
+
+  </Tab>
+</Tabs>
