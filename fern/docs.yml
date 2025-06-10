@@ -130,6 +130,8 @@ navigation:
             path: ./pages/features/user-impersonation.md
           - page: Managed API Keys
             path: ./pages/features/managed-api-keys.md
+          - page: Managed Audit Logs
+            path: ./pages/features/managed-audit-logs.md
           - page: Self-Hosting Tesseral
             path: ./pages/features/self-hosting/index.md
       - section: Login Methods
