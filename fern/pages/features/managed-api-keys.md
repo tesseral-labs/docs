@@ -224,7 +224,7 @@ import "github.com/tesseral/tesseral-sdk-go/auth"
 
 func(w http.ResponseWriter, r *http.Request) {
     ctx := r.Context()
-    
+
     // auth.CredentialsType returns "access_token" or "api_key"
     fmt.Println(auth.CredentialsType(ctx))
 }
@@ -241,6 +241,47 @@ Calling
 on an API Key-authenticated request will return a `ErrNotAnAccessToken` error.
 Check `auth.CredentialsType(ctx)` before calling it or handle the error
 explicitly.
+
+</Tab>
+
+<Tab title="Axum">
+
+<Tip>
+These instructions assume you've already set up [Tesseral for Axum](/docs/sdks/serverside/rust/axum).
+</Tip>
+
+```rust {3}
+// make sure you've configured TESSERAL_BACKEND_API_KEY
+let authenticator = Authenticator::new("publishable_key_...".into())
+    .with_api_keys_enabled(true);
+
+let app: Router = Router::new()
+    .route("/", get(handler))
+    .layer(require_auth(authenticator));
+```
+
+After enabling, your Axum handlers will support both [User](/docs/concepts/users) access tokens and API Keys.
+
+To determine the auth type of a request, use `auth.credentials_type()`:
+
+```rust
+use tesseral_axum::{Auth, CredentialsType};
+
+async fn handler(auth: Auth) -> String {
+    // either CredentialsType::AccessToken or CredentialsType::ApiKey
+    dbg!(auth.credentials_type())
+}
+```
+
+These `tesseral_axum` methods will behave the same regardless of the token type:
+
+* [`organization_id()`](/docs/sdks/serverside/rust/axum#getting-the-current-organization)
+* [`credentials()`](/docs/sdks/serverside/rust/axum#getting-the-requests-authenticated-credentials)
+* [`has_permission()`](/docs/features/role-based-access-control#permission-checks)
+
+Calling
+[`auth.access_token_claims()`](/docs/sdks/serverside-sdks/tesseral-sdk-axum#getting-details-about-the-current-user)
+on an API Key-authenticated request will return `None`.
 
 </Tab>
 
