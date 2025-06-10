@@ -88,6 +88,12 @@ navigation:
               - page: Go
                 slug: tesseral-sdk-go
                 path: ./pages/sdks/serverside/go.md
+              - section: Rust
+                skip-slug: true
+                contents:
+                  - page: Axum
+                    path: ./pages/sdks/serverside/rust/axum.md
+                    slug: tesseral-sdk-axum
           - page: Next.js
             path: ./pages/sdks/nextjs.md
             slug: tesseral-sdk-nextjs

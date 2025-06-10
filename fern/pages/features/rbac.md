@@ -22,7 +22,7 @@ When you use Tesseral, you'll implement RBAC by following these steps:
 
 1. Identify each of the specific fine-grained [Actions](#actions) in your
    product. This step is always specific to your product.
-   
+
    For example, if you were making an expense management product, your product's
    Actions might be "creating expense reports", "approve expense reports", and
    "disburse funds".
@@ -64,7 +64,7 @@ An Action represents a fine-grained permission in your product. Every Action
 consists of:
 
 1. A code **Name**, such as `acme.expense_reports.approve`. 
-   
+
    You should name your Actions in the form "service.resource.verb". Until your
    product becomes large enough that you have multiple product lines, you should
    just use the name of your product as the "service".
@@ -133,7 +133,7 @@ import { useHasPermission } from "@tesseral/tesseral-react";
 
 const Example = () => {
   const hasPermission = useHasPermission();
-    
+
   return (
     <Button 
       disabled={!hasPermission("acme.expense_reports.approve")}
@@ -212,7 +212,7 @@ import "github.com/tesseral-labs/tesseral-sdk-go/auth"
 
 func(w http.ResponseWriter, r *http.Request) {
     ctx := r.Context()
-    
+
     if (!auth.HasPermission(ctx, "acme.expense_reports.approve")) {
         // ...
     }   
@@ -222,6 +222,32 @@ func(w http.ResponseWriter, r *http.Request) {
 
 `auth.HasPermission` is fast and not resource intensive. You can typically call
 `auth.HasPermission` as often as you like with negligible performance impact.
+
+</Tab>
+
+<Tab title="Axum">
+
+<Tip>
+These instructions assume you've already set up [Tesseral for Axum](/docs/sdks/serverside/rust/axum).
+</Tip>
+
+Any time you need to check whether the current User is allowed to perform an
+action, use `auth.has_permission`:
+
+```rust {4}
+use tesseral_axum::Auth;
+
+async fn handler(auth: Auth) -> String {
+    if !auth.has_permission("acme.expense_reports.approve") {
+        // ...
+    }
+
+    // ...
+}
+```
+
+`auth.has_permission` is fast and not resource intensive. You can typically call
+`auth.has_permission` as often as you like with negligible performance impact.
 
 </Tab>
 
