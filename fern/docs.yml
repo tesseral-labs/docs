@@ -85,6 +85,9 @@ navigation:
                   - page: Flask
                     path: ./pages/sdks/serverside/python/flask.md
                     slug: tesseral-sdk-flask
+                  - page: FastAPI
+                    path: ./pages/sdks/serverside/python/fastapi.md
+                    slug: tesseral-sdk-fastapi
               - page: Go
                 slug: tesseral-sdk-go
                 path: ./pages/sdks/serverside/go.md

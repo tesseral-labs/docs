@@ -198,6 +198,31 @@ def approve_expense_report(id):
 
 </Tab>
 
+<Tab title="FastAPI">
+
+<Tip>
+These instructions assume you've already set up [Tesseral for FastAPI](/docs/sdks/serverside-sdks/tesseral-sdk-fastapi).
+</Tip>
+
+Any time you need to check whether the current User is allowed to perform an
+action, use `auth.has_permission`:
+
+```python {4}
+from fastapi import FastAPI, Depends
+from tesseral_fastapi import Auth, get_auth
+
+@app.get("/api/expense-reports/{id}/approve")
+async def approve_expense_report(id: str, auth: Auth = Depends(get_auth)):
+    if not auth.has_permission("acme.expense_reports.approve"):
+        # ...
+    # ...
+```
+
+`auth.has_permission` is fast and not resource intensive. You can typically call
+`auth.has_permission` as often as you like with negligible performance impact.
+
+</Tab>
+
 <Tab title="Go">
 
 <Tip>

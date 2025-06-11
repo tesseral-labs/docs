@@ -199,6 +199,55 @@ Wrap calls in `try / except`, or check `credentials_type()` beforehand.
 
 </Tab>
 
+<Tab title="FastAPI">
+<Tip>
+These instructions assume you've already set up [Tesseral for FastAPI](/docs/sdks/serverside-sdks/tesseral-sdk-fastapi).
+</Tip>
+
+```python {5}
+# make sure you've configured TESSERAL_BACKEND_API_KEY
+app.add_middleware(
+    RequireAuthMiddleware,
+    publishable_key="publishable_key_...",
+    api_keys_enabled=True,
+)
+```
+
+After enabling, your FastAPI routes can be authenticated with either [User](/docs/concepts/users) access tokens or API Keys.
+
+To determine the auth type of a request, use `auth.credentials_type()`:
+
+```python
+from fastapi import FastAPI, Depends
+from tesseral_fastapi import Auth, get_auth
+
+@app.get("/")
+async def read_root(auth: Auth = Depends(get_auth)):
+    # auth.credentials_type() returns "access_token" or "api_key"
+    print(auth.credentials_type())
+    return {"message": "ok"}
+```
+
+These methods on the `Auth` object will behave the same regardless of the token type:
+
+* [`organization_id()`](/docs/sdks/serverside-sdks/tesseral-sdk-fastapi#getting-the-current-organization)
+* [`credentials()`](/docs/sdks/serverside-sdks/tesseral-sdk-fastapi#getting-the-requests-authenticated-credentials)
+* [`has_permission()`](/docs/features/role-based-access-control#permission-checks)
+
+Calling [`auth.access_token_claims()`](/docs/sdks/serverside-sdks/tesseral-sdk-fastapi#getting-details-about-the-current-user) on an API Key-authenticated request will throw a `NotAnAccessTokenError`. You can either use a try/except block or check `auth.credentials_type()` before calling it.
+
+```python
+from fastapi import FastAPI, Depends
+from tesseral_fastapi import Auth, get_auth, NotAnAccessTokenError
+
+@app.get("/user")
+async def get_user(auth: Auth = Depends(get_auth)):
+    claims = auth.access_token_claims()
+    print("User email:", claims.user.email)
+```
+
+</Tab>
+
 <Tab title="Go">
 
 <Tip>
