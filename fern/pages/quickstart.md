@@ -235,10 +235,10 @@ localhost. To go to production, you need to:
    Project's Vault. Right now, your production Project uses a Tesseral-assigned
    URL that looks like `project-[...].tesseral.app`.
 
-   In production, you will a domain you control instead of one Tesseral provides
-   for you. You'll use a domain that looks like `vault.app.company.com` or
-   `vault.company.com`, depending on whether you use `app.company.com` or
-   `company.com` as your App Production URL.
+   In production, we recommend you use a domain you control instead of a domain
+   Tesseral provides for you. We recommend you use a domain that looks like
+   `vault.app.company.com` or `vault.company.com`, depending on whether you use
+   `app.company.com` or `company.com` as your App Production URL.
 
 Here is how you configure a custom domain for your Project's Vault:
 
