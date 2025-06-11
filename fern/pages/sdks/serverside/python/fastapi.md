@@ -122,22 +122,6 @@ which contains details about the current Session ID, User, and Organization.
 If the request is from an [API Key](/docs/features/managed-api-keys), then
 `access_token_claims` will throw a `NotAnAccessTokenError`.
 
-### Checking permissions
-
-To check if the authenticated user has a specific permission, use `has_permission()`:
-
-```python
-from fastapi import FastAPI, Depends
-from tesseral_fastapi import Auth, get_auth
-
-@app.get("/protected-resource")
-async def protected_resource(auth: Auth = Depends(get_auth)):
-    if auth.has_permission("resource.read"):
-        return {"message": "Access granted"}
-    else:
-        return {"message": "Access denied"}, 403
-```
-
 We recommend that you mostly use `organization_id()` in the vast majority of
 your code; that is almost always the correct piece of information for most B2B
 SaaS code should pay attention to. For more details, see [B2B
