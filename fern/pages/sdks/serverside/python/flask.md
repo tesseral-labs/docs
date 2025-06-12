@@ -5,6 +5,9 @@ subtitle: Add B2B auth support to your Flask app in just a few lines of code.
 
 Tesseral's Flask SDK lets you add authentication to your Python backend using Flask.
 
+The Tesseral Flask SDK is open-source and available on
+[GitHub](https://github.com/tesseral-labs/tesseral-sdk-flask).
+
 ## Getting Started
 
 Install the Tesseral Flask SDK by running:
