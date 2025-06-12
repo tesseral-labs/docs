@@ -176,3 +176,41 @@ API](/docs/backend-api-reference/tesseral-backend-api)'s
 
   </Tab>
 </Tabs>
+
+## Auto-collected audit logs
+
+Tesseral will automatically collect the following audit log events for you:
+
+| Event Name | Description                        | Fields                     |
+|-|------------------------------------|----------------------------|
+| `tesseral.api_keys.create` | When a managed API Key is created. | `apiKey`                   |
+| `tesseral.api_keys.delete` | When a managed API Key is deleted. | `apiKey`, `previousApiKey` |
+| `tesseral.api_keys.revoke` | When a managed API Key is revoked. | `apiKey`, `previousApiKey` |
+| `tesseral.api_keys.update` | When a managed API Key is updated. | `apiKey`, `previousApiKey` |
+| `tesseral.organizations.update_domains` |                                    |                            |
+| `tesseral.scim_api_keys.create` |                                    |                            |
+| `tesseral.scim_api_keys.update` |                                    |                            |
+| `tesseral.scim_api_keys.delete` |                                    |                            |
+| `tesseral.scim_api_keys.revoke` |                                    |                            |
+| `tesseral.user_invites.create` |                                    |                            |
+| `tesseral.user_invites.delete` |                                    |                            |
+| `tesseral.organizations.create` |                                    |                            |
+| `tesseral.organizations.update` |                                    |                            |
+| `tesseral.organizations.delete` |                                    |                            |
+| `tesseral.organizations.update_google_hosted_domains` |                                    |                            |
+| `tesseral.organizations.update_microsoft_tenant_ids` |                                    |                            |
+| `tesseral.saml_connections.create` |                                    |                            |
+| `tesseral.saml_connections.update` |                                    |                            |
+| `tesseral.saml_connections.delete` |                                    |                            |
+| `tesseral.api_key_role_assignments.create` |                                    |                            |
+| `tesseral.api_key_role_assignments.delete` |                                    |                            |
+| `tesseral.users.create` |                                    |                            |
+| `tesseral.users.update` |                                    |                            |
+| `tesseral.users.delete` |                                    |                            |
+| `tesseral.roles.create` |                                    |                            |
+| `tesseral.roles.update` |                                    |                            |
+| `tesseral.roles.delete` |                                    |                            |
+| `tesseral.users.create_role_assignment` |                                    |                            |
+| `tesseral.users.delete_role_assignment` |                                    |                            |
+| `tesseral.passkeys.update` |                                    |                            |
+| `tesseral.passkeys.delete` |                                    |                            |
