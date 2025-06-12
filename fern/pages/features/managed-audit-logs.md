@@ -43,6 +43,10 @@ API](/docs/backend-api-reference/tesseral-backend-api)'s
 [`CreateAuditLogEvent`](...) endpoint.
 
 <Tabs>
+  <Tab title="Next.js">
+
+  </Tab>
+
   <Tab title="Express.js">
     <Tip>
       These instructions assume you've already set up [Tesseral for Express.js](/docs/sdks/serverside-sdks/tesseral-sdk-express).
@@ -83,7 +87,7 @@ API](/docs/backend-api-reference/tesseral-backend-api)'s
     enabled) [API Key](/docs/features/managed-api-keys) performed the action you're
     audit logging.
 
-  </Tab> 
+  </Tab>
 
   <Tab title="Flask">
     <Tip>
@@ -125,6 +129,10 @@ API](/docs/backend-api-reference/tesseral-backend-api)'s
     Tesseral will automatically know which [User](/docs/concepts/users) or (if
     enabled) [API Key](/docs/features/managed-api-keys) performed the action you're
     audit logging.
+
+  </Tab>
+
+  <Tab title="FastAPI">
 
   </Tab>
 
