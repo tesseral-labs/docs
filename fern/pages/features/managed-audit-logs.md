@@ -159,12 +159,10 @@ API](/docs/backend-api-reference/tesseral-backend-api)'s
         # ...
 
         tesseral_client.audit_log_events.create_audit_log_event(
-            audit_log_event={
-                "credentials": credentials(),
-                "event_name": "acme.expense_reports.approve",
-                "event_details": {
-                    "expenseReportId": "expense_report_123",
-                }
+            credentials=credentials(),
+            event_name="acme.expense_reports.approve",
+            event_details={
+                "expenseReportId": "expense_report_123",
             }
         )
     ```
@@ -202,12 +200,10 @@ API](/docs/backend-api-reference/tesseral-backend-api)'s
         # ...
 
         tesseral_client.audit_log_events.create_audit_log_event(
-            audit_log_event={
-                "credentials": auth.credentials(),
-                "event_name": "acme.expense_reports.approve",
-                "event_details": {
-                    "expenseReportId": "expense_report_123",
-                }
+            credentials=auth.credentials(),
+            event_name="acme.expense_reports.approve",
+            event_details={
+                "expenseReportId": "expense_report_123",
             }
         )
 
