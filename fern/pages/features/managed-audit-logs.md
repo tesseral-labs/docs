@@ -199,7 +199,7 @@ API](/docs/backend-api-reference/tesseral-backend-api)'s
     async def approve_expense_report(auth: Auth = Depends(get_auth)):
         # ...
 
-        tesseral_client.audit_log_events.create_audit_log_event(
+        await tesseral_client.audit_log_events.create_audit_log_event(
             credentials=auth.credentials(),
             event_name="acme.expense_reports.approve",
             event_details={
