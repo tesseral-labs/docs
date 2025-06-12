@@ -5,6 +5,9 @@ subtitle: Add B2B auth support to your Next.js app in just a few lines of code.
 
 Tesseral's Next.js SDK lets you add authentication to your Next.js application.
 
+The Tesseral Next.js SDK is open-source and available on
+[GitHub](https://github.com/tesseral-labs/tesseral-sdk-nextjs).
+
 ## Getting Started
 
 <Steps>
