@@ -299,7 +299,8 @@ produces.
 | `tesseral.saml_connections.create`                    | When a SAML connection is created.                        | `samlConnection`                                     |
 | `tesseral.saml_connections.update`                    | When a SAML connection is updated.                        | `samlConnection`, `previousSamlConnection`           |
 | `tesseral.saml_connections.delete`                    | When a SAML connection is deleted.                        | `samlConnection`                                     |
-| `tesseral.sessions.refresh`                           | When a User refreshes their access token.                 | `session`                                            |
+| `tesseral.sessions.create`                            | When a Session is created.                                | `session`                                            | 
+| `tesseral.sessions.refresh`                           | When a Session is refreshed.                              | `session`                                            |
 | `tesseral.api_key_role_assignments.create`            | When a Role is assigned to an API Key.                    | `apiKeyRoleAssignment`                               |
 | `tesseral.api_key_role_assignments.delete`            | When a Role is removed from an API Key.                   | `apiKeyRoleAssignment`                               |
 | `tesseral.users.create`                               | When a User is created.                                   | `user`                                               |
