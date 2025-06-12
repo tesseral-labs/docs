@@ -44,6 +44,51 @@ API](/docs/backend-api-reference/tesseral-backend-api)'s
 
 <Tabs>
   <Tab title="Next.js">
+    <Tip>
+      These instructions assume you've already set up [Tesseral for Next.js](/docs/sdks/tesseral-sdk-nextjs).
+    </Tip>
+
+    First, construct a Tesseral Backend API client:
+
+    ```typescript
+    import { TesseralClient } from "@tesseral/tesseral-node";
+
+    const tesseralClient = new TesseralClient();
+    ```
+
+    Then, anywhere in your code where you need to create an audit log event, call
+    `auditLogEvents.createAuditLogEvent()`:
+
+    ```typescript
+    // actions.ts
+    import { auth } from "@tesseral/tesseral-nextjs/serverside";
+
+    export async function POST(request: Request) {
+      const { credentials } = await auth({ or: "throw" });
+
+      // ...
+
+      tesseralClient.auditLogEvents.createAuditLogEvent({
+        auditLogEvent: {
+          credentials: credentials,
+          eventName: "acme.expense_reports.approve",
+          eventDetails: {
+            "expenseReportId": "expense_report_123",
+          }
+        }
+      })
+
+      // ...
+    }
+    ```
+
+    When you pass along the current
+    [`credentials`](/docs/sdks/nextjs#getting-the-requests-authenticated-credentials),
+    Tesseral will automatically know which [User](/docs/concepts/users) or (if
+    enabled) [API Key](/docs/features/managed-api-keys) performed the action you're
+    audit logging.
+
+    Audit logs are only supported from server-side code.
 
   </Tab>
 
@@ -91,7 +136,7 @@ API](/docs/backend-api-reference/tesseral-backend-api)'s
 
   <Tab title="Flask">
     <Tip>
-      These instructions assume you've already set up [Tesseral for Flask](/docs/sdks/serverside/python/flask).
+      These instructions assume you've already set up [Tesseral for Flask](/docs/sdks/serverside-sdks/tesseral-sdk-flask).
     </Tip>
 
     First, construct a Tesseral Backend API client:
@@ -133,12 +178,53 @@ API](/docs/backend-api-reference/tesseral-backend-api)'s
   </Tab>
 
   <Tab title="FastAPI">
+    <Tip>
+      These instructions assume you've already set up [Tesseral for FastAPI](/docs/sdks/serverside-sdks/tesseral-sdk-fastapi).
+    </Tip>
+
+    First, construct a Tesseral Backend API client:
+
+    ```python
+    from tesseral import AsyncTesseral
+
+    tesseral_client = AsyncTesseral() # or Tesseral()
+    ```
+
+    Then, anywhere in your code where you need to create an audit log event, call
+    `audit_log_events.create_audit_log_event()`:
+
+    ```python
+    from fastapi import Depends
+    from tesseral_fastapi import Auth, get_auth
+
+    @app.post("/approve-expense-report")
+    async def approve_expense_report(auth: Auth = Depends(get_auth)):
+        # ...
+
+        tesseral_client.audit_log_events.create_audit_log_event(
+            audit_log_event={
+                "credentials": auth.credentials(),
+                "event_name": "acme.expense_reports.approve",
+                "event_details": {
+                    "expenseReportId": "expense_report_123",
+                }
+            }
+        )
+
+        # ...
+    ```
+
+    When you pass along the current
+    [`auth.credentials()`](/docs/sdks/serverside-sdks/tesseral-sdk-fastapi#getting-the-requests-authenticated-credentials),
+    Tesseral will automatically know which [User](/docs/concepts/users) or (if
+    enabled) [API Key](/docs/features/managed-api-keys) performed the action you're
+    audit logging.
 
   </Tab>
 
   <Tab title="Go">
     <Tip>
-      These instructions assume you've already set up [Tesseral for Go](/docs/sdks/serverside/go).
+      These instructions assume you've already set up [Tesseral for Go](/docs/sdks/serverside-sdks/tesseral-sdk-go).
     </Tip>
 
     First, construct a Tesseral Backend API client:
