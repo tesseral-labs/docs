@@ -7,6 +7,10 @@ Audit logs are a common feature in B2B SaaS products. They allow your customer's
 security team to track what employees are doing in your product. When you use
 Tesseral, most of the work of having audit logs support is done for you.
 
+<Frame caption="An example of what your customers would see in the pre-built UI for audit logs.">
+  <img src="managed-audit-logs.png" />
+</Frame>
+
 ## What are managed audit logs?
 
 B2B SaaS buyers often expect audit logs from their vendors. These audit logs are
@@ -284,6 +288,8 @@ produces.
 | `tesseral.api_keys.delete`                            | When a managed API Key is deleted.                        | `apiKey`                                             |
 | `tesseral.api_keys.revoke`                            | When a managed API Key is revoked.                        | `apiKey`, `previousApiKey`                           |
 | `tesseral.api_keys.update`                            | When a managed API Key is updated.                        | `apiKey`, `previousApiKey`                           |
+| `tesseral.api_keys.assign_role`                       | When a Role is assigned to a managed API Key.             | `apiKeyRoleAssignment`                               |
+| `tesseral.api_keys.unassign_role`                     | When a Role is removed from a managed API Key.            | `apiKeyRoleAssignment`                               |
 | `tesseral.organizations.update_domains`               | When an Organization's associated domains are updated.    | `domains`, `previousDomains`                         |
 | `tesseral.scim_api_keys.create`                       | When a SCIM API Key is created.                           | `scimApiKey`                                         |
 | `tesseral.scim_api_keys.update`                       | When a SCIM API Key is updated.                           | `scimApiKey`, `previousScimApiKey`                   |
@@ -301,16 +307,14 @@ produces.
 | `tesseral.saml_connections.delete`                    | When a SAML connection is deleted.                        | `samlConnection`                                     |
 | `tesseral.sessions.create`                            | When a Session is created.                                | `session`                                            | 
 | `tesseral.sessions.refresh`                           | When a Session is refreshed.                              | `session`                                            |
-| `tesseral.api_key_role_assignments.create`            | When a Role is assigned to an API Key.                    | `apiKeyRoleAssignment`                               |
-| `tesseral.api_key_role_assignments.delete`            | When a Role is removed from an API Key.                   | `apiKeyRoleAssignment`                               |
 | `tesseral.users.create`                               | When a User is created.                                   | `user`                                               |
 | `tesseral.users.update`                               | When a User is updated.                                   | `user`, `previousUser`                               |
 | `tesseral.users.delete`                               | When a User is deleted.                                   | `user`                                               |
+| `tesseral.users.assign_role`                          | When a Role is assigned to a User.                        | `userRoleAssignment`                                 |
+| `tesseral.users.unassign_role`                        | When a Role is removed from a User.                       | `userRoleAssignment`                                 |
 | `tesseral.roles.create`                               | When a Role is created.                                   | `role`                                               |
 | `tesseral.roles.update`                               | When a Role is updated.                                   | `role`, `previousRole`                               |
 | `tesseral.roles.delete`                               | When a Role is deleted.                                   | `role`                                               |
-| `tesseral.users.create_role_assignment`               | When a Role is assigned to a user.                        | `userRoleAssignment`                                 |
-| `tesseral.users.delete_role_assignment`               | When a Role is removed from a user.                       | `userRoleAssignment`                                 |
 | `tesseral.passkeys.create`                            | When a Passkey is created.                                | `passkey`                                            |
 | `tesseral.passkeys.update`                            | When a Passkey is updated.                                | `passkey`, `previousPasskey`                         |
 | `tesseral.passkeys.delete`                            | When a Passkey is deleted.                                | `passkey`                                            |
