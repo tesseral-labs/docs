@@ -10,6 +10,9 @@ subtitle: Add B2B auth support to your clientside React app in just a few lines 
 
 Tesseral's React SDK lets you add B2B auth support to your clientside React app.
 
+The Tesseral React SDK is open-source and available on
+[GitHub](https://github.com/tesseral-labs/tesseral-sdk-react).
+
 ## Getting Started
 
 Install the Tesseral React SDK by running:

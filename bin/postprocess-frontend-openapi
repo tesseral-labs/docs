@@ -23,6 +23,7 @@ const PATH_PREFIXES_TO_SDK_GROUP_NAMES = [
   ["/frontend/v1/user-role-assignments", "User Role Assignments"],
   ["/frontend/v1/api-keys", "API Keys"],
   ["/frontend/v1/api-key-role-assignments", "API Key Role Assignments"],
+  ["/frontend/v1/audit-log-events", "Audit Log Events"],
 ];
 
 const INITIALISMS = ["SAML", "SCIM", "API"];

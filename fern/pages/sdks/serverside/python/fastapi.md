@@ -5,6 +5,9 @@ subtitle: Add B2B auth support to your FastAPI app in just a few lines of code.
 
 Tesseral's FastAPI SDK lets you add authentication to your Python backend using FastAPI.
 
+The Tesseral FastAPI SDK is open-source and available on
+[GitHub](https://github.com/tesseral-labs/tesseral-sdk-fastapi).
+
 ## Getting Started
 
 Install the Tesseral FastAPI SDK by running:

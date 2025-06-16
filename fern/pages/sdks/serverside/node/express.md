@@ -5,6 +5,9 @@ subtitle: Add B2B auth support to your Express.js app in just a few lines of cod
 
 Tesseral's Express SDK lets you add authentication to your Express.js backend.
 
+The Tesseral Express SDK is open-source and available on
+[GitHub](https://github.com/tesseral-labs/tesseral-sdk-express).
+
 ## Getting Started
 
 Install the Tesseral Express SDK by running:
