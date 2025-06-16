@@ -49,7 +49,7 @@ The Tesseral Next.js SDK is open-source and available on
 
     ```ts
     import { NextRequest } from "next/server";
-    import { authMiddleware } from "@tesseral/tesseral-nextjs/dist/middleware";
+    import { authMiddleware } from "@tesseral/tesseral-nextjs/middleware";
 
     export default authMiddleware;
 
@@ -74,7 +74,7 @@ The Tesseral Next.js SDK is open-source and available on
     and add `TesseralProvider`:
 
     ```tsx
-    import { TesseralProvider } from "@tesseral/tesseral-nextjs/dist/serverside";
+    import { TesseralProvider } from "@tesseral/tesseral-nextjs/serverside";
 
     export default function RootLayout({ children }: { children: React.ReactNode }) {
       return (
@@ -119,7 +119,7 @@ To get the current [User](/docs/concepts/users) from a Server Component (RSC),
 use `await getUser()`:
 
 ```tsx
-import { getUser } from "@tesseral/tesseral-nextjs/dist/serverside";
+import { getUser } from "@tesseral/tesseral-nextjs/serverside";
 
 export default async function Page() {
   const { id, email, displayName, profilePictureUrl } = await getUser();
@@ -136,7 +136,7 @@ To get the current [Organization](/docs/concepts/organizations) from a Server
 Component (RSC), use `await getOrganization()`:
 
 ```tsx
-import { getOrganization } from "@tesseral/tesseral-nextjs/dist/serverside";
+import { getOrganization } from "@tesseral/tesseral-nextjs/serverside";
 
 export default async function Page() {
   const { id, displayName } = await getOrganization();
@@ -157,7 +157,7 @@ authentication.
 You can get a link to that UI using `getUserSettingsUrl`:
 
 ```tsx
-import { getUserSettingsUrl } from "@tesseral/tesseral-nextjs/dist/serverside";
+import { getUserSettingsUrl } from "@tesseral/tesseral-nextjs/serverside";
 
 export default async function Page() {
   const userSettingsUrl = await getUserSettingsUrl();
@@ -176,7 +176,7 @@ and customizing login methods.
 You can get a link to that UI using `getOrganizationSettingsUrl`:
 
 ```tsx
-import { getOrganizationSettingsUrl } from "@tesseral/tesseral-nextjs/dist/serverside";
+import { getOrganizationSettingsUrl } from "@tesseral/tesseral-nextjs/serverside";
 
 export default async function Page() {
   const organizationSettingsUrl = await getOrganizationSettingsUrl();
@@ -201,7 +201,7 @@ To get the current [User](/docs/concepts/users) from a Client Component, use the
 ```tsx
 "use client";
 
-import { useUser } from "@tesseral/tesseral-nextjs/dist/clientside";
+import { useUser } from "@tesseral/tesseral-nextjs/clientside";
 
 export default function ClientComponent() {
   const { id, email, displayName, profilePictureUrl } = useUser();
@@ -220,7 +220,7 @@ Component, use the `useOrganization()` hook:
 ```tsx
 "use client";
 
-import { useOrganization } from "@tesseral/tesseral-nextjs/dist/clientside";
+import { useOrganization } from "@tesseral/tesseral-nextjs/clientside";
 
 export default function ClientComponent() {
   const { id, displayName } = useOrganization();
@@ -243,7 +243,7 @@ To check whether a user has permission to do an
 Component, use `useHasPermission`:
 
 ```tsx
-import { useHasPermission } from "@tesseral/tesseral-nextjs/dist/clientside";
+import { useHasPermission } from "@tesseral/tesseral-nextjs/clientside";
 
 export default function ClientComponent() {
   const hasPermission = useHasPermission();
@@ -274,7 +274,7 @@ Component, use the `useLogout()` hook:
 ```tsx
 "use client";
 
-import { useLogout } from "@tesseral/tesseral-nextjs/dist/clientside";
+import { useLogout } from "@tesseral/tesseral-nextjs/clientside";
 
 export default function ClientComponent() {
   const logout = useLogout();
@@ -295,7 +295,7 @@ You can get a link to that UI using `useUserSettingsUrl`:
 ```tsx
 "use client";
 
-import { useUserSettingsUrl } from "@tesseral/tesseral-nextjs/dist/clientside";
+import { useUserSettingsUrl } from "@tesseral/tesseral-nextjs/clientside";
 
 export default function ClientComponent() {
   const userSettingsUrl = useUserSettingsUrl();
@@ -316,7 +316,7 @@ You can get a link to that UI using `useOrganizationSettingsUrl`:
 ```tsx
 "use client";
 
-import { useOrganizationSettingsUrl } from "@tesseral/tesseral-nextjs/dist/clientside";
+import { useOrganizationSettingsUrl } from "@tesseral/tesseral-nextjs/clientside";
 
 export default function ClientComponent() {
   const organizationSettingsUrl = useOrganizationSettingsUrl();
@@ -332,7 +332,7 @@ To get authentication details about the current request in a
 call [`await auth()`](#using-await-auth):
 
 ```tsx
-import { auth } from "@tesseral/tesseral-nextjs/dist/serverside";
+import { auth } from "@tesseral/tesseral-nextjs/serverside";
 
 export async function GET(request: Request) {
   const { organizationId, hasPermission } = await auth({ or: "return_404" });
@@ -352,7 +352,7 @@ you can use the same methods as in
     ```ts
     "use server";
 
-    import { getUser } from "@tesseral/tesseral-nextjs/dist/serverside";
+    import { getUser } from "@tesseral/tesseral-nextjs/serverside";
 
     export async function action() {
       const user = await getUser();
@@ -364,7 +364,7 @@ you can use the same methods as in
 
   <Tab title="page.tsx">
     ```tsx
-    import { getUser } from "@tesseral/tesseral-nextjs/dist/serverside";
+    import { getUser } from "@tesseral/tesseral-nextjs/serverside";
 
     export default function Page() {
       // Server Action
@@ -417,7 +417,7 @@ the return value of `await auth()`.
 `await auth()` returns an object with properties you can destructure:
 
 ```ts
-import { auth } from "@tesseral/tesseral-nextjs/dist/serverside";
+import { auth } from "@tesseral/tesseral-nextjs/serverside";
 
 const {
   organizationId,
@@ -434,7 +434,7 @@ To access the Organization the request is for from `await auth()`, use the
 `organizationId` property:
 
 ```ts
-import { auth } from "@tesseral/tesseral-nextjs/dist/serverside";
+import { auth } from "@tesseral/tesseral-nextjs/serverside";
 
 const { organizationId } = await auth({ or: "throw" }); // returns a string like "org_..."
 ```
@@ -447,7 +447,7 @@ Anywhere your code wants to forward along the request's credentials, use
 `credentials`:
 
 ```ts
-import { auth } from "@tesseral/tesseral-nextjs/dist/serverside";
+import { auth } from "@tesseral/tesseral-nextjs/serverside";
 
 const { credentials } = await auth({ or: "throw" });
 ```
@@ -465,7 +465,7 @@ authenticated. It will either be:
   [API Key](/docs/features/managed-api-keys).
 
 ```ts
-import { auth } from "@tesseral/tesseral-nextjs/dist/serverside";
+import { auth } from "@tesseral/tesseral-nextjs/serverside";
 
 const { credentialsType } = await auth({ or: "throw" });
 if (credentialsType === "access_token") {
@@ -483,7 +483,7 @@ will contain details about that User. If the request is from an
 `undefined`.
 
 ```ts
-import { auth } from "@tesseral/tesseral-nextjs/dist/serverside";
+import { auth } from "@tesseral/tesseral-nextjs/serverside";
 
 const { accessTokenClaims } = await auth({ or: "throw" });
 console.log(accessTokenClaims?.user?.email);
@@ -506,7 +506,7 @@ To check whether a user has permission to do an
 [Action](/docs/features/role-based-access-control#actions), use `hasPermission`:
 
 ```ts
-import { auth } from "@tesseral/tesseral-nextjs/dist/serverside";
+import { auth } from "@tesseral/tesseral-nextjs/serverside";
 
 const { hasPermission } = await auth({ or: "throw" });
 if (!hasPermission("acme.expense_reports.approve")) {
