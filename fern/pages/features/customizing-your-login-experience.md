@@ -34,7 +34,7 @@ You may change the ways your users log in. For example, you can enable login met
 
 There are two major ways to change the ways your users can log in: at the Project level and at the Organization level. If you want to change how users log in, you must first enable/disable login methods at the Project level. From there, you may override available login methods for a given Organization. 
 
-For example, you may have a customer who insists that all users use SAML single sign-on. In this case, 
+For example, you may have a customer who insists that all users use SAML single sign-on. In this case, you would enable SAML single sign-on in your project settings.
 
 <Note>If you wish to enable a login method for a given Organization, you **must** first confirm that the login method in question has been enabled at the Project level. An Organization can only have more restrictive settings than the Project.</Note>
 
