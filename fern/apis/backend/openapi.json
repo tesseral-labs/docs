@@ -482,6 +482,51 @@
         "summary": "Revoke API Key"
       }
     },
+    "/v1/audit-log-events": {
+      "post": {
+        "tags": [
+          "BackendService"
+        ],
+        "operationId": "BackendService_CreateAuditLogEvent",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuditLogEvent"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateAuditLogEventResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "Audit Log Events",
+        "x-fern-sdk-method-name": "CreateAuditLogEvent",
+        "summary": "Create Audit Log Event"
+      }
+    },
     "/v1/organizations": {
       "get": {
         "tags": [
@@ -2842,6 +2887,57 @@
           }
         }
       },
+      "AuditLogEvent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The Audit Log Event ID. Starts with `audit_log_event_...`."
+          },
+          "organizationId": {
+            "type": "string",
+            "description": "The Organization the event occurred within, if any."
+          },
+          "actorUserId": {
+            "type": "string",
+            "description": "The User that performed the event, if any."
+          },
+          "actorSessionId": {
+            "type": "string",
+            "description": "The Session that performed the event, if any."
+          },
+          "actorApiKeyId": {
+            "type": "string",
+            "description": "The API Key that performed the event, if any."
+          },
+          "actorBackendApiKeyId": {
+            "type": "string",
+            "description": "The Backend API key that performed the event, if any."
+          },
+          "actorIntermediateSessionId": {
+            "type": "string",
+            "description": "The Intermediate Session that performed the action, if any."
+          },
+          "eventTime": {
+            "type": "string",
+            "description": "When the event occurred.",
+            "format": "date-time"
+          },
+          "eventName": {
+            "type": "string",
+            "description": "The name of the event."
+          },
+          "eventDetails": {
+            "type": "object",
+            "description": "The event payload JSON."
+          },
+          "actorCredentials": {
+            "type": "string",
+            "description": "Credentials for the actor performing the action. Input-only.\n\n Can be used as a shorthand for actor information when calling CreateAuditLogEvent."
+          }
+        },
+        "description": "AuditLogEvent represents a record in the Project's audit log."
+      },
       "AuthenticateAPIKeyRequest": {
         "type": "object",
         "properties": {
@@ -2896,6 +2992,14 @@
         "properties": {
           "apiKeyRoleAssignment": {
             "$ref": "#/components/schemas/APIKeyRoleAssignment"
+          }
+        }
+      },
+      "CreateAuditLogEventResponse": {
+        "type": "object",
+        "properties": {
+          "auditLogEvent": {
+            "$ref": "#/components/schemas/AuditLogEvent"
           }
         }
       },
@@ -3642,6 +3746,10 @@
           "apiKeySecretTokenPrefix": {
             "type": "string",
             "description": "The prefix used for API Key secret tokens."
+          },
+          "auditLogsEnabled": {
+            "type": "boolean",
+            "description": "Whether the Project has audit logging enabled."
           }
         },
         "description": "Projects are the top-level object in Tesseral.\n\n Everything in Tesseral happens within the context of a Project."

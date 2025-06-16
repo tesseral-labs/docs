@@ -16,6 +16,7 @@ const PATH_PREFIXES_TO_SDK_GROUP_NAMES = [
   ["/v1/user-role-assignments", "User Role Assignments"],
   ["/v1/api-keys", "API Keys"],
   ["/v1/api-key-role-assignments", "API Key Role Assignments"],
+  ["/v1/audit-log-events", "Audit Log Events"],
 ];
 
 const INITIALISMS = ["SAML", "SCIM", "API"];
