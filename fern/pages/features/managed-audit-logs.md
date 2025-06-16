@@ -119,12 +119,10 @@ API](/docs/backend-api-reference/tesseral-backend-api)'s
       // ...
 
       tesseralClient.auditLogEvents.createAuditLogEvent({
-        auditLogEvent: {
-          credentials: credentials(req),
-          eventName: "acme.expense_reports.approve",
-          eventDetails: {
-            "expenseReportId": "expense_report_123",
-          }
+        credentials: credentials(req),
+        eventName: "acme.expense_reports.approve",
+        eventDetails: {
+          "expenseReportId": "expense_report_123",
         }
       })
     })
@@ -243,19 +241,19 @@ API](/docs/backend-api-reference/tesseral-backend-api)'s
     ```go
     import (
         "net/http"
+
+        "github.com/tesseral-labs/tesseral-sdk-go"
         "github.com/tesseral-labs/tesseral-sdk-go/auth"
     )
 
     func ApproveExpenseReport(w http.ResponseWriter, r *http.Request) {
         // ...
 
-        tesseralClient.AuditLogEvents.CreateAuditLogEvent(r.Context(), &AuditLogEventRequest{
-            AuditLogEvent: &AuditLogEvent{
-                Credentials: auth.Credentials(r.Context()),
-                EventName:   "acme.expense_reports.approve",
-                EventDetails: map[string]interface{}{
-                    "expenseReportId": "expense_report_123",
-                },
+        tesseralClient.AuditLogEvents.CreateAuditLogEvent(r.Context(), &tesseral.AuditLogEvent{
+            EventName:        tesseral.String("acme.expense_reports.approve"),
+            ActorCredentials: tesseral.String(auth.Credentials(r.Context())),
+            EventDetails: map[string]any{
+                "expenseReportId": "expense_report_123",
             },
         })
 
