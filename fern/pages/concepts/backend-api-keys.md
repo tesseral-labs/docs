@@ -7,7 +7,7 @@ subtitle: "Backend API Keys authenticate your server-side code to Tesseral's bac
 
 A *Backend API Key* is a globally unique secret that you use to authenticate with Tesseral's [backend API](/docs/backend-api-reference/). If you wish to use the backend API, you must pass it a valid Backend API Key.  
 
-The backend API primarily helps you perform CRUD operations on Tesseral resources. For example, if you want to pull a list of [Users](/docs/concepts/users) from Tesseral, you can make an HTTP GET request to `https://api.tesseral.com/v1/users` (Most developers will use a [server-side SDK](/docs/sdks/serverside-sdks) for this.)
+The backend API primarily helps you perform CRUD operations on Tesseral resources. For example, if you want to pull a list of [Users](/docs/concepts/users) from Tesseral, you can make an HTTP GET request to `https://api.tesseral.com/v1/users`. (Most developers will use a [server-side SDK](/docs/sdks/serverside-sdks) for this.)
 
 Each Backend API Key belongs to -- and can interact with -- exactly one [Project](/docs/concepts/projects). 
 
