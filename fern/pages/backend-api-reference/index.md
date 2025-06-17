@@ -33,7 +33,7 @@ by following these steps:
 1. Sign in to the [Tesseral Console](https://console.tesseral.com).
 
 2. Make sure you're in the Project you want to work with. You can switch between
-   Projects using the Project Switcher at the top left of the Console. 3. Go to
+   Projects using the Project Switcher at the top left of the Console. Go to
    your Project's [API Keys
    Settings](https://console.tesseral.com/project-settings/api-keys), and create a
    new Backend API Key.

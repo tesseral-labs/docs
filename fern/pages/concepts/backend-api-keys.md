@@ -45,7 +45,7 @@ A Backend API key has a few top-level properties:
 
 Each Backend API Key has an `id` property that begins with `backend_api_key_`. This value is **not** a secret. It merely identifies the API key; for example, you can find a given Backend API Key in the Tesseral console at the route `https://console.tesseral.com/project-settings/api-keys/backend-api-keys/backend_api_key_...`.
 
-<Warning> Each Backend API Key has a secret value that begins with `tesseral_secret_key_`. This is distinct from the `id`, which begins with `backend_api_key` You **must** take measures to keep this value secret.</Warning>
+<Warning> Each Backend API Key has a secret value that begins with `tesseral_secret_key_`. This is distinct from the `id`, which begins with `backend_api_key`. You **must** take measures to keep this value secret.</Warning>
 
 ### Display name
 
