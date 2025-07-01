@@ -6,7 +6,7 @@ clearbit.setAttribute("referrerPolicy", "strict-origin-when-cross-origin");
 document.head.appendChild(clearbit);
 
 // Google Tag Manager stuffs
-var gtm = document.createElement1("script");
+var gtm = document.createElement("script");
 gtm.src = "https://www.googletagmanager.com/gtm.js?id=G-HW27FX565S";
 gtm.setAttribute("async", "true");
 document.head.appendChild(gtm);
