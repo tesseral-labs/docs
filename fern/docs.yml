@@ -29,7 +29,7 @@ navbar-links:
 colors:
   accent-primary:
     light: "#7D26F6"
-  #    light: "#000"
+#    light: "#000"
   background:
     light: "#F9FAFB"
 
