@@ -684,6 +684,49 @@
         "x-fern-sdk-group-name": "Me",
         "x-fern-sdk-method-name": "Whoami",
         "summary": "Whoami"
+      },
+      "patch": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_UpdateMe",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateMeResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "Me",
+        "x-fern-sdk-method-name": "UpdateMe",
+        "summary": "Update Me"
       }
     },
     "/frontend/v1/me/authenticator-app/options": {
@@ -1029,6 +1072,234 @@
         "x-fern-sdk-group-name": "Organizations",
         "x-fern-sdk-method-name": "UpdateOrganizationMicrosoftTenantIDs",
         "summary": "Update Organization Microsoft Tenant IDs"
+      }
+    },
+    "/frontend/v1/oidc-connections": {
+      "get": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_ListOIDCConnections",
+        "parameters": [
+          {
+            "name": "pageToken",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListOIDCConnectionsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "OIDC Connections",
+        "x-fern-sdk-method-name": "ListOIDCConnections",
+        "summary": "List OIDC Connections"
+      },
+      "post": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_CreateOIDCConnection",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OIDCConnection"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateOIDCConnectionResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "OIDC Connections",
+        "x-fern-sdk-method-name": "CreateOIDCConnection",
+        "summary": "Create OIDC Connection"
+      }
+    },
+    "/frontend/v1/oidc-connections/{id}": {
+      "get": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_GetOIDCConnection",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetOIDCConnectionResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "OIDC Connections",
+        "x-fern-sdk-method-name": "GetOIDCConnection",
+        "summary": "Get OIDC Connection"
+      },
+      "delete": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_DeleteOIDCConnection",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteOIDCConnectionResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "OIDC Connections",
+        "x-fern-sdk-method-name": "DeleteOIDCConnection",
+        "summary": "Delete OIDC Connection"
+      },
+      "patch": {
+        "tags": [
+          "FrontendService"
+        ],
+        "operationId": "FrontendService_UpdateOIDCConnection",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OIDCConnection"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateOIDCConnectionResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "401": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "403": {
+            "$ref": "#/components/responses/APIError"
+          },
+          "404": {
+            "$ref": "#/components/responses/APIError"
+          }
+        },
+        "x-fern-sdk-group-name": "OIDC Connections",
+        "x-fern-sdk-method-name": "UpdateOIDCConnection",
+        "summary": "Update OIDC Connection"
       }
     },
     "/frontend/v1/organization": {
@@ -2713,6 +2984,14 @@
           }
         }
       },
+      "CreateOIDCConnectionResponse": {
+        "type": "object",
+        "properties": {
+          "oidcConnection": {
+            "$ref": "#/components/schemas/OIDCConnection"
+          }
+        }
+      },
       "CreateRoleResponse": {
         "type": "object",
         "properties": {
@@ -2765,6 +3044,10 @@
         "type": "object",
         "properties": {}
       },
+      "DeleteOIDCConnectionResponse": {
+        "type": "object",
+        "properties": {}
+      },
       "DeleteRoleResponse": {
         "type": "object",
         "properties": {}
@@ -2802,6 +3085,14 @@
         "properties": {
           "otpauthUri": {
             "type": "string"
+          }
+        }
+      },
+      "GetOIDCConnectionResponse": {
+        "type": "object",
+        "properties": {
+          "oidcConnection": {
+            "$ref": "#/components/schemas/OIDCConnection"
           }
         }
       },
@@ -2958,6 +3249,20 @@
           }
         }
       },
+      "ListOIDCConnectionsResponse": {
+        "type": "object",
+        "properties": {
+          "oidcConnections": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OIDCConnection"
+            }
+          },
+          "nextPageToken": {
+            "type": "string"
+          }
+        }
+      },
       "ListRolesResponse": {
         "type": "object",
         "properties": {
@@ -3061,6 +3366,37 @@
         "type": "object",
         "properties": {}
       },
+      "OIDCConnection": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "createTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "primary": {
+            "type": "boolean"
+          },
+          "configurationUrl": {
+            "type": "string"
+          },
+          "clientId": {
+            "type": "string"
+          },
+          "clientSecret": {
+            "type": "string"
+          },
+          "redirectUri": {
+            "type": "string"
+          }
+        }
+      },
       "Organization": {
         "type": "object",
         "properties": {
@@ -3094,6 +3430,9 @@
             "type": "boolean"
           },
           "logInWithSaml": {
+            "type": "boolean"
+          },
+          "logInWithOidc": {
             "type": "boolean"
           },
           "logInWithAuthenticatorApp": {
@@ -3221,6 +3560,9 @@
             "type": "boolean"
           },
           "logInWithSaml": {
+            "type": "boolean"
+          },
+          "logInWithOidc": {
             "type": "boolean"
           },
           "logInWithAuthenticatorApp": {
@@ -3450,6 +3792,22 @@
           },
           "apiKey": {
             "$ref": "#/components/schemas/APIKey"
+          }
+        }
+      },
+      "UpdateMeResponse": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "$ref": "#/components/schemas/User"
+          }
+        }
+      },
+      "UpdateOIDCConnectionResponse": {
+        "type": "object",
+        "properties": {
+          "oidcConnection": {
+            "$ref": "#/components/schemas/OIDCConnection"
           }
         }
       },

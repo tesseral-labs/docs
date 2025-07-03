@@ -18,6 +18,7 @@ const PATH_PREFIXES_TO_SDK_GROUP_NAMES = [
   ["/frontend/v1/passkeys", "Passkeys"],
   ["/frontend/v1/user-invites", "User Invites"],
   ["/frontend/v1/saml-connections", "SAML Connections"],
+  ["/frontend/v1/oidc-connections", "OIDC Connections"],
   ["/frontend/v1/scim-api-keys", "SCIM API Keys"],
   ["/frontend/v1/roles", "Roles"],
   ["/frontend/v1/user-role-assignments", "User Role Assignments"],
@@ -26,7 +27,7 @@ const PATH_PREFIXES_TO_SDK_GROUP_NAMES = [
   ["/frontend/v1/audit-log-events", "Audit Log Events"],
 ];
 
-const INITIALISMS = ["SAML", "SCIM", "API"];
+const INITIALISMS = ["SAML", "OIDC", "SCIM", "API"];
 
 function rpcIDToSummary(rpcId) {
   for (const initialism of INITIALISMS) {
