@@ -120,8 +120,6 @@ navigation:
             path: ./pages/features/multifactor-authentication-mfa.md
           - page: SAML SSO
             path: ./pages/features/saml-sso.md
-          - page: OIDC SSO
-            path: ./pages/features/oidc-sso.md
           - page: SCIM Provisioning
             path: ./pages/features/scim-provisioning.md
           - page: Transactional Emails
@@ -153,8 +151,6 @@ navigation:
                 path: ./pages/login-methods/primary-factors/log-in-with-password.md
               - page: Log in with Enterprise SSO (SAML)
                 path: ./pages/login-methods/primary-factors/log-in-with-enterprise-sso-saml.md
-              - page: Log in with Enterprise SSO (OIDC)
-                path: ./pages/login-methods/primary-factors/log-in-with-enterprise-sso-oidc.md
           - section: Secondary Factors
             contents:
               - page: Login with Passkey
@@ -180,8 +176,6 @@ navigation:
             path: ./pages/concepts/passkeys.md
           - page: SAML Connections
             path: ./pages/concepts/saml-connections.md
-          - page: OIDC Connections
-            path: ./pages/concepts/oidc-connections.md
           - page: SCIM API Keys
             path: ./pages/concepts/scim-api-keys.md
           - page: User Invites
@@ -207,7 +201,8 @@ navigation:
           - passkeys
           - userInvites
           - samlConnections
-          - oidcConnections
+          - oidcConnections:
+              title: OIDC Connections
           - scimApiKeys:
               title: SCIM API Keys
   - tab: frontend-api
@@ -227,6 +222,7 @@ navigation:
           - users
           - userInvites
           - samlConnections
-          - oidcConnections
+          - oidcConnections:
+              title: OIDC Connections
           - scimApiKeys:
               title: SCIM API Keys
