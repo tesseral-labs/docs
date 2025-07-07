@@ -16,6 +16,7 @@ Over time, you will likely use the following concepts:
 * [Project API Keys](/docs/concepts/backend-api-keys)
 * [Passkeys](/docs/concepts/passkeys)
 * [SAML Connections](/docs/concepts/saml-connections)
+* [OIDC Connections](/docs/concepts/oidc-connections)
 * [SCIM API Keys](/docs/concepts/scim-api-keys)
 * [User Invites](/docs/concepts/user-invites)
 

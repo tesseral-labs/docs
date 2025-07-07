@@ -303,7 +303,12 @@ produces.
 | `tesseral.saml_connections.create`                    | When a SAML connection is created.                        | `samlConnection`                                     |
 | `tesseral.saml_connections.update`                    | When a SAML connection is updated.                        | `samlConnection`, `previousSamlConnection`           |
 | `tesseral.saml_connections.delete`                    | When a SAML connection is deleted.                        | `samlConnection`                                     |
-| `tesseral.sessions.create`                            | When a Session is created.                                | `session`                                            | 
+| `tesseral.saml_connections.initiate`                  | When a SAML connection is initiated.                      | `samlConnection`                                     |
+| `tesseral.oidc_connections.create`                    | When a OIDC connection is created.                        | `oidcConnection`                                     |
+| `tesseral.oidc_connections.update`                    | When a OIDC connection is updated.                        | `oidcConnection`, `previousOidcConnection`           |
+| `tesseral.oidc_connections.delete`                    | When a OIDC connection is deleted.                        | `oidcConnection`                                     |
+| `tesseral.oidc_connections.initiate`                  | When a OIDC connection is initiated.                      | `oidcConnection`                                     |
+| `tesseral.sessions.create`                            | When a Session is created.                                | `session`, `samlConnectionId`, `oidcConnectionId`    | 
 | `tesseral.sessions.refresh`                           | When a Session is refreshed.                              | `session`                                            |
 | `tesseral.users.create`                               | When a User is created.                                   | `user`                                               |
 | `tesseral.users.update`                               | When a User is updated.                                   | `user`, `previousUser`                               |
