@@ -70,7 +70,7 @@ If an Organization has any OIDC Connections, it will always have exactly one OID
 
 Every OIDC Connection has a redirect URL. Tesseral provides this value for you. The redirect URL identifies a Tesseral endpoint that handles OIDC token exchanges.
 
-A redirect URL will look like `https://vault.app.myapp.com/api/oidc/v1/Oidc_connection_1n73juswrqiqn9zz63fnofe5c/acs` if you have configured a custom [Vault Domain](/docs/concepts/projects#vault-domain). (If you have not configured a custom Vault Domain, the redirect URL will use a `tesseral.app` domain.)
+A redirect URL will look like `https://vault.app.myapp.com/api/oidc/v1/oidc_connection_1n73juswrqiqn9zz63fnofe5c/callback` if you have configured a custom [Vault Domain](/docs/concepts/projects#vault-domain). (If you have not configured a custom Vault Domain, the redirect URL will use a `tesseral.app` domain.)
 
 It is **not** necessary for you to understand the precise function of the redirect URL.
 
