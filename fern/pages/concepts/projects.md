@@ -36,6 +36,7 @@ Projects have the following top level properties:
 * [Log in with Email](#log-in-with-email)
 * [Log in with Password](#log-in-with-password)
 * [Log in with SAML](#log-in-with-saml)
+* [Log in with OIDC](#log-in-with-oidc)
 * [Log in with Authenticator App](#log-in-with-authenticator-app)
 * [Log in with Passkey](#log-in-with-passkey)
 * [Google OAuth Client ID](#google-oauth-client-id)
@@ -135,6 +136,13 @@ Be aware that Organizations have [a similar property](/docs/concepts/organizatio
 Identified in the [Backend API](/docs/backend-api-reference) as `logInWithSaml`, this boolean field represents whether [logging in with SAML single sign-on](/docs/login-methods/primary-factors/log-in-with-enterprise-sso-saml) is enabled for the Organization.
 
 Be aware that Organizations have [a similar property](/docs/concepts/organizations#log-in-with-saml). If logging in with SAML is enabled for the Project but *not* enabled for a given Organization, no one within that Organization will be able to use SAML SSO.
+
+
+#### Log in with OIDC
+
+Identified in the [Backend API](/docs/backend-api-reference) as `logInWithOidc`, this boolean field represents whether [logging in with OIDC single sign-on](/docs/login-methods/primary-factors/log-in-with-enterprise-sso-oidc) is enabled for the Organization.
+
+Be aware that Organizations have [a similar property](/docs/concepts/organizations#log-in-with-oidc). If logging in with OIDC is enabled for the Project but *not* enabled for a given Organization, no one within that Organization will be able to use OIDC SSO.
 
 
 #### Log in with Authenticator App

@@ -65,7 +65,7 @@ B2B multitenancy introduces complexities:
   methods](/docs/features/customizing-your-login-experience#changing-login-methods-for-an-organization),
   such as disabling passwords, or requiring MFA, for their organization.
 
-* Businesses want to be able to configure [SAML](/docs/features/saml-sso), and
+* Businesses want to be able to configure [SAML](/docs/features/saml-sso) or [OIDC](/docs/features/oidc-sso), and
   to make it the exclusive login mechanism for their organization.
 
 * Businesses want to be able to create, update, and delete their users
@@ -88,7 +88,7 @@ belongs to exactly one Organization.
 Organizations come pre-built with support for [User
 Invites](/docs/concepts/user-invites),
 [Roles](/docs/features/role-based-access-control#rbac-concepts), [SAML
-Connections](/docs/concepts/saml-connections), and [SCIM API
+Connections](/docs/concepts/saml-connections), [OIDC Connections](/docs/concepts/oidc-connections) and [SCIM API
 Keys](/docs/concepts/scim-api-keys). Owners of an Organization can restrict the
 set of login methods they want their Users to authenticate with, and can
 [require MFA](/docs/concepts/organizations#require-mfa). UIs for all these

@@ -7,7 +7,7 @@ Tesseral is open-source auth infrastructure for B2B SaaS. Use Tesseral to
 support all your product's needs, including:
 
 - [Customizable Login Pages](/docs/features/customizing-your-login-experience)
-  that support [SAML](/docs/features/saml-sso),
+  that support [SAML](/docs/features/saml-sso), [OIDC](/docs/features/oidc-sso),
   [SCIM](/docs/features/scim-provisioning),
   [MFA](/docs/features/multifactor-authentication-mfa), and more
 - [B2B Multitenancy](/docs/features/b2b-multitenancy)

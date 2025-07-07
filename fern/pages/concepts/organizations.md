@@ -26,6 +26,7 @@ Organizations directly relate to the following Tesseral concepts:
 * [Users](#organizations-and-users)
 * [User Invites](#organizations-and-user-invites)
 * [SAML Connections](#organizations-and-saml-connections)
+* [OIDC Connections](#organizations-and-oidc-connections)
 * [SCIM API Keys](#organizations-and-scim-api-keys)
 
 Organizations have the following top level properties:
@@ -40,6 +41,7 @@ Organizations have the following top level properties:
 * [Log in with email](#log-in-with-microsoft)
 * [Log in with password](#log-in-with-password)
 * [Log in with SAML](#log-in-with-saml)
+* [Log in with OIDC](#log-in-with-oidc)
 * [Log in with authenticator app](#log-in-with-authenticator-app)
 * [Log in with passkey](#log-in-with-passkey)
 * [Require MFA](#require-mfa)
@@ -82,6 +84,16 @@ SAML Connections exist to support [SAML single sign-on](/docs/features/saml-sso)
 Organizations may have any number of SAML Connections. 
 
 Learn more about SAML Connections [here](/docs/concepts/saml-connections).
+
+
+#### Organizations and OIDC Connections
+
+OIDC Connections exist to support [OIDC single sign-on](/docs/features/oidc-sso). They contain all configuration settings for a given trust relationship with an identity provider. If you wish to configure OIDC SSO for one of your customers, you must create a OIDC Connection within that customer's Organization. 
+
+Organizations may have any number of OIDC Connections. 
+
+Learn more about OIDC Connections [here](/docs/concepts/oidc-connections).
+
 
 #### Organizations and SCIM API Keys
 
@@ -135,6 +147,11 @@ Identified in the [Backend API](/docs/backend-api-reference) as `logInWithPasswo
 #### Log in with SAML
 
 Identified in the [Backend API](/docs/backend-api-reference) as `logInWithSaml`, this boolean field represents whether [logging in with SAML single sign-on](/docs/login-methods/primary-factors/log-in-with-enterprise-sso-saml) is enabled for the Organization.
+
+
+#### Log in with OIDC
+
+Identified in the [Backend API](/docs/backend-api-reference) as `logInWithOidc`, this boolean field represents whether [logging in with enterprise OIDC single sign-on](/docs/login-methods/primary-factors/log-in-with-enterprise-sso-oidc) is enabled for the Organization.
 
 
 #### Log in with authenticator app
