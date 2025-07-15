@@ -52,3 +52,14 @@ groups:
           packageName: tesseral
           union: v1
         smart-casing: true
+  csharp:
+    generators:
+      - name: fernapi/fern-csharp-sdk
+        version: 1.17.4
+        github:
+          repository: tesseral-labs/tesseral-sdk-csharp
+          license: MIT
+          mode: pull-request
+        smart-casing: true
+        config:
+          package-id: Tesseral.Api
