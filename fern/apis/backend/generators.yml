@@ -62,4 +62,5 @@ groups:
           mode: pull-request
         smart-casing: true
         config:
-          package-id: Tesseral.Api
+          namespace: Tesseral.Client
+          client-class-name: Tesseral
