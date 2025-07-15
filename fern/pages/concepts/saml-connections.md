@@ -70,7 +70,7 @@ If an Organization has any SAML Connections, it will always have exactly one SAM
 
 Every SAML Connection has an ACS URL. Tesseral provides this value for you. The ACS URL identifies a Tesseral endpoint that handles SAML assertions. 
 
-An ACS URL will look like `https://vault.app.myapp.com/api/saml/v1/saml_connection_1n73juswrqiqn9zz63fnofe5c/acs` if you have configured a custom [Vault Domain](/docs/concepts/projects#vault-domain). (If you have not configured a custom Vault Domain, the ACS URL will use a `tesseral.app` domain.)
+An ACS URL will look like `https://vault.app.myapp.com/api/saml/v1/saml_connection_.../acs` if you have configured a custom [Vault Domain](/docs/concepts/projects#vault-domain). (If you have not configured a custom Vault Domain, the ACS URL will use a `tesseral.app` domain.)
 
 It is **not** necessary for you to understand the precise function of the ACS URL.
 
@@ -80,7 +80,7 @@ You merely need to give the ACS URL to your customer as part of the configuratio
 
 Every SAML Connection has an SP Entity ID. Tesseral provides this value for you. The SP Entity ID is simply a unique identifier that happens to be formatted as a URL. 
 
-An SP Entity ID will look like `https://vault.app.myapp.com/api/saml/v1/saml_connection_1n73juswrqiqn9zz63fnofe5c` if you have configured a custom [Vault Domain](/docs/concepts/projects#vault-domain). (If you have not configured a custom Vault Domain, the SP Entity ID will use a `tesseral.app` domain.)
+An SP Entity ID will look like `https://vault.app.myapp.com/api/saml/v1/saml_connection_...` if you have configured a custom [Vault Domain](/docs/concepts/projects#vault-domain). (If you have not configured a custom Vault Domain, the SP Entity ID will use a `tesseral.app` domain.)
 
 It is **not** necessary for you to understand the precise function of the SP Entity ID.
 
