@@ -171,7 +171,7 @@ your behalf, which you can redirect your users to using `useUserSettingsUrl` and
 `useOrganizationSettingsUrl`.
 
 Everything those prebuilt UIs do, you can also do from your own clientside code.
-Doing so is an advanced feature, and is not required.
+Doing so is an advanced feature and is not required.
 
 For details on how to do this, see the documentation for the [Tesseral Frontend
 API](/docs/frontend-api-reference).

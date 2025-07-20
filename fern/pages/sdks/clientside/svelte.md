@@ -165,7 +165,7 @@ To directly access the User's access token, call `getAccessToken`:
 ### `getHasPermission`
 
 <Info>
-  To use `getHasPermission`, must first configure [Role-Based Access
+  To use `getHasPermission`, you must first configure [Role-Based Access
   Control](/docs/features/role-based-access-control) for your Project.
 </Info>
 
@@ -178,29 +178,9 @@ To check if the current user has a specific permission, use `getHasPermission`:
     let hasPermission = getHasPermission();
 </script>
 
-{#if $hasPermission('admin.users.read')}
-    <p>You have permission to view users</p>
+{#if $hasPermission('acme.expense_reports.approve')}
+    <!-- ... -->
 {/if}
-```
-
-### `getFrontendApiClient`
-
-To access the [Tesseral Frontend
-API](/docs/frontend-api-reference/tesseral-frontend-api) client for advanced
-operations, use `getFrontendApiClient`:
-
-```svelte
-<script lang="ts">
-    import { getFrontendApiClient } from '@tesseral/tesseral-svelte';
-
-    let frontendApiClient = getFrontendApiClient();
-</script>
-
-{#await $frontendApiClient.me.whoami({})}
-    <p>Loading...</p>
-{:then response}
-    <pre>{JSON.stringify(response, null, 2)}</pre>
-{/await}
 ```
 
 ## Advanced Usage
@@ -210,7 +190,7 @@ your behalf, which you can redirect your users to using `getUserSettingsUrl` and
 `getOrganizationSettingsUrl`.
 
 Everything those prebuilt UIs do, you can also do from your own clientside code.
-Doing so is an advanced feature, and is not required.
+Doing so is an advanced feature and is not required.
 
 For details on how to do this, see the documentation for the [Tesseral Frontend
 API](/docs/frontend-api-reference).
