@@ -22,16 +22,16 @@ npm install @tesseral/tesseral-svelte
 ```
 
 Then, in your Svelte application, add a `TesseralProvider` at the root of your
-Svelte application:
+Svelte application in your top-level `+layout.svelte` file:
 
-```svelte {2,5,7}
+```svelte {2,6,8}
 <script lang="ts">
     import { TesseralProvider } from '@tesseral/tesseral-svelte';
-    import App from './App.svelte';
+    let { children } = $props();
 </script>
 
 <TesseralProvider publishableKey="publishable_key_...">
-    <App />
+    {@render children()}
 </TesseralProvider>
 ```
 
@@ -164,6 +164,11 @@ To directly access the User's access token, call `getAccessToken`:
 
 ### `getHasPermission`
 
+<Info>
+  To use `getHasPermission`, must first configure [Role-Based Access
+  Control](/docs/features/role-based-access-control) for your Project.
+</Info>
+
 To check if the current user has a specific permission, use `getHasPermission`:
 
 ```svelte
@@ -180,7 +185,9 @@ To check if the current user has a specific permission, use `getHasPermission`:
 
 ### `getFrontendApiClient`
 
-To access the Tesseral Frontend API client for advanced operations, use `getFrontendApiClient`:
+To access the [Tesseral Frontend
+API](/docs/frontend-api-reference/tesseral-frontend-api) client for advanced
+operations, use `getFrontendApiClient`:
 
 ```svelte
 <script lang="ts">
