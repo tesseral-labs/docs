@@ -70,6 +70,10 @@ navigation:
               - page: React
                 path: ./pages/sdks/clientside/react.md
                 slug: tesseral-sdk-react
+              - page: Svelte
+                path: ./pages/sdks/clientside/svelte.md
+                slug: tesseral-sdk-svelte
+                hidden: true
           - section: Serverside SDKs
             slug: "serverside-sdks"
             contents:
