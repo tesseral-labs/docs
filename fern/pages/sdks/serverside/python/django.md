@@ -16,19 +16,21 @@ Install the Tesseral Django SDK by running:
 pip install tesseral-django
 ```
 
-Then, in your Django settings, add `tesseral_django.RequireAuthMiddleware` to your `MIDDLEWARE` setting:
+Then, in your Django settings, add `tesseral_django.RequireAuthMiddleware` to
+your `MIDDLEWARE` setting by editing your `settings.py` file:
 
 ```python
 MIDDLEWARE = [
     # ...
-    'tesseral_django.RequireAuthMiddleware',  # Add this line
+    'tesseral_django.RequireAuthMiddleware',  # add this entry
     # ...
 ]
+
+TESSERAL_PUBLISHABLE_KEY = "publishable_key_..."
 ```
 
-You also need to add an environment variable called `TESSERAL_PUBLISHABLE_KEY`
-with the value of your project's Publishable Key. You can find your project's
-`TESSERAL_PUBLISHABLE_KEY` in the [API Keys
+Replace `publishable_key_...` with your project's Publishable Key. You can find
+it in the [API Keys
 Settings](https://console.tesseral.com/project-settings/api-keys) of the
 Tesseral Console.
 
