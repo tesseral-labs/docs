@@ -1,0 +1,99 @@
+---
+title: Tesseral for Django
+subtitle: Add B2B auth support to your Django app in just a few lines of code.
+---
+
+Tesseral's Django SDK lets you add authentication to your Python backend using Django.
+
+The Tesseral Django SDK is open-source and available on
+[GitHub](https://github.com/tesseral-labs/tesseral-sdk-django).
+
+## Getting Started
+
+Install the Tesseral Django SDK by running:
+
+```bash
+pip install tesseral-django
+```
+
+Then, in your Django settings, add `tesseral_django.RequireAuthMiddleware` to your `MIDDLEWARE` setting:
+
+```python
+MIDDLEWARE = [
+    # ...
+    'tesseral_django.RequireAuthMiddleware',  # Add this line
+    # ...
+]
+```
+
+You also need to add an environment variable called `TESSERAL_PUBLISHABLE_KEY`
+with the value of your project's Publishable Key. You can find your project's
+`TESSERAL_PUBLISHABLE_KEY` in the [API Keys
+Settings](https://console.tesseral.com/project-settings/api-keys) of the
+Tesseral Console.
+
+Once you've added `tesseral_django.RequireAuthMiddleware`, all HTTP requests to
+your server will automatically be authenticated. Inauthentic requests receive a
+`401 Unauthorized` response before reaching your route handlers.
+
+## Accessing details about the authenticated request
+
+The Tesseral SDK makes information about the current authenticated request
+available through simple helper functions.
+
+The Tesseral Django SDK stores request-local state on the Django request object. The
+helper methods described in this section will throw an error if used outside the
+context of a Django request.
+
+### Getting the current Organization
+
+To find out what Organization the request is for, use `organization_id(request)`:
+
+```python
+from tesseral_django import organization_id
+
+def my_view(request):
+    org_id = organization_id(request)  # returns a string like "org_..."
+```
+
+This is the most common identifier you'll use in a B2B multitenant application.
+
+### Getting the request's authenticated credentials
+
+If your architecture forwards requests between internal services that need to
+re-authenticate, use `credentials(request)`:
+
+```python
+from tesseral_django import credentials
+
+def my_view(request):
+    creds = credentials(request)
+```
+
+Do not log or expose this value. You usually don't need to use this unless
+you're building internal service-to-service calls.
+
+### Getting details about the current User
+
+To access more information about the authenticated User, use
+`access_token_claims(request)`:
+
+```python
+from tesseral_django import access_token_claims
+
+def my_view(request):
+    claims = access_token_claims(request)
+    print("User email:", claims.user.email)
+```
+
+`access_token_claims` returns an
+[`AccessTokenClaims`](https://github.com/tesseral-labs/tesseral-sdk-python/blob/master/src/tesseral/types/access_token_claims.py),
+which contains details about the current Session ID, User, and Organization.
+
+If the request if from an [API Key](/docs/features/managed-api-keys), then
+`access_token_claims` will throw a `NotAnAccessTokenError`.
+
+We recommend that you mostly use `organization_id(request)` in the vast majority of
+your code; that is almost always the correct piece of information for most B2B
+SaaS code should pay attention to. For more details, see [B2B
+Multitenancy](/docs/features/b2b-multitenancy).
