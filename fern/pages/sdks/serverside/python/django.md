@@ -42,9 +42,22 @@ it in the [API Keys
 Settings](https://console.tesseral.com/project-settings/api-keys) of the
 Tesseral Console.
 
-Once you've added `tesseral_django.RequireAuthMiddleware`, all HTTP requests to
-your server will automatically be authenticated. Inauthentic requests receive a
-`401 Unauthorized` response before reaching your route handlers.
+The middleware handles parsing authentication tokens but does not enforce
+authentication by default. To require authentication on specific views, use the
+`@require_auth` decorator:
+
+```python
+from django.http import JsonResponse
+from tesseral_django import require_auth, organization_id
+
+@require_auth
+def protected_view(request):
+    org_id = organization_id(request)
+    return JsonResponse({"organization": org_id})
+```
+
+Views decorated with `@require_auth` will return a `401 Unauthorized` response
+for inauthentic requests.
 
 ## Accessing details about the authenticated request
 
@@ -60,8 +73,9 @@ context of a Django request.
 To find out what Organization the request is for, use `organization_id(request)`:
 
 ```python
-from tesseral_django import organization_id
+from tesseral_django import require_auth, organization_id
 
+@require_auth
 def my_view(request):
     org_id = organization_id(request)  # returns a string like "org_..."
 ```
@@ -74,8 +88,9 @@ If your architecture forwards requests between internal services that need to
 re-authenticate, use `credentials(request)`:
 
 ```python
-from tesseral_django import credentials
+from tesseral_django import require_auth, credentials
 
+@require_auth
 def my_view(request):
     creds = credentials(request)
 ```
@@ -89,8 +104,9 @@ To access more information about the authenticated User, use
 `access_token_claims(request)`:
 
 ```python
-from tesseral_django import access_token_claims
+from tesseral_django import require_auth, access_token_claims
 
+@require_auth
 def my_view(request):
     claims = access_token_claims(request)
     print("User email:", claims.user.email)
