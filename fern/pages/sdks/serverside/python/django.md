@@ -8,6 +8,14 @@ Tesseral's Django SDK lets you add authentication to your Python backend using D
 The Tesseral Django SDK is open-source and available on
 [GitHub](https://github.com/tesseral-labs/tesseral-sdk-django).
 
+<Info>
+
+When you're using the Tesseral Django SDK, you'll need to use a client-side
+Tesseral SDK, such as the [Tesseral React
+SDK](/docs/sdks/serverside/python/overview), on your frontend code.
+
+</Info>
+
 ## Getting Started
 
 Install the Tesseral Django SDK by running:
