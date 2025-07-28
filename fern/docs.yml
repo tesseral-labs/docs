@@ -92,6 +92,9 @@ navigation:
                   - page: FastAPI
                     path: ./pages/sdks/serverside/python/fastapi.md
                     slug: tesseral-sdk-fastapi
+                  - page: Django
+                    path: ./pages/sdks/serverside/python/django.md
+                    slug: tesseral-sdk-django
               - page: Go
                 slug: tesseral-sdk-go
                 path: ./pages/sdks/serverside/go.md
