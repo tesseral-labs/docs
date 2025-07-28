@@ -24,13 +24,13 @@ Install the Tesseral Django SDK by running:
 pip install tesseral-django
 ```
 
-Then, in your Django settings, add `tesseral_django.RequireAuthMiddleware` to
-your `MIDDLEWARE` setting by editing your `settings.py` file:
+Then, in your Django settings, add `tesseral_django.middleware.AuthMiddleware`
+to your `MIDDLEWARE` setting by editing your `settings.py` file:
 
 ```python
 MIDDLEWARE = [
     # ...
-    'tesseral_django.RequireAuthMiddleware',  # add this entry
+    'tesseral_django.middleware.AuthMiddleware',  # add this entry
     # ...
 ]
 
