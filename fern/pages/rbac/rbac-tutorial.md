@@ -239,6 +239,13 @@ Custom Roles.
 
 ### Assigning API Keys to Roles
 
+<Tip>
+
+If you're using API Keys, you don't need to make any code changes to have RBAC
+support for API Keys.
+
+</Tip>
+
 <Frame caption="Assigning an API Key to a Role">
   <video
     src="/assets/rbac/rbac-assign-api-key-role.mp4"
@@ -250,13 +257,6 @@ Custom Roles.
   >
   </video>
 </Frame>
-
-<Tip>
-
-  If you're using API Keys, you don't need to make any code changes to have RBAC
-  support for API Keys.
-
-</Tip>
 
 If you're using API Keys, you can assign API Keys to Roles. This allows your
 customers to define API Keys with specific permissions.
