@@ -22,6 +22,7 @@ This article explains how you can add RBAC to your app using Tesseral.
       loop
       playsinline
       muted
+      controls
     >
     </video>
   </Frame>
@@ -53,6 +54,18 @@ This article explains how you can add RBAC to your app using Tesseral.
 
   ### Define Roles
 
+  <Frame caption="Defining a Role">
+    <video
+      src="/assets/rbac/rbac-create-role.mp4"
+      autoplay
+      loop
+      playsinline
+      muted
+      controls
+    >
+    </video>
+  </Frame>
+
   Once you have defined Actions, you can define Roles. A Role is a set of
   Actions, and Users can be assigned to Roles. Users can be assigned to multiple
   Roles.
@@ -78,6 +91,18 @@ This article explains how you can add RBAC to your app using Tesseral.
 <Step>
 
   ### Assign Users to Roles
+
+  <Frame caption="Assigning a User to a Role">
+    <video
+      src="/assets/rbac/rbac-assign-role.mp4"
+      autoplay
+      loop
+      playsinline
+      muted
+      controls
+    >
+    </video>
+  </Frame>
 
   Once you have defined Roles, you can assign Users to Roles. You can assign as
   many Users as you want to a Role, and you can assign a User to multiple Roles.
@@ -213,6 +238,18 @@ You do not need to change your backend or frontend permission checks to handle
 Custom Roles.
 
 ### Assigning API Keys to Roles
+
+<Frame caption="Assigning an API Key to a Role">
+  <video
+    src="/assets/rbac/rbac-assign-api-key-role.mp4"
+    autoplay
+    loop
+    playsinline
+    muted
+    controls
+  >
+  </video>
+</Frame>
 
 <Tip>
 
