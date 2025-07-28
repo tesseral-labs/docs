@@ -15,6 +15,17 @@ This article explains how you can add RBAC to your app using Tesseral.
 <Step>
   ### Define Actions
 
+  <Frame caption="Defining an Action">
+    <video
+      src="/assets/rbac/rbac-create-action.mp4"
+      autoplay
+      loop
+      playsinline
+      muted
+    >
+    </video>
+  </Frame>
+
   Go to your Project's [Access Control
   settings](https://console.tesseral.com/settings/access). You will now define a
   set of Actions. Each Action represents a single conceptual operation your Users
