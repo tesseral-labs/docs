@@ -426,6 +426,18 @@ This article explains how you can add RBAC to your app using Tesseral.
 
 </Tip>
 
+<Frame caption="Enabling and Creating Custom Roles for an Organization">
+  <video
+    src="/assets/rbac/rbac-custom-roles.mp4"
+    autoplay
+    loop
+    playsinline
+    muted
+    controls
+  >
+  </video>
+</Frame>
+
 In the previous steps, you defined Roles available to all Organizations in your
 Project. If an Organization wants to define their own Roles, you can enable
 Custom Roles for that Organization from the Tesseral Console.
