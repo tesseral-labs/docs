@@ -43,7 +43,7 @@ This article explains how you can add MFA to your app using Tesseral.
 
 ### Requiring MFA for Specific Organizations
 
-<Frame caption="Require MFA for Specific Organizations">
+<Frame caption="Requiring MFA on an Organization">
   <video
     src="/assets/mfa/mfa-require-mfa.mp4"
     autoplay
