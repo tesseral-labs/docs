@@ -129,17 +129,99 @@ This article explains how you can add RBAC to your app using Tesseral.
   
     <Tab title="Express.js">
 
+      If you haven't already, follow the [Express.js Quickstart
+      Guide](/docs/sdks/serverside-sdks/tesseral-sdk-express).
+
+      Any time you need to check whether the current User is allowed to perform an
+      action, use `hasPermission`:
+      
+      ```typescript {4}
+      import { hasPermission } from "@tesseral/tesseral-express";
+      
+      app.get("/api/widgets/delete", (req, res) => {
+        if (!hasPermission(req, "acme.widgets.delete")) {
+            // ...
+        }
+        // ...
+      });
+      ```
+
+      Replace `acme.widgets.delete` with the name of one of the Actions you defined
+      previously. Add `hasPermission` checks everywhere in your backend where you
+      need to enforce permissions.
+
     </Tab>
 
     <Tab title="Flask">
+
+      If you haven't already, follow the [Flask Quickstart
+      Guide](/docs/sdks/serverside-sdks/tesseral-sdk-flask).
+
+      Any time you need to check whether the current User is allowed to perform an
+      action, use `has_permission`:
+      
+      ```python {5}
+      from tesseral_flask import has_permission
+      
+      @app.route("/api/widgets/delete")
+      def delete_widget():
+         if not has_permission("acme.widgets.delete"):
+            # ...
+         # ...
+      ```
+
+      Replace `acme.widgets.delete` with the name of one of the Actions you defined
+      previously. Add `has_permission` checks everywhere in your backend where you
+      need to enforce permissions.
 
     </Tab>
 
     <Tab title="FastAPI">
 
+      If you haven't already, follow the [FastAPI Quickstart
+      Guide](/docs/sdks/serverside-sdks/tesseral-sdk-fastapi).
+
+      Any time you need to check whether the current User is allowed to perform an
+      action, use `auth.has_permission`:
+      
+      ```python {6}
+      from fastapi import FastAPI, Depends
+      from tesseral_fastapi import Auth, get_auth
+      
+      @app.get("/api/widgets/delete")
+      async def delete_widget(auth: Auth = Depends(get_auth)):
+          if not auth.has_permission("acme.widgets.delete"):
+              # ...
+          # ...
+      ```
+
+      Replace `acme.widgets.delete` with the name of one of the Actions you defined
+      previously. Add `auth.has_permission` checks everywhere in your backend where you
+      need to enforce permissions.
+
     </Tab>
 
     <Tab title="Django">
+
+      If you haven't already, follow the [Django Quickstart
+      Guide](/docs/sdks/serverside/python/django).
+
+      Any time you need to check whether the current User is allowed to perform an
+      action, use `has_permission`:
+      
+      ```python {5}
+      from tesseral_django import require_auth, has_permission
+      
+      @require_auth
+      def delete_widget(request):
+          if not has_permission(request, "acme.widgets.delete"):
+              # ...
+          # ...
+      ```
+
+      Replace `acme.widgets.delete` with the name of one of the Actions you defined
+      previously. Add `has_permission` checks everywhere in your backend where you
+      need to enforce permissions.
 
     </Tab>
 
@@ -172,9 +254,54 @@ This article explains how you can add RBAC to your app using Tesseral.
 
     <Tab title="Axum">
 
+      If you haven't already, follow the [Axum Quickstart
+      Guide](/docs/sdks/serverside/rust/axum).
+
+      Any time you need to check whether the current User is allowed to perform an
+      action, use `auth.has_permission`:
+      
+      ```rust {4}
+      use tesseral_axum::Auth;
+      
+      async fn delete_widget(auth: Auth) -> String {
+          if !auth.has_permission("acme.widgets.delete") {
+              // ...
+          }
+      
+          // ...
+      }
+      ```
+
+      Replace `acme.widgets.delete` with the name of one of the Actions you defined
+      previously. Add `auth.has_permission` checks everywhere in your backend where you
+      need to enforce permissions.
+
     </Tab>
 
     <Tab title="Next.js">
+
+      If you haven't already, follow the [Next.js Quickstart
+      Guide](/docs/sdks/nextjs).
+
+      Any time you need to check whether the current User is allowed to perform an
+      action, use `hasPermission`:
+      
+      ```typescript {4}
+      import { auth } from "@tesseral/tesseral-nextjs/serverside";
+      
+      export async function DELETE() {
+        const { hasPermission } = await auth({ or: "throw" });
+        
+        if (!hasPermission("acme.widgets.delete")) {
+            // ...
+        }
+        // ...
+      }
+      ```
+
+      Replace `acme.widgets.delete` with the name of one of the Actions you defined
+      previously. Add `hasPermission` checks everywhere in your backend where you
+      need to enforce permissions.
 
     </Tab>
 
@@ -223,6 +350,13 @@ This article explains how you can add RBAC to your app using Tesseral.
       previously. Add `useHasPermission` checks everywhere in your frontend where you
       need to enforce permissions.
 
+    </Tab>
+
+    <Tab title="Svelte">
+
+    </Tab>
+
+    <Tab title="Next.js">
 
     </Tab>
 
