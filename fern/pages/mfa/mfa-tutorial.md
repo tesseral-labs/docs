@@ -43,10 +43,6 @@ This article explains how you can add MFA to your app using Tesseral.
 
 ### Requiring MFA for Specific Organizations
 
-<Tip>
-  If you'd like to leave it up to your customers to decide whether or not to enable MFA, you can ignore this section. Organization Owners have the ability to enable or disable MFA for their Organization via their Organization Settings in the Vault.
-</Tip>
-
 <Frame caption="Require MFA for Specific Organizations">
   <video
     src="/assets/mfa/mfa-require-mfa.mp4"
@@ -57,6 +53,9 @@ This article explains how you can add MFA to your app using Tesseral.
     controls
   />
 </Frame>
+
+Your customers can enable or disable MFA for their own Organizations or you can
+do it for them in the Tesseral Console.
 
 You can require MFA for specific Organizations by going to the
 [Organizations](https://console.tesseral.com/organizations) page in the Tesseral
