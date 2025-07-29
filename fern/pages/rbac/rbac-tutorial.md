@@ -126,10 +126,27 @@ This article explains how you can add RBAC to your app using Tesseral.
   checks in your product.
 
   <Tabs>
+  
+    <Tab title="Express.js">
+
+    </Tab>
+
+    <Tab title="Flask">
+
+    </Tab>
+
+    <Tab title="FastAPI">
+
+    </Tab>
+
+    <Tab title="Django">
+
+    </Tab>
 
     <Tab title="Go">
 
-      If you haven't already, follow the Go Quickstart Guide.
+      If you haven't already, follow the [Go Quickstart
+      Guide](/docs/sdks/serverside-sdks/tesseral-sdk-go).
 
       Any time you need to check whether the current User is allowed to perform an
       action, use `auth.HasPermission`:
@@ -150,6 +167,14 @@ This article explains how you can add RBAC to your app using Tesseral.
       Replace `acme.widgets.delete` with the name of one of the Actions you defined
       previously. Add `auth.HasPermission` checks everywhere in your backend where you
       need to enforce permissions.
+
+    </Tab>
+
+    <Tab title="Axum">
+
+    </Tab>
+
+    <Tab title="Next.js">
 
     </Tab>
 
