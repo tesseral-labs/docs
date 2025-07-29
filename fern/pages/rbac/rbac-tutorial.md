@@ -325,7 +325,8 @@ This article explains how you can add RBAC to your app using Tesseral.
 
     <Tab title="React">
 
-      If you haven't already, follow the React Quickstart Guide.
+      If you haven't already, follow the [React Quickstart
+      Guide](/docs/sdks/clientside-sdks/tesseral-sdk-react).
 
       Any time you want to check for permissions from your frontend, call
       `useHasPermission`:
@@ -354,9 +355,57 @@ This article explains how you can add RBAC to your app using Tesseral.
 
     <Tab title="Svelte">
 
+      If you haven't already, follow the [Svelte Quickstart
+      Guide](/docs/sdks/clientside-sdks/tesseral-sdk-svelte).
+
+      Any time you want to check for permissions from your frontend, call
+      `getHasPermission`:
+
+      ```svelte {4,7}
+      <script lang="ts">
+          import { getHasPermission } from '@tesseral/tesseral-svelte';
+      
+          let hasPermission = getHasPermission();
+      </script>
+
+      <button disabled={!$hasPermission('acme.widgets.delete')}>
+        Delete Widget
+      </button>
+      ```
+
+      Replace `acme.widgets.delete` with the name of one of the Actions you defined
+      previously. Add `getHasPermission` checks everywhere in your frontend where you
+      need to enforce permissions.
+
     </Tab>
 
     <Tab title="Next.js">
+
+      If you haven't already, follow the [Next.js Quickstart
+      Guide](/docs/sdks/tesseral-sdk-nextjs).
+
+      Any time you want to check for permissions from your frontend, call
+      `useHasPermission`:
+
+      ```tsx {4,8}
+      import { useHasPermission } from "@tesseral/tesseral-nextjs/clientside";
+      
+      const DeleteWidgetsButton = () => {
+        const hasPermission = useHasPermission();
+      
+        return (
+          <Button 
+            disabled={!hasPermission("acme.widgets.delete")}
+          >
+            Delete Widget
+          </Button>
+        );
+      }
+      ```
+
+      Replace `acme.widgets.delete` with the name of one of the Actions you defined
+      previously. Add `useHasPermission` checks everywhere in your frontend where you
+      need to enforce permissions.
 
     </Tab>
 
