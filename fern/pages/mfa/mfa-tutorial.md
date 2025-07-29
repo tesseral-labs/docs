@@ -14,7 +14,7 @@ This article explains how you can add MFA to your app using Tesseral.
   <Step>
     ### Configure MFA for your Project
 
-    <Frame caption="Configure MFA for your Project">
+    <Frame caption="Configuring MFA for a Project">
       <video
         src="/assets/mfa/mfa-configure-mfa.mp4"
         autoplay
