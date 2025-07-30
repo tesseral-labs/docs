@@ -248,8 +248,9 @@ This article explains how you can add API Keys to your app using Tesseral.
     </video>
   </Frame>
 
-  Once you have enabled Manged API Keys for your Project and in your backend code,
-  you can create API Keys and use them with your backend code.
+  Once you have enabled Managed API Keys for your Project and in your backend
+  code, you can create API Keys and your backend will recognize them as valid
+  requests.
 
   Your customers can create API Keys, or you can create them yourself from the
   Tesseral Console.
