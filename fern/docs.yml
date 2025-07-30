@@ -107,6 +107,11 @@ navigation:
           - page: Next.js
             path: ./pages/sdks/nextjs.md
             slug: tesseral-sdk-nextjs
+      - section: Multi-factor Authentication (MFA)
+        slug: mfa
+        contents:
+          - page: Implement MFA using Tesseral
+            path: ./pages/mfa/mfa-tutorial.md
       - section: Role-Based Access Control (RBAC)
         slug: rbac
         contents:
