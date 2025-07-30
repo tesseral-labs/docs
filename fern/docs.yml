@@ -117,6 +117,11 @@ navigation:
         contents:
           - page: Implement RBAC using Tesseral
             path: ./pages/rbac/rbac-tutorial.md
+      - section: Managed API Keys
+        slug: managed-api-keys
+        contents:
+          - page: Implement API Keys using Tesseral
+            path: ./pages/api-keys/api-keys-tutorial.md
       - section: Features
         contents:
           - page: Customizing Your Login Experience
