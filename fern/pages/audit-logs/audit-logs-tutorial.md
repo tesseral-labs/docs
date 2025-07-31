@@ -51,55 +51,6 @@ To publish a custom audit log event, you'll use the
 Reference</a>).
 
 <Tabs>
-  <Tab title="Next.js">
-    <Tip>
-      These instructions assume you've already set up [Tesseral for Next.js](/docs/sdks/tesseral-sdk-nextjs).
-    </Tip>
-
-    First, construct a Tesseral Backend API client:
-
-    ```typescript
-    import { TesseralClient } from "@tesseral/tesseral-node";
-
-    const tesseralClient = new TesseralClient();
-    ```
-
-    Then, anywhere in your code where you need to create an audit log event, call
-    `auditLogEvents.createAuditLogEvent()`:
-
-    ```typescript
-    // actions.ts
-    import { auth } from "@tesseral/tesseral-nextjs/serverside";
-
-    export async function POST(request: Request) {
-      const { credentials } = await auth({ or: "throw" });
-
-      // ...
-
-      tesseralClient.auditLogEvents.createAuditLogEvent({
-        auditLogEvent: {
-          credentials: credentials,
-          eventName: "acme.expense_reports.approve",
-          eventDetails: {
-            "expenseReportId": "expense_report_123",
-          }
-        }
-      })
-
-      // ...
-    }
-    ```
-
-    When you pass along the current
-    [`credentials`](/docs/sdks/nextjs#getting-the-requests-authenticated-credentials),
-    Tesseral will automatically know which [User](/docs/concepts/users) or (if
-    enabled) [API Key](/docs/features/managed-api-keys) performed the action you're
-    audit logging.
-
-    Audit logs are only supported from server-side code.
-
-  </Tab>
-
   <Tab title="Express.js">
     <Tip>
       These instructions assume you've already set up [Tesseral for Express.js](/docs/sdks/serverside-sdks/tesseral-sdk-express).
@@ -224,6 +175,47 @@ Reference</a>).
 
   </Tab>
 
+  <Tab title="Django">
+    <Tip>
+      These instructions assume you've already set up [Tesseral for Django](/docs/sdks/serverside-sdks/tesseral-sdk-django).
+    </Tip>
+
+    First, construct a Tesseral Backend API client:
+
+    ```python
+    from tesseral import Tesseral
+
+    tesseral_client = Tesseral() # or AsyncTesseral()
+    ```
+
+    Then, anywhere in your code where you need to create an audit log event, call
+    `audit_log_events.create_audit_log_event()`:
+
+    ```python
+    from django.http import HttpRequest
+    from tesseral_django import credentials
+
+    @app.post("/approve-expense-report")
+    def approve_expense_report(request: HttpRequest):
+        # ...
+
+        tesseral_client.audit_log_events.create_audit_log_event(
+            credentials=credentials(request),
+            event_name="acme.expense_reports.approve",
+            event_details={
+                "expenseReportId": "expense_report_123",
+            }
+        )
+    ```
+
+    When you pass along the current
+    [`credentials()`](/docs/sdks/serverside-sdks/tesseral-sdk-django#getting-the-requests-authenticated-credentials),
+    Tesseral will automatically know which [User](/docs/concepts/users) or (if
+    enabled) [API Key](/docs/features/managed-api-keys) performed the action you're
+    audit logging.
+
+  </Tab>
+
   <Tab title="Go">
     <Tip>
       These instructions assume you've already set up [Tesseral for Go](/docs/sdks/serverside-sdks/tesseral-sdk-go).
@@ -270,6 +262,73 @@ Reference</a>).
     Tesseral will automatically know which [User](/docs/concepts/users) or (if
     enabled) [API Key](/docs/features/managed-api-keys) performed the action you're
     audit logging.
+
+  </Tab>
+
+  <Tab title="Axum">
+    <Tip>
+      These instructions assume you've already set up [Tesseral for Axum](/docs/sdks/serverside-sdks/tesseral-sdk-axum).
+    </Tip>
+
+    In an Axum handler, access the authenticated credentials.
+
+    ```rust
+    async fn handler(auth: Auth) -> String {
+      let credentials = auth.credentials();
+      // ...
+    }
+    ```
+
+    Use this credential to create an audit log event via the API's [**Create Audit Log Event**](/docs/backend-api-reference/api-reference/audit-log-events/create-audit-log-event) endpoint.
+
+  </Tab>
+
+  <Tab title="Next.js">
+    <Tip>
+      These instructions assume you've already set up [Tesseral for Next.js](/docs/sdks/tesseral-sdk-nextjs).
+    </Tip>
+
+    First, construct a Tesseral Backend API client:
+
+    ```typescript
+    import { TesseralClient } from "@tesseral/tesseral-node";
+
+    const tesseralClient = new TesseralClient();
+    ```
+
+    Then, anywhere in your code where you need to create an audit log event, call
+    `auditLogEvents.createAuditLogEvent()`:
+
+    ```typescript
+    // actions.ts
+    import { auth } from "@tesseral/tesseral-nextjs/serverside";
+
+    export async function POST(request: Request) {
+      const { credentials } = await auth({ or: "throw" });
+
+      // ...
+
+      tesseralClient.auditLogEvents.createAuditLogEvent({
+        auditLogEvent: {
+          credentials: credentials,
+          eventName: "acme.expense_reports.approve",
+          eventDetails: {
+            "expenseReportId": "expense_report_123",
+          }
+        }
+      })
+
+      // ...
+    }
+    ```
+
+    When you pass along the current
+    [`credentials`](/docs/sdks/nextjs#getting-the-requests-authenticated-credentials),
+    Tesseral will automatically know which [User](/docs/concepts/users) or (if
+    enabled) [API Key](/docs/features/managed-api-keys) performed the action you're
+    audit logging.
+
+    Audit logs are only supported from server-side code.
 
   </Tab>
 </Tabs>
