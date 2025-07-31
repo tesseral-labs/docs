@@ -122,6 +122,11 @@ navigation:
         contents:
           - page: Implement SAML using Tesseral
             path: ./pages/saml/saml-tutorial.md
+      - section: OIDC
+        slug: oidc
+        contents:
+          - page: Implement OIDC using Tesseral
+            path: ./pages/oidc/oidc-tutorial.md
       - section: Managed API Keys
         slug: managed-api-keys
         contents:
