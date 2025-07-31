@@ -53,10 +53,6 @@ This article explains how you can add SAML to your app using Tesseral.
     </video>
   </Frame>
 
-  By default, Organizations don't have SAML enabled. You must enable SAML for an
-  Organization in the Tesseral Console. (This is in service of letting you charge
-  your customers for API access.)
-
   To enable SAML for your customer, go to the [Organizations
   page](https://console.tesseral.com/organizations) in the Tesseral Console. Go to
   the Organization's **Authentication** tab, and enable **Log in with SAML**. You
