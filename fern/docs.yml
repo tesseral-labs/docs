@@ -115,6 +115,8 @@ navigation:
       - section: Role-Based Access Control (RBAC)
         slug: rbac
         contents:
+          - page: "Concepts: What is RBAC?"
+            path: ./pages/rbac/rbac-concepts.md
           - page: Implement RBAC using Tesseral
             path: ./pages/rbac/rbac-tutorial.md
       - section: SAML
@@ -135,6 +137,8 @@ navigation:
       - section: Managed API Keys
         slug: managed-api-keys
         contents:
+          - page: "Concepts: What are API Keys?"
+            path: ./pages/api-keys/api-keys-concepts.md
           - page: Implement API Keys using Tesseral
             path: ./pages/api-keys/api-keys-tutorial.md
       - section: Audit Logs
