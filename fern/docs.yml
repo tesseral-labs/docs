@@ -127,6 +127,11 @@ navigation:
         contents:
           - page: Implement API Keys using Tesseral
             path: ./pages/api-keys/api-keys-tutorial.md
+      - section: Audit Logs
+        slug: audit-logs
+        contents:
+          - page: Enable Audit Logs using Tesseral
+            path: ./pages/audit-logs/audit-logs-tutorial.md
       - section: Features
         contents:
           - page: Customizing Your Login Experience
