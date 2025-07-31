@@ -13,6 +13,10 @@ For example:
 
 * Pulling reports into a dashboard  
   * An internal BI tool like Looker or Retool will call your API with a Key to fetch the latest data.
+* Real-time alerting or monitoring
+  * Services like DataDog or PagerDuty will call an API with a Key to monitor key metrics or system events.
+* Syncing employee data
+  * HR platforms like Gusto or BambooHR will call an API with a key to sync user or payroll data between systems.
 
 ## How API Keys work in Tesseral
 
