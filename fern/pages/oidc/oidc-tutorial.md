@@ -94,7 +94,7 @@ pieces of information.
 
 Your customer will need one piece of information from you:
 
-- An **Redirect URL**
+- A **Redirect URL**
 
 In the Tesseral Console, you can copy this value from the **Service Provider
 Details** section on your newly created OIDC Connection. Your customer will need
