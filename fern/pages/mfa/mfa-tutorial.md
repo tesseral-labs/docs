@@ -1,4 +1,7 @@
 ---
+title: Multi-Factor Authentication (MFA) Tutorial
+description:
+  Learn how to add Multi-Factor Authentication (MFA) to your app using Tesseral.
 ---
 
 This article explains how you can add MFA to your app using Tesseral.
