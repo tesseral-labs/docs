@@ -5,35 +5,19 @@ subtitle: "Sign up for Tesseral, add your login flow, and authenticate requests"
 
 ## Sign up for Tesseral
 
-Go to https://console.tesseral.com and sign up. At a step in the flow, you'll be
-asked to Create a Project.
+Go to https://console.tesseral.com and sign up. 
 
-<Frame caption="Create a Project">
-  <img src="quickstart-create-project.png" />
+<Frame caption="Signing up for Tesseral">
+  <video style={{ aspectRatio: '16 / 9', width: '100%' }} controls>
+  <source src="./sign-up-for-tesseral.mp4" type="video/mp4" />
+</video>
 </Frame>
 
-You can change your choices here later. The important thing is:
+When you sign up, Tesseral will automatically create a Tesseral
+Project for you. This project is called "Sandbox."
 
-* **Production App URL** is the URL where your production app lives. 
-  
-  Typically, this is something like `https://app.company.com` (sometimes `app.` is
-  instead something like `console.` or `dashboard.`), but some applications put it
-  on `https://company.com`. Put whatever style you use; Tesseral supports them
-  all.
-
-* **Development App URL** is the URL where your app lives when you're developing
-  on it locally.
-
-  Choose something like `http://localhost:3000`. If you have a setup where you run
-  live previews on some kind of preview URL, then you can add those later. Start
-  by adding just your localhost domain.
-
-After you complete this step, Tesseral will automatically create two Tesseral
-Projects for you: a production Project and a development Project (whose name
-ends in "Dev"). 
-
-You'll be logged into your development Project. You can switch between your
-Projects from the Project Switcher at the top left of the Console.
+You'll be logged into your Sandbox Project. You can switch between 
+Projects or creat a new Project using the Project Switcher at the top left of the Console.
 
 <Frame caption="Use the Project Switcher at the top left of the console to switch between your Projects">
   <img src="quickstart-project-switcher.png" />
@@ -55,9 +39,9 @@ automatically send authentication information in its requests to your server.
     ```
   </Step>
 
-  <Step title="Get your Dev Mode publishable key">
-    Go to https://console.tesseral.com/project-settings/api-keys and click on
-    "Create" under "Publishable Keys". Make sure to enable "Dev Mode" on the
+  <Step title="Get your publishable key">
+    Go to https://console.tesseral.com/settings/api-keys and click on
+    "Create" under "Publishable Keys". Make sure to enable "Cross Domain Mode" on the
     publishable key.
 
     You'll need the ID of your new publishable key for the next step. It starts with
@@ -90,7 +74,11 @@ automatically send authentication information in its requests to your server.
 
 Tesseral provides SDKs for
 [Express.js](/docs/sdks/serverside-sdks/tesseral-sdk-express),
-[Flask](/docs/sdks/serverside-sdks/tesseral-sdk-flask), and
+[Next.js](/docs/sdks/tesseral-sdk-nextjs),
+[Flask](/docs/sdks/serverside-sdks/tesseral-sdk-flask), 
+[FastAPI](/docs/sdks/serverside-sdks/tesseral-sdk-fastapi),
+[Django](/docs/sdks/serverside-sdks/tesseral-sdk-django), 
+[Axum](/docs/sdks/serverside-sdks/tesseral-sdk-axum), and
 [Golang](/docs/sdks/serverside-sdks/tesseral-sdk-go). You'll need the
 Publishable Key you created previously.
 
@@ -226,13 +214,12 @@ Publishable Key you created previously.
 In the previous two sections, you added authentication to your
 [frontend](#add-tesseral-to-your-clientside-code) and
 [backend](#add-tesseral-to-your-serverside-code). Both of these were running on
-localhost. To go to production, you need to:
+localhost. To go to production, you need to create a new production Project (i.e., not your sandbox Project). Then, you need to:
 
-1. Use your production publishable keys, instead of the dev ones you've used so
-   far. This is the only code change you need to make.
+1. Use publishable keys for your *production* Project, instead of the publishable keys for your *sandbox* Project that you've used so far. This is the only code change you need to make.
 
 2. Go into the Tesseral Console, and configure a custom domain for your
-   Project's Vault. Right now, your production Project uses a Tesseral-assigned
+   production Project's Vault. Right now, your production Project uses a Tesseral-assigned
    URL that looks like `project-[...].tesseral.app`.
 
    In production, we recommend you use a domain you control instead of a domain
