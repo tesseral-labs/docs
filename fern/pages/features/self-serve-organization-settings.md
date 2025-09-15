@@ -19,7 +19,7 @@ Your customer can use this page to [invite](/docs/concepts/user-invites) other U
   <img src="/assets/features/vault-self-service/obfuscated-passkey.png" alt="" />
 </Frame>
 
-Your customer can also use this page to configure authentication settings. For example, they can enable (or disable) primary factors like [passwprds](/docs/login-methods/primary-factors/passwords). They can also require (or elect not to require) [multifactor authentication (MFA)](/docs/features/multifactor-authentication-mfa).
+Your customer can also use this page to configure authentication settings. For example, they can enable (or disable) primary factors like [passwords](/docs/login-methods/primary-factors/passwords). They can also require (or elect not to require) [multifactor authentication (MFA)](/docs/features/multifactor-authentication-mfa).
 
 <Frame caption="What your customer sees when configuring an authenticator app">
   <img src="/assets/features/vault-self-service/obfuscated-auth.png" alt="" />
