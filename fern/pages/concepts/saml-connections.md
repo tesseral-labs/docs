@@ -28,7 +28,7 @@ SAML Connections have the following top-level properties:
 * Create time
 * Update time
 * Primary
-* Assertion consumer service (ACS) URL
+* Assertion Consumer Service (ACS) URL
 * SP entity ID
 * IDP entity ID
 * IDP redirect URL

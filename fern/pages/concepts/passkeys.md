@@ -25,8 +25,6 @@ Passkeys in Tesseral are associated with Users and expose the following properti
 - [AAGUID](#aaguid)
 - [Relying party ID](#relying-party-id)
 
-### Related concepts
-
 ### Passkeys and Users
 
 Each Passkey is linked to a single User through the `userId` field. Users can register multiple Passkeys, typically one per device. When a User authenticates, Tesseral verifies the signature using the public key associated with their Passkey.
@@ -72,7 +70,7 @@ The `credentialId` field contains a binary value uniquely identifying the creden
 
 #### Public key
 
-The p`ublicKeyPkix` field contains the PEM-encoded PKIX public key associated with the Passkey. This key is used to verify authentication assertions from the User's device.
+The `publicKeyPkix` field contains the PEM-encoded PKIX public key associated with the Passkey. This key is used to verify authentication assertions from the User's device.
 
 Example:
 

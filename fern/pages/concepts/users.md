@@ -49,7 +49,7 @@ Learn more about the relationship between [Users and Organizations](/docs/concep
 
 #### Users and Sessions
 
-Each time a given User successfully logs in, Tesseral creates a *Session* in the console. to mark the User's authentication status.
+Each time a given User successfully logs in, Tesseral creates a *Session* in the console to mark the User's authentication status.
 
 Sessions are very simple. They consist of the following data:
 
@@ -79,7 +79,7 @@ Each User record has a universally unique identifier in Tesseral called `id`. Th
 
 #### Organization ID
 
-Every User in Tesseral belongs to exactly one [Organization](/docs/concepts/organizations). `organization_id` is the [unique identifier](/docs/concepts/organizations#id) for the Organization that a given User belongs to.
+Every User in Tesseral belongs to exactly one [Organization](/docs/concepts/organizations). An `organization_id` is the [unique identifier](/docs/concepts/organizations#id) for the Organization that a given User belongs to.
 
 #### Email
 
@@ -104,8 +104,8 @@ Users cannot make. Specifically, an owner can:
 
 * Create [User Invites](/docs/concepts/user-invites)
 * Edit [login methods](docs/features/customizing-your-login-experience) enabled for the Organization
-* Configure [SCIM provisioning](/docs/features/scim-provisioning) for the Organization, if [SCIM provisioning is enabled](/docs/concepts/organizations#scim-enabled).
-* Modify [Organization-Specific Roles](/docs/concepts/roles#organization-specific-roles) for the Organization, if [custom Roles are enabled](/docs/concepts/organizations#custom-roles-enabled).
+* Configure [SCIM provisioning](/docs/features/scim-provisioning) for the Organization if [SCIM provisioning is enabled](/docs/concepts/organizations#scim-enabled).
+* Modify [Organization-Specific Roles](/docs/concepts/roles#organization-specific-roles) for the Organization if [custom Roles are enabled](/docs/concepts/organizations#custom-roles-enabled).
 * Remove Users from their Organization.
 * Edit whether other Users are Owners.
 

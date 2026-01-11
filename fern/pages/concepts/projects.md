@@ -240,7 +240,7 @@ WebAuthn work to use Tesseral.
 Tesseral uses cookies to keep authentication state on your users' web browsers.
 Those cookies are always associated with your Project's Cookie Domain.
 
-Make sure your Cookie Domain is a equal to or a "parent domain" of both your web
+Make sure your Cookie Domain is equal to, or a "parent domain" of, both your web
 application's domain (e.g. `app.company.com`) and your Project's [Vault
 Domain](#vault-domain) (e.g. `vault.app.company.com`).
 

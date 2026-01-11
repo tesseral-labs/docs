@@ -7,7 +7,7 @@ subtitle: "SCIM API Keys make it possible to support SCIM provisioning"
 
 Large or security-conscious customers will often request that their software vendors support [SCIM provisioning](/docs/features/scim-provisioning), which allows them to automatically manage [Users](/docs/concepts/users) in your software. For example, your customer can create a new User whenever they hire someone new.
 
-SCIM provisioning requires a pre-configured trust relationship with a given [Organization](/docs/concepts/organizations)'s identity provider (IDP), a software application like Okta or Microsoft Entra. 
+SCIM provisioning requires a pre-configured trust relationship with a given [Organization](/docs/concepts/organizations)'s identity provider (IDP) and a software application like Okta or Microsoft Entra. 
 
 To establish such a trust relationship with your customer's IDP, you must share a secret with your customer. In Tesseral, this secret is called a *SCIM API Key.* Your customer's IDP will include the SCIM API Key any time it makes a request to Tesseral. A valid SCIM API Key proves that such a request is legimate.
 

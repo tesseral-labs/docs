@@ -32,9 +32,8 @@ We'll examine every element of this URL later, but the short answer is:
 * `response_type=code` indicates that we're doing the "Authorization Code" flow.
 
   The only other possible value is `response_type=token`, which is for the
-  "Implicit" flow. It's very rare to see the implicit flow used in larger
-  applications, because it's less secure and Google puts a bunch of limitations on
-  the flow.
+  "implicit" flow. It's very rare to see the implicit flow used in larger
+  applications, because it's less secure and Google puts a bunch of limitations on it.
 
 * `access_type=online` indicates that Chess.com is not doing any [background
   activity](#background-activity-with-refresh-tokens). They could have left this
@@ -82,7 +81,7 @@ We'll examine every element of this URL later, but the short answer is:
 In the previous step, Chess.com redirected me to `accounts.google.com` in order
 to kick off a "Log in with Google". Now, it's Google's turn to decide what
 happens next. Google has my user information, and they want to make sure I'm OK
-with them giving that information out to Chess.com.
+with them giving that information to Chess.com.
 
 From Chess.com's redirect, Google knows that:
 
@@ -146,7 +145,7 @@ ignore them.
 
 ### Exchange the Authorization Code
 
-At this point, we can't see what Chess.com does, because the next step happens
+At this point, we can't see what Chess.com does because the next step happens
 from backend code on Chess.com's servers. But we can infer some details, because
 Log in with Google works the same for every server.
 
@@ -243,7 +242,7 @@ In short, the steps in doing Log in with Google from Chess.com are:
 Each of those steps are covered in greater detail in ["Elements of a Google
 OAuth Flow"](#elements-of-a-google-oauth-flow). But to carry out these steps,
 we'll first cover [registering a Google OAuth
-Client](#registering-a-google-oauth-client), so that we can see the entire
+Client](#registering-a-google-oauth-client) so that we can see the entire
 picture.
 
 ## Elements of a Google OAuth flow
@@ -328,9 +327,9 @@ section](#redirection-endpoint). If you're developing your app, you can put a
 later.
 
 Click "Create". Google says it may take "a few hours" to take effect; in
-practice it's almost always instantaneous.
+practice, it's almost always instantaneous.
 
-#### Copy your OAuth Client ID and secret
+#### Copy your OAuth Client ID and Secret
 
 After clicking "Create", Google shows you your new OAuth Client's ID and Secret.
 
